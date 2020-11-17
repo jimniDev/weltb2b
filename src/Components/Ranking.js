@@ -3,44 +3,7 @@ import styled from "styled-components";
 import { Button, DatePicker, Progress, Select } from "antd";
 import { SwapOutlined } from "@ant-design/icons";
 import moment from "moment";
-
-const fakeData = [
-  {
-    id: 1,
-    name: "김사원",
-    item: 23570,
-  },
-  {
-    id: 2,
-    name: "고대리",
-    item: 17130,
-  },
-  {
-    id: 3,
-    name: "이팀장",
-    item: 20300,
-  },
-  {
-    id: 4,
-    name: "사부장",
-    item: 19150,
-  },
-  {
-    id: 5,
-    name: "박부장",
-    item: 18735,
-  },
-  {
-    id: 6,
-    name: "최과장",
-    item: 24157,
-  },
-  {
-    id: 7,
-    name: "최전무",
-    item: 25000,
-  },
-];
+import JSON from "../data.json";
 
 const PRItemContainer = styled.div`
   display: flex;
@@ -101,6 +64,7 @@ const numberWithCommas = (x) => {
 let firstItem = 0;
 
 const Ranking = () => {
+  const { userData } = JSON;
   const [sort, setSort] = useState(true);
 
   const onClickHandler = (event) => {
@@ -155,10 +119,10 @@ const Ranking = () => {
         />
       </PRItemContainer>
       <RankContainer>
-        {fakeData.sort(sort ? sortAscObj : sortDescObj).map((user, index) => {
+        {userData.sort(sort ? sortAscObj : sortDescObj).map((user, index) => {
           firstItem = sort
-            ? fakeData[0].item
-            : fakeData[fakeData.length - 1].item;
+            ? userData[0].item
+            : userData[userData.length - 1].item;
           return (
             <RankItemContainer key={user.id}>
               <RankNum>{index + 1}</RankNum>

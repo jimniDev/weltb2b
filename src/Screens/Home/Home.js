@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Button, DatePicker, Select, Space } from "antd";
-import {
-  InfoCircleOutlined,
-  PlusOutlined,
-  SwapOutlined,
-} from "@ant-design/icons";
+import { Button, DatePicker, Space } from "antd";
+import { InfoCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import PieChart from "../../Components/PieChart";
 import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
@@ -13,6 +9,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
+import data from "../../data.json";
 
 const DailyAverageHeaderContainer = styled.div`
   width: 100%;
@@ -102,6 +99,7 @@ const onChangeDate = (event) => {
 };
 
 const Home = () => {
+  console.log(data);
   return (
     <>
       <Helmet>
