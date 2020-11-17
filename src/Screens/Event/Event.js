@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import MainHeader from "../../Components/MainHeader";
 import { DeleteOutlined, InfoCircleOutlined } from "@ant-design/icons";
@@ -6,10 +6,11 @@ import { Select } from "antd";
 import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
 import Helmet from "react-helmet";
+import JSON from "../../data.json";
 
 const StatusObj = {
   0: {
-    status: "시작전",
+    status: "시작 전",
     color: "#3778CF",
   },
   1: {
@@ -17,7 +18,7 @@ const StatusObj = {
     color: "#37CF65",
   },
   2: {
-    status: "종료",
+    status: "종 료",
     color: "#CF3737",
   },
 };
@@ -97,8 +98,12 @@ const PersonalRankingContainer = styled.div`
 `;
 
 const Event = () => {
-  const onChangeEvent = (event) => {
-    if (typeof event !== String) return;
+  const { eventData } = JSON;
+  const [eventDetail, setEventDetail] = useState(eventData[0]);
+
+  const onChangeEvent = (value) => {
+    if (typeof value !== "string") return;
+    setEventDetail(eventData.find((event) => event.title === value));
   };
 
   return (
@@ -119,25 +124,36 @@ const Event = () => {
               borderRadius: 6,
               color: "#707070",
             }}
-            defaultValue={"허리 둘레 줄이기 프로젝트"}
+            defaultValue={eventData[0].title}
             onChange={onChangeEvent}
           >
-            <Select.Option value="걸음 수">걸음 수</Select.Option>
-            <Select.Option value="소모 칼로리">소모 칼로리</Select.Option>
-            <Select.Option value="허리 둘레">허리 둘레</Select.Option>
-            <Select.Option value="걸음 속도">걸음 속도</Select.Option>
-            <Select.Option value="걸은 거리">걸은 거리</Select.Option>
+            {eventData &&
+              eventData.map((event) => (
+                <Select.Option
+                  value={event.title}
+                  key={event.title + event.status}
+                >
+                  {event.title}
+                </Select.Option>
+              ))}
           </Select>
-          <Status style={{ backgroundColor: StatusObj[0].color }}>
-            {StatusObj[0].status}
+          <Status
+            style={{
+              backgroundColor: StatusObj[eventDetail.status].color,
+            }}
+          >
+            {StatusObj[eventDetail.status].status}
           </Status>
         </EventTitleContainer>
         <EventDetailContainer>
-          <EventDetail>참여인원 : 20명</EventDetail>
-          <EventDetail>날짜 : 2020-10-04 ~ 2020-11-11</EventDetail>
+          <EventDetail>참여인원 : {eventDetail.participants}명</EventDetail>
+          <EventDetail>
+            날짜 : {eventDetail.startDate} ~ {eventDetail.endDate}
+          </EventDetail>
           <DeleteOutlined style={{ fontSize: 16 }} />
         </EventDetailContainer>
       </EventContainer>
+
       <EventAverageContainer>평균 수치</EventAverageContainer>
       <RankingContaier>
         <StepContainer>

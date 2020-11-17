@@ -102,11 +102,12 @@ const Ranking = () => {
           onChange={onChangeDate}
           picker="month"
           defaultValue={moment("2020-10", "YYYY-MM")}
+          style={{ color: "#707070" }}
         />
       </PRItemContainer>
       <PRItemContainer>
         <Select
-          style={{ width: 300, height: 32, borderRadius: 6 }}
+          style={{ width: 300, height: 32, borderRadius: 6, color: "#707070" }}
           defaultValue={"걸음 수"}
           onChange={onChangeRank}
         >

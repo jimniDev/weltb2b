@@ -172,5 +172,35 @@
       "name": "최전무",
       "item": 25000
     }
+  ],
+  "eventData": [
+    {
+      "title": "허리 둘레 줄이기 프로젝트",
+      "status": 1,
+      "participants": 20,
+      "startDate": "2020-10-01",
+      "endDate": "2020-11-30"
+    },
+    {
+      "title": "소모 칼로리 1등하기",
+      "status": 0,
+      "participants": 30,
+      "startDate": "2020-12-10",
+      "endDate": "2020-12-31"
+    },
+    {
+      "title": "걸음 수 2만보 달성",
+      "status": 2,
+      "participants": 10,
+      "startDate": "2020-10-01",
+      "endDate": "2020-11-01"
+    },
+    {
+      "title": "걸은 거리 5km 이상 걷기",
+      "status": 1,
+      "participants": 50,
+      "startDate": "2020-11-01",
+      "endDate": "2020-11-31"
+    }
   ]
 }
