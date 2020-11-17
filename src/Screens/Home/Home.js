@@ -99,7 +99,6 @@ const onChangeDate = (event) => {
 };
 
 const Home = () => {
-  console.log(data);
   return (
     <>
       <Helmet>
@@ -155,7 +154,7 @@ const Home = () => {
               style={{
                 borderRadius: 4,
                 color: "#4F42A7",
-                border: `1px solid #4F42A7`,
+                border: `2px solid #4F42A7`,
               }}
               size="small"
             ></Button>

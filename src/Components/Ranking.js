@@ -17,6 +17,17 @@ const RankContainer = styled.div`
   width: 100%;
   height: 240px;
   margin-top: 12px;
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #f9f9f9;
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #707070;
+    border-radius: 6px;
+  }
 `;
 const RankItemContainer = styled.div`
   display: flex;
@@ -111,7 +122,7 @@ const Ranking = () => {
           size={"middle"}
           ghost
           style={{
-            border: "1px solid black",
+            border: "1px solid #c9c9c9",
             marginLeft: 12,
             borderRadius: 4,
           }}
