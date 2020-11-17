@@ -5,6 +5,7 @@ import { DeleteOutlined, InfoCircleOutlined } from "@ant-design/icons";
 import { Select } from "antd";
 import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
+import Helmet from "react-helmet";
 
 const StatusObj = {
   0: {
@@ -59,11 +60,12 @@ const EventDetailContainer = styled.div`
 const EventDetail = styled.div``;
 
 const EventAverageContainer = styled.div`
-  height: 174px;
+  height: 200px;
   width: 100%;
   border: 1px solid #c9c9c9;
   border-radius: 6px;
   margin: 24px 0px;
+  padding: 20px 16px;
 `;
 
 const RankingContaier = styled.div`
@@ -101,6 +103,9 @@ const Event = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Event | WELT</title>
+      </Helmet>
       <MainHeader />
       <EventContainer>
         <EventTitleContainer>

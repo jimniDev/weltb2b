@@ -12,6 +12,7 @@ import Ranking from "../../Components/Ranking";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
+import Helmet from "react-helmet";
 
 const DailyAverageHeaderContainer = styled.div`
   width: 100%;
@@ -103,6 +104,9 @@ const onChangeDate = (event) => {
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Home | WELT</title>
+      </Helmet>
       <MainHeader />
       <DailyAverageHeaderContainer>
         <DailyAverageTitle>총 수치 (평균 수치)</DailyAverageTitle>
