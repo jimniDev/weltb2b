@@ -29,6 +29,7 @@ const RankContainer = styled.div`
     border-radius: 6px;
   }
 `;
+
 const RankItemContainer = styled.div`
   display: flex;
   align-items: center;
@@ -60,18 +61,6 @@ const RankItem = styled.span`
   margin-left: 12px;
 `;
 
-const sortAscObj = (a, b) => {
-  return a.item > b.item ? -1 : a.item < b.item ? 1 : 0;
-};
-
-const sortDescObj = (a, b) => {
-  return a.item < b.item ? -1 : a.item > b.item ? 1 : 0;
-};
-
-const numberWithCommas = (x) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-};
-
 let firstItem = 0;
 
 const Ranking = () => {
@@ -91,6 +80,18 @@ const Ranking = () => {
     // evnet Handler Error
     if (typeof event !== Object) return;
     const { _d } = event;
+  };
+
+  const sortAscObj = (a, b) => {
+    return a.item > b.item ? -1 : a.item < b.item ? 1 : 0;
+  };
+
+  const sortDescObj = (a, b) => {
+    return a.item < b.item ? -1 : a.item > b.item ? 1 : 0;
+  };
+
+  const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
   return (

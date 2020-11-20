@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Button, DatePicker, Space } from "antd";
-import { InfoCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import {
+  InfoCircleOutlined,
+  PlusOutlined,
+  StarOutlined,
+} from "@ant-design/icons";
 import PieChart from "../../Components/PieChart";
 import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
@@ -90,15 +94,30 @@ const EventHeaderContainer = styled.div`
 
 const EventHeaderName = styled.h2``;
 
-// get Date function
-const onChangeDate = (event) => {
-  // evnet Handler Error
-  if (typeof event !== Object) return;
-
-  const { _d } = event;
-};
-
 const Home = () => {
+  let avg_dis = 100;
+  let today_dis = 70;
+  let yes_dis = 80;
+
+  let avg_waist = 28;
+  let today_waist = 35;
+  let yes_waist = 34;
+
+  let avg_kal = 10000;
+  let today_kal = 8400;
+  let yes_kal = 12500;
+
+  let avg_v = 10;
+  let today_v = 9.4;
+  let yes_v = 7.6;
+  // get Date function
+  const onChangeDate = (event) => {
+    // evnet Handler Error
+    if (typeof event !== Object) return;
+
+    const { _d } = event;
+  };
+
   return (
     <>
       <Helmet>
@@ -118,19 +137,39 @@ const Home = () => {
       <DailyAverageContainer>
         <DailyAverageItem>
           걸음 거리
-          <PieChart percent={28} color={"#2496EF"} />
+          <PieChart
+            percent={(today_dis / avg_dis) * 50}
+            color={"#2496EF"}
+            con={(((today_dis - yes_dis) / today_dis) * 100).toFixed(2)}
+            num={1}
+          />{" "}
         </DailyAverageItem>
         <DailyAverageItem>
           허리 둘레
-          <PieChart percent={48} color={"#EA3869"} />
+          <PieChart
+            percent={(today_waist / avg_dis) * 50}
+            color={"#EA3869"}
+            con={(((today_waist - yes_waist) / today_waist) * 100).toFixed(2)}
+            num={2}
+          />
         </DailyAverageItem>
         <DailyAverageItem>
           소모 칼로리
-          <PieChart percent={27} color={"#FFC54E"} />
+          <PieChart
+            percent={(today_kal / avg_kal) * 50}
+            color={"#FFC54E"}
+            con={(((today_kal - yes_kal) / today_kal) * 100).toFixed(2)}
+            num={3}
+          />
         </DailyAverageItem>
         <DailyAverageItem>
           걸음 속도
-          <PieChart percent={22} color={"#52DDE1"} />
+          <PieChart
+            percent={(today_v / avg_v) * 50}
+            color={"#52DDE1"}
+            con={(((today_v - yes_v) / today_v) * 100).toFixed(2)}
+            num={4}
+          />
         </DailyAverageItem>
       </DailyAverageContainer>
       <RankingContaier>
