@@ -186,7 +186,7 @@ const Home = () => {
       </RankingContaier>
       <EventContainer>
         <EventHeaderContainer>
-          <EventHeaderName>이벤트</EventHeaderName>
+          <EventHeaderName>이벤트 </EventHeaderName>
           <Link to="event/add">
             <Button
               icon={<PlusOutlined />}
