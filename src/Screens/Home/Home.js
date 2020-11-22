@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
 import data from "../../data.json";
+import EventTable from "../../Components/EventTable";
 
 const DailyAverageHeaderContainer = styled.div`
   width: 100%;
@@ -186,7 +187,7 @@ const Home = () => {
       </RankingContaier>
       <EventContainer>
         <EventHeaderContainer>
-          <EventHeaderName>이벤트 </EventHeaderName>
+          <EventHeaderName>이벤트</EventHeaderName>
           <Link to="event/add">
             <Button
               icon={<PlusOutlined />}
@@ -199,6 +200,7 @@ const Home = () => {
             ></Button>
           </Link>
         </EventHeaderContainer>
+        <EventTable />
       </EventContainer>
     </>
   );
