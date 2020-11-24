@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 const AverageContainer = styled.div`
   margin-bottom: 28px;
-  width: 160px;
+  width: 100%;
   height: 91px;
+  margin-right: 10px;
   border-right: 1px solid #c9c9c9;
 `;
 
