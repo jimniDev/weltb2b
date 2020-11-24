@@ -2,9 +2,12 @@ import React from "react";
 import JSON from "../data.json";
 import { Table} from 'antd';
 import styled from "styled-components";
+import eventStyled from "./EventTable.css";
 
 const Status = styled.div`
   display: flex;
+  margin-left:auto;
+  margin-right:auto;
   justify-content: center;
   align-items: center;
   height: 24px;
@@ -34,7 +37,6 @@ const columns = [
       width: 100,
       dataIndex: 'title',
       key: 'name',
-      background: '.red',
     },
     {
         title: 'STATUS',
@@ -51,8 +53,7 @@ const columns = [
               {StatusObj[text].status}
             </Status>
             };
-        }
-       
+          }
     },
     {
         title: 'MEMBERS',
@@ -72,14 +73,13 @@ const EventTable = () => {
     const { eventData } = JSON;
     return (
       <Table
+        className="EVENT_TABLE_DESIGN"
         dataSource={eventData}
         columns = {columns}
         pagination={{ hideOnSinglePage: true }} 
-        scroll={{ y: 200}}
+        scroll={{ y: 170}}
       >   
       </Table>
     );
 };
 export default EventTable;
-
- 

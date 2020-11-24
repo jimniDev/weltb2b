@@ -1,0 +1,42 @@
+.EVENT_TABLE_DESIGN thead tr th {
+    font-size: 12px;
+    font-style: normal;
+    line-height: 10px;
+    letter-spacing: normal;
+    color: #fff;
+    background-color: #4f42a7;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.85rem 0.5rem;
+  }
+  
+  .EVENT_TABLE_DESIGN tbody tr {
+    height: 2.188rem;
+    cursor: pointer;
+    text-align: center;
+    border-bottom: 1px solid #242a32;
+  }
+  .EVENT_TABLE_DESIGN .ant-table{
+      margin-top: 10px;
+  }
+  .EVENT_TABLE_DESIGN .ant-table .ant-table-tbody > tr:hover > td {
+    background: rgba(213, 207, 243, 0.3);
+  }
+  
+  .EVENT_TABLE_DESIGN tbody tr td {
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 0.5px;
+    color: #707070;
+    vertical-align: middle;
+    padding: 0.5rem;
+  }
+  
+  .EVENT_TABLE_DESIGN tbody tr {
+    background-color: #fff;
+  }
+
+  
