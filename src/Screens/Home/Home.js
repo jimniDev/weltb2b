@@ -11,7 +11,6 @@ import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
 import data from "../../data.json";
 import user from "../../userdata.json";
-import {useState} from "react";
 
 const DailyAverageHeaderContainer = styled.div`
   width: 100%;
@@ -93,19 +92,20 @@ const EventHeaderContainer = styled.div`
 const EventHeaderName = styled.h2``;
 
 // get Date function
-const onChangeDate = (event) => {
-  // evnet Handler Error
-  if (typeof event !== Object) return;
-
-  const { _d } = event;
-  setValue(_d.value);
-  setDailyAvg(dailyAvg + 1);
-};
 
 const Home = () => {
 
   const [value, setValue] = useState("2020-10-05");
   const [dailyAvg, setDailyAvg] = useState(0);
+
+  const onChangeDate = (event) => {
+    // evnet Handler Error
+    if (typeof event !== Object) return;
+  
+    const { _d } = event;
+    setValue(_d.value);
+    setDailyAvg(dailyAvg + 1);
+  };
 
 let avg_dis = 100;
 let today_dis = 70;
