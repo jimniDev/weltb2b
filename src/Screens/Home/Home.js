@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Button, DatePicker, Space } from "antd";
 import { InfoCircleOutlined, PlusOutlined } from "@ant-design/icons";
@@ -10,6 +10,8 @@ import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
 import data from "../../data.json";
+import user from "../../userdata.json";
+import {useState} from "react";
 
 const DailyAverageHeaderContainer = styled.div`
   width: 100%;
@@ -96,9 +98,32 @@ const onChangeDate = (event) => {
   if (typeof event !== Object) return;
 
   const { _d } = event;
+  setValue(_d.value);
+  setDailyAvg(dailyAvg + 1);
 };
 
 const Home = () => {
+
+  const [value, setValue] = useState("2020-10-05");
+  const [dailyAvg, setDailyAvg] = useState(0);
+
+let avg_dis = 100;
+let today_dis = 70;
+let yes_dis = 80;
+
+let avg_waist = 28;
+let today_waist = 35;
+let yes_waist = 34;
+
+let avg_kal = 10000;
+let today_kal = 8400;
+let yes_kal = 12500;
+
+let avg_v = 10;
+let today_v = 9.4;
+let yes_v = 7.6;
+
+
   return (
     <>
       <Helmet>
@@ -106,7 +131,7 @@ const Home = () => {
       </Helmet>
       <MainHeader />
       <DailyAverageHeaderContainer>
-        <DailyAverageTitle>총 수치 (평균 수치)</DailyAverageTitle>
+        <DailyAverageTitle>총 수치 (평균 수치){dailyAvg}</DailyAverageTitle>
         <Space>
           <DatePicker
             onChange={onChangeDate}
@@ -118,19 +143,19 @@ const Home = () => {
       <DailyAverageContainer>
         <DailyAverageItem>
           걸음 거리
-          <PieChart percent={28} color={"#2496EF"} />
+          <PieChart percent={today_dis/avg_dis*50} color={"#2496EF"} con={((today_dis-yes_dis)/today_dis*100).toFixed(2)} num = {1} />
         </DailyAverageItem>
         <DailyAverageItem>
           허리 둘레
-          <PieChart percent={48} color={"#EA3869"} />
+          <PieChart percent={today_waist/avg_waist*50} color={"#EA3869"} con={((today_waist-yes_waist)/today_waist*100).toFixed(2)} num = {2}/>
         </DailyAverageItem>
         <DailyAverageItem>
           소모 칼로리
-          <PieChart percent={27} color={"#FFC54E"} />
+          <PieChart percent={today_kal/avg_kal*50} color={"#FFC54E"} con={((today_kal-yes_kal)/today_kal*100).toFixed(2)} num = {3}/>
         </DailyAverageItem>
         <DailyAverageItem>
           걸음 속도
-          <PieChart percent={22} color={"#52DDE1"} />
+          <PieChart percent={today_v/avg_v*50} color={"#52DDE1"} con={((today_v-yes_v)/today_v*100).toFixed(2)} num = {4}/>
         </DailyAverageItem>
       </DailyAverageContainer>
       <RankingContaier>
