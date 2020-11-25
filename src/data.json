@@ -17,11 +17,6 @@
     },
     {
       "month": "Feb",
-      "year": "2020",
-      "count": 10234
-    },
-    {
-      "month": "Feb",
       "year": "2018",
       "count": 10534
     },
@@ -31,9 +26,9 @@
       "count": 12340
     },
     {
-      "month": "Mar",
+      "month": "Feb",
       "year": "2020",
-      "count": 11345
+      "count": 10234
     },
     {
       "month": "Mar",
@@ -46,6 +41,11 @@
       "count": 9134
     },
     {
+      "month": "Mar",
+      "year": "2020",
+      "count": 11345
+    },
+    {
       "month": "Apr",
       "year": "2020",
       "count": 14513
@@ -54,6 +54,11 @@
       "month": "Apr",
       "year": "2019",
       "count": 13462
+    },
+    {
+      "month": "Apr",
+      "year": "2018",
+      "count": 11342
     },
     {
       "month": "May",
@@ -66,6 +71,11 @@
       "count": 11945
     },
     {
+      "month": "May",
+      "year": "2018",
+      "count": 9343
+    },
+    {
       "month": "Jun",
       "year": "2020",
       "count": 21532
@@ -74,6 +84,11 @@
       "month": "Jun",
       "year": "2019",
       "count": 15211
+    },
+    {
+      "month": "Jun",
+      "year": "2018",
+      "count": 13462
     },
     {
       "month": "Jul",
@@ -86,6 +101,11 @@
       "count": 13457
     },
     {
+      "month": "Jul",
+      "year": "2018",
+      "count": 17307
+    },
+    {
       "month": "Aug",
       "year": "2020",
       "count": 21134
@@ -94,6 +114,11 @@
       "month": "Aug",
       "year": "2019",
       "count": 16672
+    },
+    {
+      "month": "Aug",
+      "year": "2018",
+      "count": 18731
     },
     {
       "month": "Sep",
@@ -106,6 +131,11 @@
       "count": 14235
     },
     {
+      "month": "Sep",
+      "year": "2018",
+      "count": 19089
+    },
+    {
       "month": "Oct",
       "year": "2020",
       "count": 18314
@@ -114,6 +144,11 @@
       "month": "Oct",
       "year": "2019",
       "count": 10394
+    },
+    {
+      "month": "Oct",
+      "year": "2018",
+      "count": 15842
     },
     {
       "month": "Nov",
@@ -126,6 +161,11 @@
       "count": 9814
     },
     {
+      "month": "Nov",
+      "year": "2018",
+      "count": 20327
+    },
+    {
       "month": "Dec",
       "year": "2020",
       "count": 9625
@@ -134,6 +174,11 @@
       "month": "Dec",
       "year": "2019",
       "count": 17814
+    },
+    {
+      "month": "Dec",
+      "year": "2018",
+      "count": 14590
     }
   ],
   "userData": [
