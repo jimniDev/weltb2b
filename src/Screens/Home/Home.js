@@ -112,10 +112,12 @@ const Home = () => {
   let yes_v = 7.6;
   // get Date function
   const onChangeDate = (event) => {
-    // evnet Handler Error
-    if (typeof event !== Object) return;
+    if (!event && typeof event !== Object) return;
 
-    const { _d } = event;
+    // evnet Handler Error
+    const { _i } = event;
+    console.log(` 연간 _i`, _i);
+    console.log(event);
   };
 
   return (
