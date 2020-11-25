@@ -1,3 +1,4 @@
+import Search from "antd/lib/input/Search";
 import styled from "styled-components";
 
 export const AddEventBackground = styled.div`
@@ -107,5 +108,23 @@ export const SubmitButton = styled.p`
 export const ButtonWrapper = styled.div`
     text-align: center;
     margin-top: 50px;
+    position: absolute;
+    bottom: 44px;
+    right: 0;
+    left: 0;
 `
-// https://stackoverflow.com/questions/56655066/using-pseudo-code-to-style-radio-button-with-styled-components
+
+export const SearchBox = styled.div`
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+`
+
+export const SearchInput = styled.input`
+    width: 80%;
+    border: none;
+`

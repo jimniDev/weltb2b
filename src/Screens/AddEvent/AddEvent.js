@@ -5,8 +5,11 @@ import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
 import { AddEventBackground, AddEventModal, AddEventTitle,
   Form, FormItem, FormLabel, FormTextInput, CheckboxInput, CheckboxLabelDefault, CheckBoxUl,
-  CancelButton, SubmitButton, ButtonWrapper } from "./AddEventStyle";
+  CancelButton, SubmitButton, ButtonWrapper, SearchBox, SearchInput } from "./AddEventStyle";
 import { useHistory } from "react-router-dom";
+import SearchImg from "../../assets/img/SearchImg";
+import ParticipantsList from "./ParticipantsList";
+import SearchList from "./SearchList";
 
 
 const AddEvent = () => {
@@ -16,7 +19,11 @@ const AddEvent = () => {
   const [selectedDataList, setSelectedDataList] = useState([]);
   const [startdate, setStartdate] = useState(new Date());
   const [enddate, setEnddate] = useState(new Date());
-  const [participants, setParticipants] = useState([]);
+  const [keyword, setKeyword] = useState("");
+  const [participants, setParticipants] = useState([
+    "고서영", "최서희", "사연진", "최승연", "이현세", "김지민", "박지호",
+    "고서영", "최서희", "사연진", "최승연", "이현세", "김지민", "박지호",
+  ]);
   const [memo, setMemo] = useState("");
 
   const [dataInfo, setDataInfo] = useState([
@@ -29,10 +36,15 @@ const AddEvent = () => {
 
   useEffect(() => {
     setDataInfo(dataInfo);
-
+    if(keyword == ""){
+      //전체 보여주기
+    }else{
+      // 검색
+      console.log(keyword + " 검색");
+    }
     return () => {
     }
-  }, [dataInfo])
+  }, [keyword, dataInfo])
 
   const onChange = (event) => {
     const {
@@ -45,6 +57,9 @@ const AddEvent = () => {
         break;
       case "memo":
         setMemo(value);
+        break;
+      case "keyword":
+        setKeyword(value);
         break;
       default:
         break;
@@ -72,15 +87,41 @@ const AddEvent = () => {
   }
 
   const onSubmitBtn = () => {
-    console.log(
-      "이벤트명: "+title,
-      "사용데이터: (순서대로)" +JSON.stringify(dataInfo),
-      "기간1: "+startdate, 
-      "기간2: "+enddate,
-      "참가자리스트: ",
-      "메모: "+memo
-    )
+    let selectedList = isSelected();
+
+    var str =
+      "이벤트명: "+title+"\n"+
+      "사용데이터: (순서대로)" +selectedList+"\n"+
+      "기간1: "+startdate+"\n"+
+      "기간2: "+enddate+"\n"+
+      "참가자리스트: "+"\n"+
+      "메모: "+memo;
+
+    console.log(str);
+
+    if(title === ""){
+      alert("이벤트명을 입력해주세요.");
+    }else if(selectedList.length <= 0){
+      alert("사용데이터를 선택해주세요.");
+    }else if(startdate === null || enddate === null){
+      alert("기간을 선택해주세요.");
+    }else{
+      alert(str+"등록 완료");
+    }
+    // 빈 참가리스트 예외처리
+
     // history.goBack()
+  }
+
+  const isSelected = () => {
+    var selectedList = []
+    dataInfo.forEach(data => {
+      if(data.isChecked === true){
+        selectedList.push(data.name);
+      }
+    })
+    console.log(selectedList);
+    return selectedList;
   }
 
   const CheckBox = props => {
@@ -111,6 +152,15 @@ const AddEvent = () => {
        if (data.value === event.target.value) data.isChecked = event.target.checked
     });
   }
+
+  const onFocus = (e) => {
+    // e.preventDefault();
+    // const { nativeEvent: { target: {name} }} = e;
+    // if(name === "keyword"){
+    //   console.log("keyword focus");
+    // }
+  }
+
 
   return (
     <>
@@ -152,7 +202,16 @@ const AddEvent = () => {
             </FormItem>
             <FormItem>
               <FormLabel>참가자</FormLabel>
-              <input type="text" name="participant" />
+              <div style={{width:"60%"}}>
+                <SearchBox>
+                  <SearchInput type="text" name="keyword" value={keyword} onChange={onChange} onFocus={onFocus}/>
+                  <SearchImg/>
+                </SearchBox>
+                <div>
+                  <SearchList visibility={true}/>
+                  <ParticipantsList list={participants}/> 
+                </div>
+              </div>
             </FormItem>
             <FormItem>
               <FormLabel>메모</FormLabel>
