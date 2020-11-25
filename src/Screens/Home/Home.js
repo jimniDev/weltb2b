@@ -107,7 +107,13 @@ const Home = () => {
 
   useEffect(() => {
     // 여기서 setDaily에 date값 넣어서 조절해주면 될듯?
-    setDailyAvg((prevState) => prevState + 1);
+    let s;
+    for(var i=0;i<30;i++){
+      if(user["1nhBflpO9ehPOndqzldvHWB3ILS2"][i].timeid == date){
+          s = user["1nhBflpO9ehPOndqzldvHWB3ILS2"][i].step;
+      }
+    }
+    setDailyAvg(s);
     return () => {};
   }, [date]);
 
@@ -134,7 +140,7 @@ const Home = () => {
       </Helmet>
       <MainHeader />
       <DailyAverageHeaderContainer>
-        <DailyAverageTitle>총 수치 (평균 수치){date}</DailyAverageTitle>
+        <DailyAverageTitle>총 수치 (평균 수치){dailyAvg}</DailyAverageTitle>
         <Space>
           <DatePicker
             onChange={onChangeDate}
