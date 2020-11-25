@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Button, DatePicker, Space } from "antd";
 import { InfoCircleOutlined, PlusOutlined } from "@ant-design/icons";
@@ -91,38 +91,41 @@ const EventHeaderContainer = styled.div`
 
 const EventHeaderName = styled.h2``;
 
-// get Date function
-
 const Home = () => {
-
-  const [value, setValue] = useState("2020-10-05");
+  const [date, setDate] = useState(null);
   const [dailyAvg, setDailyAvg] = useState(0);
 
+  // get Date function
   const onChangeDate = (event) => {
-    // evnet Handler Error
-    if (typeof event !== Object) return;
-  
+    // error Handle
+    if (!event && typeof event !== "object") return;
+
     const { _d } = event;
-    setValue(_d.value);
-    setDailyAvg(dailyAvg + 1);
+
+    setDate(moment(_d).format("YYYY-MM-DD"));
   };
 
-let avg_dis = 100;
-let today_dis = 70;
-let yes_dis = 80;
+  useEffect(() => {
+    // 여기서 setDaily에 date값 넣어서 조절해주면 될듯?
+    setDailyAvg((prevState) => prevState + 1);
+    return () => {};
+  }, [date]);
 
-let avg_waist = 28;
-let today_waist = 35;
-let yes_waist = 34;
+  let avg_dis = 100;
+  let today_dis = 70;
+  let yes_dis = 80;
 
-let avg_kal = 10000;
-let today_kal = 8400;
-let yes_kal = 12500;
+  let avg_waist = 28;
+  let today_waist = 35;
+  let yes_waist = 34;
 
-let avg_v = 10;
-let today_v = 9.4;
-let yes_v = 7.6;
+  let avg_kal = 10000;
+  let today_kal = 8400;
+  let yes_kal = 12500;
 
+  let avg_v = 10;
+  let today_v = 9.4;
+  let yes_v = 7.6;
 
   return (
     <>
@@ -131,7 +134,7 @@ let yes_v = 7.6;
       </Helmet>
       <MainHeader />
       <DailyAverageHeaderContainer>
-        <DailyAverageTitle>총 수치 (평균 수치){dailyAvg}</DailyAverageTitle>
+        <DailyAverageTitle>총 수치 (평균 수치){date}</DailyAverageTitle>
         <Space>
           <DatePicker
             onChange={onChangeDate}
@@ -143,19 +146,39 @@ let yes_v = 7.6;
       <DailyAverageContainer>
         <DailyAverageItem>
           걸음 거리
-          <PieChart percent={today_dis/avg_dis*50} color={"#2496EF"} con={((today_dis-yes_dis)/today_dis*100).toFixed(2)} num = {1} />
+          <PieChart
+            percent={(today_dis / avg_dis) * 50}
+            color={"#2496EF"}
+            con={(((today_dis - yes_dis) / today_dis) * 100).toFixed(2)}
+            num={1}
+          />
         </DailyAverageItem>
         <DailyAverageItem>
           허리 둘레
-          <PieChart percent={today_waist/avg_waist*50} color={"#EA3869"} con={((today_waist-yes_waist)/today_waist*100).toFixed(2)} num = {2}/>
+          <PieChart
+            percent={(today_waist / avg_waist) * 50}
+            color={"#EA3869"}
+            con={(((today_waist - yes_waist) / today_waist) * 100).toFixed(2)}
+            num={2}
+          />
         </DailyAverageItem>
         <DailyAverageItem>
           소모 칼로리
-          <PieChart percent={today_kal/avg_kal*50} color={"#FFC54E"} con={((today_kal-yes_kal)/today_kal*100).toFixed(2)} num = {3}/>
+          <PieChart
+            percent={(today_kal / avg_kal) * 50}
+            color={"#FFC54E"}
+            con={(((today_kal - yes_kal) / today_kal) * 100).toFixed(2)}
+            num={3}
+          />
         </DailyAverageItem>
         <DailyAverageItem>
           걸음 속도
-          <PieChart percent={today_v/avg_v*50} color={"#52DDE1"} con={((today_v-yes_v)/today_v*100).toFixed(2)} num = {4}/>
+          <PieChart
+            percent={(today_v / avg_v) * 50}
+            color={"#52DDE1"}
+            con={(((today_v - yes_v) / today_v) * 100).toFixed(2)}
+            num={4}
+          />
         </DailyAverageItem>
       </DailyAverageContainer>
       <RankingContaier>
