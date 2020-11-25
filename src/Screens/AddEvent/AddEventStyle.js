@@ -60,9 +60,7 @@ export const FormTextInput =  styled.input`
 `;
 
 export const CheckboxInput = styled.input.attrs({type: 'checkbox'})`
-    opacity: 0;
-    position: fixed;
-    width: 0;
+    display: none;
 `;
 
 export const CheckboxLabelDefault = styled.label.attrs({ type: 'checkbox' })`

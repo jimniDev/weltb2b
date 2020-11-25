@@ -22,7 +22,7 @@ const AddEvent = () => {
   const [dataInfo, setDataInfo] = useState([
     {id: 1, name: "step", value:"걸음 수", isChecked: false},
     {id: 2, name: "waist", value: "허리둘레", isChecked: false},
-    {id: 3, name: "calories", value: "소모칼로리", isChecked: true},
+    {id: 3, name: "calories", value: "소모칼로리", isChecked: false},
     {id: 4, name: "distance", value: "걸음거리", isChecked: false},
     {id: 5, name: "gaitSpeed", value: "걸음속도", isChecked: false},
   ]);
@@ -89,10 +89,11 @@ const AddEvent = () => {
          type="checkbox" 
          checked={props.isChecked}
          value={props.value} 
-         name={props.name}
+         id={props.name}
+         onClick={props.handleCheckChieldElement}
         /> 
         <CheckboxLabelDefault 
-          onClick={props.handleCheckChieldElement}
+          for={props.name}
           isChecked={props.isChecked}>
             {props.value}
         </CheckboxLabelDefault>
@@ -101,6 +102,9 @@ const AddEvent = () => {
   }
 
   const handleCheckChieldElement = (event) => {
+    console.log(event.target.value);
+    console.log(event.target.checked);
+
     let _dataInfo = dataInfo;
     _dataInfo.forEach(data => {
        if (data.value === event.target.value) data.isChecked = event.target.checked
