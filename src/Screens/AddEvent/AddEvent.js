@@ -28,6 +28,8 @@ const AddEvent = () => {
   ]);
 
   useEffect(() => {
+    setDataInfo(dataInfo);
+
     return () => {
     }
   }, [dataInfo])
@@ -105,11 +107,9 @@ const AddEvent = () => {
     console.log(event.target.value);
     console.log(event.target.checked);
 
-    let _dataInfo = dataInfo;
-    _dataInfo.forEach(data => {
+    dataInfo.forEach(data => {
        if (data.value === event.target.value) data.isChecked = event.target.checked
     });
-    setDataInfo(_dataInfo);
   }
 
   return (
