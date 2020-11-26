@@ -6,11 +6,12 @@ import PieChart from "../../Components/PieChart";
 import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
 import moment from "moment";
-import { Link } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
 import data from "../../data.json";
 import user from "../../userdata.json";
+import { func } from "prop-types";
 
 const DailyAverageHeaderContainer = styled.div`
   width: 100%;
@@ -92,8 +93,13 @@ const EventHeaderContainer = styled.div`
 const EventHeaderName = styled.h2``;
 
 const Home = () => {
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState("2020-10-05");
   const [dailyAvg, setDailyAvg] = useState(0);
+  const [steps, setSteps] = useState(null);
+  const [waist, setWaist] = useState(null);
+  const [calories, setCalories] = useState(null);
+  const [gaitSpeed, setGaitSpeed] = useState(null);
+  const [distance, setDistance] = useState(null);
 
   // get Date function
   const onChangeDate = (event) => {
@@ -107,15 +113,37 @@ const Home = () => {
 
   useEffect(() => {
     // 여기서 setDaily에 date값 넣어서 조절해주면 될듯?
-    let s;
-    for(var i=0;i<30;i++){
-      if(user["1nhBflpO9ehPOndqzldvHWB3ILS2"][i].timeid == date){
-          s = user["1nhBflpO9ehPOndqzldvHWB3ILS2"][i].step;
-      }
-    }
-    setDailyAvg(s);
+    // userData.map((person) => person.reduce());
+    // let s;
+    // for (var i = 0; i < 30; i++) {
+    //   if (user["1nhBflpO9ehPOndqzldvHWB3ILS2"][i].timeid == date) {
+    //     s = user["1nhBflpO9ehPOndqzldvHWB3ILS2"][i].step;
+    //   }
+    // }
+    // setDailyAvg();
     return () => {};
-  }, [date]);
+  }, []);
+
+  // 각 날짜 별 user의 평균 데이터
+  const DailyPersonAverage = Object.values(user).map((el) => {
+    return [
+      el[date.slice(-2) - 1].step,
+      el[date.slice(-2) - 1].waist,
+      el[date.slice(-2) - 1].calories,
+      el[date.slice(-2) - 1].gaitSpeed,
+      el[date.slice(-2) - 1].distance,
+    ];
+  });
+
+  let DailyPeopleAverage = DailyPersonAverage.reduce((acc, cur) => {
+    cur.forEach(
+      (e, i) => (acc[i] = acc[i] ? acc[i] + parseInt(e) : parseInt(e))
+    );
+    return acc;
+  }, []).map((e) => e / DailyPersonAverage.length);
+
+  // 일 user 전체 평균 data
+  console.log(DailyPeopleAverage);
 
   let avg_dis = 100;
   let today_dis = 70;
@@ -140,7 +168,7 @@ const Home = () => {
       </Helmet>
       <MainHeader />
       <DailyAverageHeaderContainer>
-        <DailyAverageTitle>총 수치 (평균 수치){dailyAvg}</DailyAverageTitle>
+        <DailyAverageTitle>총 수치 (평균 수치)</DailyAverageTitle>
         <Space>
           <DatePicker
             onChange={onChangeDate}
