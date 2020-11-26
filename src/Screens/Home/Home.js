@@ -11,6 +11,7 @@ import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
 import data from "../../data.json";
 import user from "../../userdata.json";
+import mon from "../../monthlyData.json";
 import { func } from "prop-types";
 
 const DailyAverageHeaderContainer = styled.div`
@@ -135,6 +136,16 @@ const Home = () => {
     ];
   });
 
+  const YesPersonAverage = Object.values(user).map((el) => {
+    return [
+      el[date.slice(-2) - 2].step,
+      el[date.slice(-2) - 2].waist,
+      el[date.slice(-2) - 2].calories,
+      el[date.slice(-2) - 2].gaitSpeed,
+      el[date.slice(-2) - 2].distance,
+    ];
+  });
+
   let DailyPeopleAverage = DailyPersonAverage.reduce((acc, cur) => {
     cur.forEach(
       (e, i) => (acc[i] = acc[i] ? acc[i] + parseInt(e) : parseInt(e))
@@ -142,24 +153,37 @@ const Home = () => {
     return acc;
   }, []).map((e) => e / DailyPersonAverage.length);
 
+  let YesPeopleAverage = YesPersonAverage.reduce((acc, cur) => {
+    cur.forEach(
+      (e, i) => (acc[i] = acc[i] ? acc[i] + parseInt(e) : parseInt(e))
+    );
+    return acc;
+  }, []).map((e) => e / YesPersonAverage.length);
+
   // 일 user 전체 평균 data
-  console.log(DailyPeopleAverage);
+  //console.log(DailyPeopleAverage);
 
-  let avg_dis = 100;
-  let today_dis = 70;
-  let yes_dis = 80;
+  for(var i=0;i<mon["monthlyData"].length;i++){
+    if(date.slice(0, 7) == mon["monthlyData"][i].timeid){
+      var avg_dis = mon["monthlyData"][i].distance;
+      var today_dis = DailyPeopleAverage[4];
+      var yes_dis = YesPeopleAverage[4];
 
-  let avg_waist = 28;
-  let today_waist = 35;
-  let yes_waist = 34;
+      var avg_waist = mon["monthlyData"][i].waist;
+      var today_waist = DailyPeopleAverage[1];
+      var yes_waist = YesPeopleAverage[1];
 
-  let avg_kal = 10000;
-  let today_kal = 8400;
-  let yes_kal = 12500;
+      var avg_kal = mon["monthlyData"][i].calories;
+      var today_kal = DailyPeopleAverage[2];
+      var yes_kal = YesPeopleAverage[2];
 
-  let avg_v = 10;
-  let today_v = 9.4;
-  let yes_v = 7.6;
+      var avg_v = mon["monthlyData"][i].gaitSpeed;
+      var today_v = DailyPeopleAverage[3];
+      var yes_v = YesPeopleAverage[3];
+
+      break;
+    }
+  }
 
   return (
     <>
@@ -168,7 +192,7 @@ const Home = () => {
       </Helmet>
       <MainHeader />
       <DailyAverageHeaderContainer>
-        <DailyAverageTitle>총 수치 (평균 수치){DailyPersonAverage[0][0]}</DailyAverageTitle>
+        <DailyAverageTitle>총 수치 (평균 수치){}</DailyAverageTitle>
         <Space>
           <DatePicker
             onChange={onChangeDate}
@@ -181,7 +205,7 @@ const Home = () => {
         <DailyAverageItem>
           걸음 거리
           <PieChart
-            percent={(today_dis / avg_dis) * 50}
+            percent={((today_dis / avg_dis) * 50).toFixed(2)}
             color={"#2496EF"}
             con={(((today_dis - yes_dis) / today_dis) * 100).toFixed(2)}
             num={1}
@@ -190,7 +214,7 @@ const Home = () => {
         <DailyAverageItem>
           허리 둘레
           <PieChart
-            percent={(today_waist / avg_waist) * 50}
+            percent={((today_waist / avg_waist) * 50).toFixed(2)}
             color={"#EA3869"}
             con={(((today_waist - yes_waist) / today_waist) * 100).toFixed(2)}
             num={2}
@@ -199,7 +223,7 @@ const Home = () => {
         <DailyAverageItem>
           소모 칼로리
           <PieChart
-            percent={(today_kal / avg_kal) * 50}
+            percent={((today_kal / avg_kal) * 50).toFixed(2)}
             color={"#FFC54E"}
             con={(((today_kal - yes_kal) / today_kal) * 100).toFixed(2)}
             num={3}
@@ -208,7 +232,7 @@ const Home = () => {
         <DailyAverageItem>
           걸음 속도
           <PieChart
-            percent={(today_v / avg_v) * 50}
+            percent={((today_v / avg_v) * 50).toFixed(2)}
             color={"#52DDE1"}
             con={(((today_v - yes_v) / today_v) * 100).toFixed(2)}
             num={4}
