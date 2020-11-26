@@ -120,16 +120,6 @@ const AddEvent = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const {title, usedata, startdate, enddate, keyword, participants, memo} = state;
 
-  useEffect(() => {
-    if (keyword == "") {
-      //전체 보여주기
-    } else {
-      // 검색
-      console.log(keyword + " 검색");
-    }
-    return () => {};
-  }, [keyword, participants]);
-
   const onChange = (event) => {
     const {
       target: { value, name },
