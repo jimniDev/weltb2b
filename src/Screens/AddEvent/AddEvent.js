@@ -27,14 +27,14 @@ import SearchList from "./SearchList";
 import {users} from '../../user_info.json';
 import { dbService } from "../../fbase";
 
+const { RangePicker } = DatePicker;
 
 const AddEvent = () => {
   const history = useHistory();
 
   const [title, setTitle] = useState("");
-  const [selectedDataList, setSelectedDataList] = useState([]);
-  const [startdate, setStartdate] = useState(new Date());
-  const [enddate, setEnddate] = useState(new Date());
+  const [startdate, setStartdate] = useState("");
+  const [enddate, setEnddate] = useState("");
   const [keyword, setKeyword] = useState("");
   const [participants, setParticipants] = useState([]);
   const [memo, setMemo] = useState("");
@@ -76,20 +76,11 @@ const AddEvent = () => {
     }
   };
 
-  const onChangeDate = (event, name) => {
-    if (!event && typeof event !== "object") return;
-
-    const { _d } = event;
-
-    console.log("event name: " + name);
-    if (name === "startDate") {
-      setStartdate(_d);
-      console.log("startdate: " + startdate);
-    } else if (name === "endDate") {
-      setEnddate(_d);
-      console.log("enddate: " + enddate);
-    }
-  };
+  const onChangeDate = (e, d) => {
+    if(e === null || d === null) return;
+    setStartdate(d[0]);
+    setEnddate(d[1]);
+  }
 
   const onCancelBtn = () => {
     history.goBack();
@@ -99,22 +90,12 @@ const AddEvent = () => {
     let selectedList = isSelected();
 
     var str =
-      "이벤트명: " +
-      title +
-      "\n" +
-      "사용데이터: (순서대로)" +
-      selectedList +
-      "\n" +
-      "기간1: " +
-      startdate +
-      "\n" +
-      "기간2: " +
-      enddate +
-      "\n" +
-      "참가자리스트: " + participants +
-      "\n" +
-      "메모: " +
-      memo;
+      `이벤트명: ${title} \n` +
+      `사용데이터: (순서대로) `+selectedList+"\n"+
+      `기간1: ${startdate} \n` +
+      `기간2: ${enddate} \n` +
+      `참가자리스트: `+participants+"\n"+
+      `메모: ${memo} \n` +
 
     console.log(str);
 
@@ -122,8 +103,10 @@ const AddEvent = () => {
       alert("이벤트명을 입력해주세요.");
     } else if (selectedList.length <= 0) {
       alert("사용데이터를 선택해주세요.");
-    } else if (startdate === null || enddate === null) {
+    } else if (startdate === "" || enddate === "") {
       alert("기간을 선택해주세요.");
+    } else if(participants.length <= 0){
+      alert("참가자를 추가해주세요.");
     } else {
       alert(str + "등록 완료");
       const eventObj = {
@@ -141,7 +124,6 @@ const AddEvent = () => {
           history.goBack()
         });
     }
-    // 빈 참가리스트 예외처리
 
     // history.goBack()
   };
@@ -153,7 +135,6 @@ const AddEvent = () => {
         selectedList.push(data.name);
       }
     });
-    // console.log(selectedList);
     return selectedList;
   };
 
@@ -222,18 +203,9 @@ const AddEvent = () => {
             </FormItem>
             <FormItem>
               <FormLabel>기간</FormLabel>
-              <DatePicker
-                selected={startdate}
-                onChange={(date) => onChangeDate(date, "startDate")}
-                bordered={false}
-                defaultValue={moment()}
-              ></DatePicker>
-              <DatePicker
-                selected={enddate}
-                onChange={(date) => onChangeDate(date, "endDate")}
-                bordered={false}
-                defaultValue={moment()}
-              ></DatePicker>
+              <RangePicker
+                onChange={(e, d) => onChangeDate(e, d)} 
+              />
             </FormItem>
             <FormItem>
               <FormLabel>참가자</FormLabel>
