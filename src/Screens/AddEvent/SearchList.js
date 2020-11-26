@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
 import {users} from '../../user_info.json'; //전체 유저
+import { ADD_PARTICIPANTS, REMOVE_PARTICIPANTS } from './AddEvent';
 
 const Wrapper = styled.ul`
     height: 150px;
@@ -15,26 +16,18 @@ const Li = styled.li`
     margin: 7px 14px;
 `
 
-const SearchList = ({visibility, p_list, keyword}) => {
+const SearchList = ({visibility, p_list, keyword, dispatch}) => {
     const [ulist, setUList] = useState(users);
 
     const onSelect = (uid, isChecked, userObj) => {
-        console.log("uid: "+ uid);
-        console.log("isChecked: "+ isChecked);
-
         if(isChecked){
             //uid로 찾아서 p_list에서 제거
             isChecked = false
-            for(let i = 0; i < p_list.length; i++){ 
-                if ( p_list[i].uid === uid) { 
-                    console.log(p_list[i].name);
-                    p_list.splice(i, 1); 
-                }
-            }
+            dispatch({ type: REMOVE_PARTICIPANTS, uid });
         }else{
             //p_list에 추가
-            p_list.push(userObj);
             isChecked = true
+            dispatch({ type: ADD_PARTICIPANTS, userObj });
         }
     }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
+import { REMOVE_PARTICIPANTS } from './AddEvent';
 
 export const Ul = styled.ul`
     display: flex;
@@ -25,27 +26,18 @@ export const Name = styled.p`
     margin-right: 10px;
 `
 
-const ParticipantsList = ({p_list}) => {
+const ParticipantsList = ({p_list, dispatch}) => {
 
-    const [plist, setPList] = useState(p_list)
     const onDelete = (uid) => {
         var r = window.confirm(uid+"삭제");
         if (r == true) {
-            // P_list에서 삭제
-            
-
-            for(let i = 0; i < p_list.length; i++){ 
-                if ( p_list[i].uid === uid) { 
-                    console.log(p_list[i].name);
-                    p_list.splice(i, 1); 
-                }
-            }
+            dispatch({ type: REMOVE_PARTICIPANTS, uid });
         }
     }
 
     return(
         <Ul>
-            {plist.map(p => {
+            {p_list.map(p => {
                 return (<Li>
                     <Name>{p.name}</Name>
                     <p onClick={e => onDelete(p.uid)}>x</p>

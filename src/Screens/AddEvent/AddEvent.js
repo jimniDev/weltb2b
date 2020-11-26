@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import { DatePicker } from "antd";
 import moment from "moment";
 import MainHeader from "../../Components/MainHeader";
@@ -29,22 +29,96 @@ import { dbService } from "../../fbase";
 
 const { RangePicker } = DatePicker;
 
-const AddEvent = () => {
-  const history = useHistory();
-
-  const [title, setTitle] = useState("");
-  const [startdate, setStartdate] = useState("");
-  const [enddate, setEnddate] = useState("");
-  const [keyword, setKeyword] = useState("");
-  const [participants, setParticipants] = useState([]);
-  const [memo, setMemo] = useState("");
-  const [dataInfo, setDataInfo] = useState([
+const initialState = {
+  title: "",
+  usedata: [
     { id: 1, name: "step", value: "걸음 수", isChecked:false },
     { id: 2, name: "waist", value: "허리둘레", isChecked:false },
     { id: 3, name: "calories", value: "소모칼로리", isChecked:false },
     { id: 4, name: "distance", value: "걸음거리", isChecked:false },
     { id: 5, name: "gaitSpeed", value: "걸음속도", isChecked:false },
-  ]);
+  ],
+  startdate: "",
+  enddate: "",
+  keyword: "",
+  participants: [],
+  memo: "",
+};
+
+export const SET_TITLE = "SET_TITLE";
+export const SET_USEDATA = "SET_USEDATA";
+export const SET_STARTDATE = "SET_STARTDATE";
+export const SET_ENDDATE = "SET_ENDDATE";
+export const SET_KEYWORD = "SET_KEYWORD";
+export const ADD_PARTICIPANTS = "ADD_PARTICIPANTS";
+export const REMOVE_PARTICIPANTS = "REMOVE_PARTICIPANTS";
+export const SET_MEMO = "SET_MEMO";
+
+const reducer = (state, action) => {
+  switch(action.type){
+    case SET_TITLE:
+      return {
+        ...state,
+        title: action.title,
+      };
+    case SET_USEDATA:{
+      const usedata = [...state.usedata];
+      usedata.map((data) => {
+        if(data.value === action.value){
+          data.isChecked = action.checked
+        }
+      })
+      return {
+        ...state,
+        usedata
+      };
+    }
+    case SET_STARTDATE:
+      return {
+        ...state,
+        startdate: action.startdate,
+      };
+    case SET_ENDDATE:
+      return {
+        ...state,
+        enddate: action.enddate,
+      };
+    case SET_KEYWORD:
+      return {
+        ...state,
+        keyword: action.keyword,
+      };
+    case SET_MEMO:
+      return {
+        ...state,
+        memo: action.memo,
+      };
+    case REMOVE_PARTICIPANTS:{
+      const participants = [...state.participants]
+      for(let i = 0; i < participants.length; i++){ 
+          if ( participants[i].uid === action.uid) { 
+            participants.splice(i, 1); 
+          }
+      }
+      return {
+        ...state,
+        participants
+      };
+    }
+    case ADD_PARTICIPANTS:{
+      const participants = [...state.participants, action.userObj];
+      return{
+        ...state,
+        participants
+      }
+    }
+  }
+}
+
+const AddEvent = () => {
+  const history = useHistory();
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const {title, usedata, startdate, enddate, keyword, participants, memo} = state;
 
   useEffect(() => {
     if (keyword == "") {
@@ -54,7 +128,7 @@ const AddEvent = () => {
       console.log(keyword + " 검색");
     }
     return () => {};
-  }, [keyword, dataInfo, participants]);
+  }, [keyword, participants]);
 
   const onChange = (event) => {
     const {
@@ -63,13 +137,13 @@ const AddEvent = () => {
 
     switch (name) {
       case "title":
-        setTitle(value);
+        dispatch({ type: SET_TITLE, title: value });
         break;
       case "memo":
-        setMemo(value);
+        dispatch({ type: SET_MEMO, memo: value });
         break;
       case "keyword":
-        setKeyword(value);
+        dispatch({ type: SET_KEYWORD, keyword: value });
         break;
       default:
         break;
@@ -78,8 +152,8 @@ const AddEvent = () => {
 
   const onChangeDate = (e, d) => {
     if(e === null || d === null) return;
-    setStartdate(d[0]);
-    setEnddate(d[1]);
+    dispatch({ type: SET_STARTDATE, startdate: d[0] });
+    dispatch({ type: SET_ENDDATE, enddate: d[1] });
   }
 
   const onCancelBtn = () => {
@@ -130,7 +204,7 @@ const AddEvent = () => {
 
   const isSelected = () => {
     var selectedList = [];
-    dataInfo.forEach((data) => {
+    usedata.forEach((data) => {
       if (data.isChecked === true) {
         selectedList.push(data.name);
       }
@@ -161,11 +235,13 @@ const AddEvent = () => {
     let {
       target: { value, checked },
     } = event;
-    setDataInfo((prevState) =>
-      prevState.map((data) =>
-        data.value === value ? { ...data, isChecked: checked } : data
-      )
-    );
+    dispatch({ type: SET_USEDATA, value, checked });
+
+    // setDataInfo((prevState) =>
+    //   prevState.map((data) =>
+    //     data.value === value ? { ...data, isChecked: checked } : data
+    //   )
+    // );
   };
 
   return (
@@ -190,7 +266,7 @@ const AddEvent = () => {
             <FormItem>
               <FormLabel>사용 데이터</FormLabel>
               <CheckBoxUl>
-                {dataInfo.map((data) => {
+                {usedata.map((data) => {
                   return (
                     <CheckBox
                       key={data.id}
@@ -221,9 +297,9 @@ const AddEvent = () => {
                 </SearchBox>
                 <div>
                   {(keyword != "") &&
-                    <SearchList visibility={true} p_list={participants} keyword={keyword}/>
+                    <SearchList visibility={true} p_list={participants} keyword={keyword} dispatch={dispatch}/>
                   }
-                  <ParticipantsList p_list={participants} />
+                  <ParticipantsList p_list={participants} dispatch={dispatch}/>
                 </div>
               </div>
             </FormItem>
