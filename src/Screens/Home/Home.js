@@ -168,7 +168,7 @@ const Home = () => {
       </Helmet>
       <MainHeader />
       <DailyAverageHeaderContainer>
-        <DailyAverageTitle>총 수치 (평균 수치)</DailyAverageTitle>
+        <DailyAverageTitle>총 수치 (평균 수치){DailyPersonAverage[0][0]}</DailyAverageTitle>
         <Space>
           <DatePicker
             onChange={onChangeDate}
