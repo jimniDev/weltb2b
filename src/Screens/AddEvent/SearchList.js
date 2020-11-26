@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
+import {users} from '../../user_info.json'; //전체 유저
 
 const Wrapper = styled.ul`
     height: 150px;
@@ -7,25 +8,56 @@ const Wrapper = styled.ul`
     overflow-y: scroll;
 `;
 
-const SearchList = ({visibility}) => {
-    const [list, setList] = useState([
-        {id: 1, name: "김지민", email: "abc@gmail.com"},
-        {id: 2, name: "김지민", email: "abc@gmail.com"},
-        {id: 3, name: "김지민", email: "abc@gmail.com"},
-        {id: 4, name: "김지민", email: "abc@gmail.com"},
-    ]);
+const Li = styled.li`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 7px 14px;
+`
+
+const SearchList = ({visibility, p_list, keyword}) => {
+    const [ulist, setUList] = useState(users);
+
+    const onSelect = (uid, isChecked, userObj) => {
+        console.log("uid: "+ uid);
+        console.log("isChecked: "+ isChecked);
+
+        if(isChecked){
+            //uid로 찾아서 p_list에서 제거
+            isChecked = false
+            for(let i = 0; i < p_list.length; i++){ 
+                if ( p_list[i].uid === uid) { 
+                    console.log(p_list[i].name);
+                    p_list.splice(i, 1); 
+                }
+            }
+        }else{
+            //p_list에 추가
+            p_list.push(userObj);
+            isChecked = true
+        }
+    }
+
+    const Row = ({userObj, uid, name, email, isChecked}) => {
+        return (
+            <Li key={uid}>
+                <p styled={{color: "#707070"}}>{name}({email})</p>
+                <p onClick={e => onSelect(uid, isChecked, userObj)}>{isChecked? "선택": "미선택"}</p>
+            </Li>
+        )
+    }
 
     return (
         <>
             {visibility &&
                 <Wrapper>
-                    {list.map(l => (
-                            <li>
-                                <p>{l.name}</p>
-                                <p>{l.email}</p>
-                            </li>
+                    {ulist.map(user => {
+                        var show = ((user.name).includes(keyword) || (user.email).includes(keyword));
+                        var isChecked = p_list.includes(user)
+                        return(
+                            show? (<Row userObj={user} uid={user.uid} name={user.name} email={user.email} isChecked={isChecked} />):(<></>)
                         )
-                    )}
+                    })}
                 </Wrapper>
             }
         </>

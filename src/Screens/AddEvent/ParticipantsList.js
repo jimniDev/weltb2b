@@ -25,20 +25,30 @@ export const Name = styled.p`
     margin-right: 10px;
 `
 
-const ParticipantsList = ({list}) => {
+const ParticipantsList = ({p_list}) => {
 
-    const [plist, setPlist] = useState(list)
-    const onDelete = () => {
-        alert("삭제");
+    const [plist, setPList] = useState(p_list)
+    const onDelete = (uid) => {
+        var r = window.confirm(uid+"삭제");
+        if (r == true) {
+            // P_list에서 삭제
+            
+
+            for(let i = 0; i < p_list.length; i++){ 
+                if ( p_list[i].uid === uid) { 
+                    console.log(p_list[i].name);
+                    p_list.splice(i, 1); 
+                }
+            }
+        }
     }
 
     return(
         <Ul>
             {plist.map(p => {
-                console.log(p);
                 return (<Li>
-                    <Name>{p}</Name>
-                    <p onClick={onDelete}>x</p>
+                    <Name>{p.name}</Name>
+                    <p onClick={e => onDelete(p.uid)}>x</p>
                 </Li>)
             })}
         </Ul>

@@ -72,8 +72,8 @@ export const CheckboxLabelDefault = styled.label`
   display: inline-block;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: ${(props) => (props.isChecked ? "#fff" : "#4F42A7")};
-  color: ${(props) => (props.isChecked ? "#707070" : "#fff")};
+  background-color: ${(props) => (props.isChecked ?  "#4F42A7":"#fff")};
+  color: ${(props) => (props.isChecked ?  "#fff":"#707070")};
 
   &:checked::before {
     background-color: "#4F42A7";
@@ -120,11 +120,13 @@ export const SearchBox = styled.div`
   width: 100%;
   height: 40px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
 `;
 
 export const SearchInput = styled.input`
-  width: 80%;
+  width: 90%;
   border: none;
 `;

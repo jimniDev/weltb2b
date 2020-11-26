@@ -24,6 +24,9 @@ import { useHistory } from "react-router-dom";
 import SearchImg from "../../assets/img/SearchImg";
 import ParticipantsList from "./ParticipantsList";
 import SearchList from "./SearchList";
+import {users} from '../../user_info.json';
+import { dbService } from "../../fbase";
+
 
 const AddEvent = () => {
   const history = useHistory();
@@ -33,34 +36,17 @@ const AddEvent = () => {
   const [startdate, setStartdate] = useState(new Date());
   const [enddate, setEnddate] = useState(new Date());
   const [keyword, setKeyword] = useState("");
-  const [participants, setParticipants] = useState([
-    "고서영",
-    "최서희",
-    "사연진",
-    "최승연",
-    "이현세",
-    "김지민",
-    "박지호",
-    "고서영",
-    "최서희",
-    "사연진",
-    "최승연",
-    "이현세",
-    "김지민",
-    "박지호",
-  ]);
+  const [participants, setParticipants] = useState([]);
   const [memo, setMemo] = useState("");
-  const [isChecked, setIsChecked] = useState(true);
   const [dataInfo, setDataInfo] = useState([
-    { id: 1, name: "step", value: "걸음 수", isChecked },
-    { id: 2, name: "waist", value: "허리둘레", isChecked },
-    { id: 3, name: "calories", value: "소모칼로리", isChecked },
-    { id: 4, name: "distance", value: "걸음거리", isChecked },
-    { id: 5, name: "gaitSpeed", value: "걸음속도", isChecked },
+    { id: 1, name: "step", value: "걸음 수", isChecked:false },
+    { id: 2, name: "waist", value: "허리둘레", isChecked:false },
+    { id: 3, name: "calories", value: "소모칼로리", isChecked:false },
+    { id: 4, name: "distance", value: "걸음거리", isChecked:false },
+    { id: 5, name: "gaitSpeed", value: "걸음속도", isChecked:false },
   ]);
 
   useEffect(() => {
-    setDataInfo(dataInfo);
     if (keyword == "") {
       //전체 보여주기
     } else {
@@ -68,7 +54,7 @@ const AddEvent = () => {
       console.log(keyword + " 검색");
     }
     return () => {};
-  }, [keyword, dataInfo]);
+  }, [keyword, dataInfo, participants]);
 
   const onChange = (event) => {
     const {
@@ -125,7 +111,7 @@ const AddEvent = () => {
       "기간2: " +
       enddate +
       "\n" +
-      "참가자리스트: " +
+      "참가자리스트: " + participants +
       "\n" +
       "메모: " +
       memo;
@@ -140,6 +126,20 @@ const AddEvent = () => {
       alert("기간을 선택해주세요.");
     } else {
       alert(str + "등록 완료");
+      const eventObj = {
+        title: title,
+        selectedList: selectedList,
+        startdate: startdate,
+        enddate: enddate,
+        participants: participants,
+        memo: memo
+      };
+      dbService
+        .collection("event")
+        .add(eventObj)
+        .then((docRef) => {
+          history.goBack()
+        });
     }
     // 빈 참가리스트 예외처리
 
@@ -153,7 +153,7 @@ const AddEvent = () => {
         selectedList.push(data.name);
       }
     });
-    console.log(selectedList);
+    // console.log(selectedList);
     return selectedList;
   };
 
@@ -167,7 +167,7 @@ const AddEvent = () => {
           name={props.name}
           key={props.id}
           type="checkbox"
-          checked={isChecked}
+          checked={props.isChecked}
           value={props.value}
           id={props.name}
           onChange={props.handleCheckbox}
@@ -180,22 +180,11 @@ const AddEvent = () => {
     let {
       target: { value, checked },
     } = event;
-
-    setIsChecked(checked);
-
     setDataInfo((prevState) =>
       prevState.map((data) =>
         data.value === value ? { ...data, isChecked: checked } : data
       )
     );
-  };
-
-  const onFocus = (e) => {
-    // e.preventDefault();
-    // const { nativeEvent: { target: {name} }} = e;
-    // if(name === "keyword"){
-    //   console.log("keyword focus");
-    // }
   };
 
   return (
@@ -255,13 +244,14 @@ const AddEvent = () => {
                     name="keyword"
                     value={keyword}
                     onChange={onChange}
-                    onFocus={onFocus}
                   />
                   <SearchImg />
                 </SearchBox>
                 <div>
-                  <SearchList visibility={true} />
-                  <ParticipantsList list={participants} />
+                  {(keyword != "") &&
+                    <SearchList visibility={true} p_list={participants} keyword={keyword}/>
+                  }
+                  <ParticipantsList p_list={participants} />
                 </div>
               </div>
             </FormItem>
@@ -278,7 +268,7 @@ const AddEvent = () => {
           </Form>
           <ButtonWrapper>
             <CancelButton onClick={onCancelBtn}>취소하기</CancelButton>
-            <SubmitButton onSubmit={onSubmitBtn}>등록하기</SubmitButton>
+            <SubmitButton onClick={onSubmitBtn}>등록하기</SubmitButton>
           </ButtonWrapper>
         </AddEventModal>
       </AddEventBackground>
