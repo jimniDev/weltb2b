@@ -161,7 +161,9 @@ const Event = () => {
             걸음 수{" "}
             <InfoCircleOutlined style={{ fontSize: 14, marginLeft: 4 }} />
           </StepHeaderContainer>
-          <LineChart />
+          <LineChart
+            num={2}
+          />
         </StepContainer>
         <PersonalRankingContainer>
           <Ranking />
