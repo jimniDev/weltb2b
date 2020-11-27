@@ -95,7 +95,7 @@ const EventHeaderContainer = styled.div`
 const EventHeaderName = styled.h2``;
 
 const Home = () => {
-  const [date, setDate] = useState("2020-10-05");
+  const [date, setDate] = useState("2020-11-05");
   const [dailyAvg, setDailyAvg] = useState(0);
   const [steps, setSteps] = useState(null);
   const [waist, setWaist] = useState(null);
@@ -199,6 +199,8 @@ const Home = () => {
     d.count = mon["monthlyData"][i].step;
     LineArray.push(d);
   }
+
+  console.log(LineArray[0]);
 
   return (
     <>

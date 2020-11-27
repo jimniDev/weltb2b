@@ -37,8 +37,8 @@ const LineChart = ({ count, data, num }) => {
         interactions={["element-active"]}
       >
         <Legend position={"top-left"}></Legend>
-        <Line shape="line" position="month*count" color="year" label={""} />
-        <Point position="month*count" color="year" />
+        <Line shape="line" position="timeid*rank" color="name" label={""} />
+        <Point position="timeid*rank" color="name" />
         <Tooltip shared showCrosshairs />
       </Chart>
     );
