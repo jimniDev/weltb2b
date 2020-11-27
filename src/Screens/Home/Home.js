@@ -185,6 +185,16 @@ const Home = () => {
     }
   }
 
+  var LineArray = new Array();
+  for(var i=0;i<mon["monthlyData"].length;i++){
+    var d = new Object();
+
+    d.month = mon["monthlyData"][i].timeid.slice(-2);
+    d.year = mon["monthlyData"][i].timeid.slice(0,4);
+    d.count = mon["monthlyData"][i].step;
+    LineArray.push(d);
+  }
+
   return (
     <>
       <Helmet>
@@ -245,7 +255,10 @@ const Home = () => {
             걸음 수{" "}
             <InfoCircleOutlined style={{ fontSize: 14, marginLeft: 4 }} />
           </StepHeaderContainer>
-          <LineChart />
+          <LineChart
+            data={LineArray}
+            num={1}
+          />
         </StepContainer>
         <PersonalRankingContainer>
           <Ranking />
