@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Button, DatePicker, Space } from "antd";
 import {
@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
 import data from "../../data.json";
+import userdata from "../../assets/data/userdata.json";
 
 const DailyAverageHeaderContainer = styled.div`
   width: 100%;
@@ -95,6 +96,9 @@ const EventHeaderContainer = styled.div`
 const EventHeaderName = styled.h2``;
 
 const Home = () => {
+  const [userData, setUserData] = useState(userdata);
+
+  const [date, setDate] = useState("");
   let avg_dis = 100;
   let today_dis = 70;
   let yes_dis = 80;
@@ -110,15 +114,21 @@ const Home = () => {
   let avg_v = 10;
   let today_v = 9.4;
   let yes_v = 7.6;
+
   // get Date function
   const onChangeDate = (event) => {
+    console.log(event);
     if (!event && typeof event !== Object) return;
 
     // evnet Handler Error
-    const { _i } = event;
-    console.log(` 연간 _i`, _i);
-    console.log(event);
+    const { _d } = event;
+    setDate(moment(_d).format("YYYY-MM-DD"));
   };
+
+  useEffect(() => {
+    console.log("here");
+    return () => {};
+  }, [date]);
 
   return (
     <>
