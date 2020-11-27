@@ -7,9 +7,11 @@ export const Ul = styled.ul`
     flex-wrap:wrap;
     margin-top: 10px;
     margin-bottom: 30px; 
-    height: 200px;
+    height: 100%;
     overflow-y: scroll;
     align-content: flex-start;
+    position: absolute;
+    top: 0; left: 0;
 `
 export const Li = styled.li`
     border: none;
@@ -28,8 +30,8 @@ export const Name = styled.p`
 
 const ParticipantsList = ({p_list, dispatch}) => {
 
-    const onDelete = (uid) => {
-        var r = window.confirm(uid+"삭제");
+    const onDelete = (uid, name, email) => {
+        var r = window.confirm(`${name}(${email})님을 삭제하시겠습니까?`);
         if (r == true) {
             dispatch({ type: REMOVE_PARTICIPANTS, uid });
         }
@@ -40,7 +42,7 @@ const ParticipantsList = ({p_list, dispatch}) => {
             {p_list.map(p => {
                 return (<Li>
                     <Name>{p.name}</Name>
-                    <p onClick={e => onDelete(p.uid)}>x</p>
+                    <p onClick={e => onDelete(p.uid, p.name, p.email)}>x</p>
                 </Li>)
             })}
         </Ul>

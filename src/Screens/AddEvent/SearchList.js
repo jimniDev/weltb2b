@@ -7,6 +7,11 @@ const Wrapper = styled.ul`
     height: 150px;
     border: 1px solid #CCCCCC;
     overflow-y: scroll;
+    position: absolute;
+    top: 0; left: 0;
+    background-color: white;
+    z-index: 1;
+    width: 100%;
 `;
 
 const Li = styled.li`
@@ -21,11 +26,9 @@ const SearchList = ({visibility, p_list, keyword, dispatch}) => {
 
     const onSelect = (uid, isChecked, userObj) => {
         if(isChecked){
-            //uid로 찾아서 p_list에서 제거
             isChecked = false
             dispatch({ type: REMOVE_PARTICIPANTS, uid });
         }else{
-            //p_list에 추가
             isChecked = true
             dispatch({ type: ADD_PARTICIPANTS, userObj });
         }

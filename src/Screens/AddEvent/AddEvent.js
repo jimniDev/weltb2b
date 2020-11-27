@@ -285,7 +285,7 @@ const AddEvent = () => {
                   />
                   <SearchImg />
                 </SearchBox>
-                <div>
+                <div style={{position: "relative", height: "200px"}}>
                   {(keyword != "") &&
                     <SearchList visibility={true} p_list={participants} keyword={keyword} dispatch={dispatch}/>
                   }
