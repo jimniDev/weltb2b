@@ -103,7 +103,8 @@ const PersonalRankingContainer = styled.div`
 const Event = () => {
   const { eventData } = data;
   const [eventDetail, setEventDetail] = useState(eventData[0]);
-  const [taskData, setTaskData] = useState(Array());
+  const [taskData, setTaskData] = useState([]);
+  const [rankingData, setRankingData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const onChangeEvent = (value) => {
@@ -111,7 +112,7 @@ const Event = () => {
     setEventDetail(eventData.find((event) => event.title === value));
   };
 
-  let dataSet = new Array();
+  let dataSet = [];
 
   let event_index;
   const date = new Date();
@@ -136,7 +137,7 @@ const Event = () => {
             console.log(taskData.length);
           });
           for (let i = 0; i < taskData.length; i++) {
-            if (/*eventDetail.title*/ "ㅁㅁ" == taskData[i].title) {
+            if (/*eventDetail.title*/ "ㅁㅁ" === taskData[i].title) {
               //여기서 이벤트 타이틀만 ㅁㅁ 대신 넣어주면 끝
               event_index = i;
               break;
@@ -226,22 +227,22 @@ const Event = () => {
           //dataSet 생성
           for (let j = 0; j < arr[0].length; j++) {
             for (let i = 0; i < arr.length; i++) {
-              if (avg_rank_point[i][j] == 1) {
-                let o = new Object();
+              if (avg_rank_point[i][j] === 1) {
+                let o = {};
                 o.timeid = user[ev.participants[i].uid][j + day_index].timeid;
                 o.name = ev.participants[i].name;
                 o.rank = 1;
                 dataSet.push(o);
               }
-              if (avg_rank_point[i][j] == 2) {
-                let o = new Object();
+              if (avg_rank_point[i][j] === 2) {
+                let o = {};
                 o.timeid = user[ev.participants[i].uid][j + day_index].timeid;
                 o.name = ev.participants[i].name;
                 o.rank = 2;
                 dataSet.push(o);
               }
-              if (avg_rank_point[i][j] == 3) {
-                let o = new Object();
+              if (avg_rank_point[i][j] === 3) {
+                let o = {};
                 o.timeid = user[ev.participants[i].uid][j + day_index].timeid;
                 o.name = ev.participants[i].name;
                 o.rank = 3;
@@ -253,10 +254,10 @@ const Event = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      console.log(`dataset`, dataSet);
+      setRankingData(dataSet);
       setLoading(false);
     }
-  });
+  }, []);
 
   useEffect(() => {
     fetchData();
@@ -320,7 +321,7 @@ const Event = () => {
                 순위 그래프{" "}
                 <InfoCircleOutlined style={{ fontSize: 14, marginLeft: 4 }} />
               </StepHeaderContainer>
-              <LineChart data={dataSet} num={2} />
+              <LineChart data={rankingData} num={2} />
             </StepContainer>
             <PersonalRankingContainer>
               <Ranking />

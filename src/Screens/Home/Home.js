@@ -6,14 +6,11 @@ import PieChart from "../../Components/PieChart";
 import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
 import moment from "moment";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
-import data from "../../data.json";
 import user from "../../userdata.json";
 import mon from "../../monthlyData.json";
-import { func } from "prop-types";
-import { Line } from "bizcharts/lib/components/Annotation";
 
 const DailyAverageHeaderContainer = styled.div`
   width: 100%;
@@ -96,12 +93,6 @@ const EventHeaderName = styled.h2``;
 
 const Home = () => {
   const [date, setDate] = useState("2020-11-05");
-  const [dailyAvg, setDailyAvg] = useState(0);
-  const [steps, setSteps] = useState(null);
-  const [waist, setWaist] = useState(null);
-  const [calories, setCalories] = useState(null);
-  const [gaitSpeed, setGaitSpeed] = useState(null);
-  const [distance, setDistance] = useState(null);
 
   // get Date function
   const onChangeDate = (event) => {
