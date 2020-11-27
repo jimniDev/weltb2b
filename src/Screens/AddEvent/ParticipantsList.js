@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import { REMOVE_PARTICIPANTS } from "./AddEvent";
 
@@ -33,7 +32,7 @@ export const Name = styled.p`
 const ParticipantsList = ({ p_list, dispatch }) => {
   const onDelete = (uid, name, email) => {
     var r = window.confirm(`${name}(${email})님을 삭제하시겠습니까?`);
-    if (r == true) {
+    if (r) {
       dispatch({ type: REMOVE_PARTICIPANTS, uid });
     }
   };

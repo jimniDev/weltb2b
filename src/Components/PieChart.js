@@ -3,18 +3,8 @@ import { AiOutlineEnvironment } from "react-icons/ai";
 import { AiTwotoneFire } from "react-icons/ai";
 import { BiWalk } from "react-icons/bi";
 import { GiBelt } from "react-icons/gi";
-import { useState } from "react";
 
 const PieChart = ({ percent, color, total, subTitle, con, num }) => {
-  const [state, setState] = useState({
-    percent,
-    color,
-    total,
-    subTitle,
-    con,
-    num,
-  });
-
   let arr;
   if (con >= 0) arr = "▲";
   else arr = "▼";

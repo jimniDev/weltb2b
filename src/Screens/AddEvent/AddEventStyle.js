@@ -1,4 +1,3 @@
-import Search from "antd/lib/input/Search";
 import styled from "styled-components";
 
 export const AddEventBackground = styled.div`
@@ -72,8 +71,8 @@ export const CheckboxLabelDefault = styled.label`
   display: inline-block;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: ${(props) => (props.isChecked ?  "#4F42A7":"#fff")};
-  color: ${(props) => (props.isChecked ?  "#fff":"#707070")};
+  background-color: ${(props) => (props.isChecked ? "#4F42A7" : "#fff")};
+  color: ${(props) => (props.isChecked ? "#fff" : "#707070")};
 
   &:checked::before {
     background-color: "#4F42A7";

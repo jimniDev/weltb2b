@@ -9,8 +9,6 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
-import data from "../../assets/data/data.json";
-import userdata from "../../assets/data/userdata.json";
 
 const DailyAverageHeaderContainer = styled.div`
   width: 100%;
@@ -92,14 +90,11 @@ const EventHeaderContainer = styled.div`
 const EventHeaderName = styled.h2``;
 
 const Home = () => {
-  const [userData, setUserData] = useState(userdata);
-
   const [date, setDate] = useState("");
   let avg_dis = 100;
   let today_dis = 70;
   let yes_dis = 80;
 
-  let avg_waist = 28;
   let today_waist = 35;
   let yes_waist = 34;
 

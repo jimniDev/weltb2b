@@ -20,7 +20,7 @@ import {
   SearchInput,
 } from "./AddEventStyle";
 import { useHistory } from "react-router-dom";
-import SearchImg from "../../assets/img/SearchImg";
+import SearchImg from "../../assets/images/SearchImg";
 import ParticipantsList from "./ParticipantsList";
 import SearchList from "./SearchList";
 import { dbService } from "../../fbase";

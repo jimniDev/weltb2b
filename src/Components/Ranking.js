@@ -96,7 +96,7 @@ const Ranking = () => {
   };
 
   const tagRender = (props) => {
-    const { label, value, closable, onClose } = props;
+    const { label, closable, onClose } = props;
 
     return (
       <Tag closable={closable} onClose={onClose}>
