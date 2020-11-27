@@ -7,6 +7,8 @@ import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
 import Helmet from "react-helmet";
 import JSON from "../../data.json";
+import {firestore} from "../../firebase";
+import user from "../../userdata.json";
 
 const StatusObj = {
   0: {
