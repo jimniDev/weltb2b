@@ -13,6 +13,7 @@ import data from "../../data.json";
 import user from "../../userdata.json";
 import mon from "../../monthlyData.json";
 import { func } from "prop-types";
+import { Line } from "bizcharts/lib/components/Annotation";
 
 const DailyAverageHeaderContainer = styled.div`
   width: 100%;
@@ -125,6 +126,8 @@ const Home = () => {
     return () => {};
   }, []);
 
+  console.log(user["1nhBflpO9ehPOndqzldvHWB3ILS2"]);
+
   // 각 날짜 별 user의 평균 데이터
   const DailyPersonAverage = Object.values(user).map((el) => {
     return [
@@ -153,6 +156,8 @@ const Home = () => {
     return acc;
   }, []).map((e) => e / DailyPersonAverage.length);
 
+  console.log(DailyPersonAverage);
+
   let YesPeopleAverage = YesPersonAverage.reduce((acc, cur) => {
     cur.forEach(
       (e, i) => (acc[i] = acc[i] ? acc[i] + parseInt(e) : parseInt(e))
@@ -163,8 +168,8 @@ const Home = () => {
   // 일 user 전체 평균 data
   //console.log(DailyPeopleAverage);
 
-  for(var i=0;i<mon["monthlyData"].length;i++){
-    if(date.slice(0, 7) == mon["monthlyData"][i].timeid){
+  for (var i = 0; i < mon["monthlyData"].length; i++) {
+    if (date.slice(0, 7) == mon["monthlyData"][i].timeid) {
       var avg_dis = mon["monthlyData"][i].distance;
       var today_dis = DailyPeopleAverage[4];
       var yes_dis = YesPeopleAverage[4];
@@ -186,11 +191,11 @@ const Home = () => {
   }
 
   var LineArray = new Array();
-  for(var i=0;i<mon["monthlyData"].length;i++){
+  for (var i = 0; i < mon["monthlyData"].length; i++) {
     var d = new Object();
 
     d.month = mon["monthlyData"][i].timeid.slice(-2);
-    d.year = mon["monthlyData"][i].timeid.slice(0,4);
+    d.year = mon["monthlyData"][i].timeid.slice(0, 4);
     d.count = mon["monthlyData"][i].step;
     LineArray.push(d);
   }
@@ -255,10 +260,7 @@ const Home = () => {
             걸음 수{" "}
             <InfoCircleOutlined style={{ fontSize: 14, marginLeft: 4 }} />
           </StepHeaderContainer>
-          <LineChart
-            data={LineArray}
-            num={1}
-          />
+          <LineChart data={LineArray} num={1} />
         </StepContainer>
         <PersonalRankingContainer>
           <Ranking />
