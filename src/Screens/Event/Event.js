@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
 import MainHeader from "../../Components/MainHeader";
 import { DeleteOutlined, InfoCircleOutlined } from "@ant-design/icons";
@@ -6,7 +6,7 @@ import { Select } from "antd";
 import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
 import Helmet from "react-helmet";
-import JSON from "../../data.json";
+import data from "../../data.json";
 import {firestore} from "../../firebase";
 import user from "../../userdata.json";
 
@@ -100,7 +100,7 @@ const PersonalRankingContainer = styled.div`
 `;
 
 const Event = () => {
-  const { eventData } = JSON;
+  const { eventData } = data;
   const [eventDetail, setEventDetail] = useState(eventData[0]);
 
   const onChangeEvent = (value) => {
@@ -108,6 +108,150 @@ const Event = () => {
     setEventDetail(eventData.find((event) => event.title === value));
   };
 
+  var dataSet = new Array();
+
+  var taskData = Array();
+  var event_index;
+  const date = new Date();
+  var today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+  console.log(today);
+  const fetchData = useCallback(()=> {
+    firestore.collection("event").get().then((docs) => {
+      docs.forEach((doc) => {
+        taskData.push({
+          title:doc.data().title,
+          participants: doc.data().participants, 
+          selectedList: doc.data().selectedList,
+          id: doc.id, 
+          startdate:doc.data().startdate, 
+          enddate:doc.data().enddate});
+        console.log(taskData.length);
+      });
+      for(var i=0;i<taskData.length;i++){
+        if(/*eventDetail.title*/"ㅁㅁ" == taskData[i].title){//여기서 이벤트 타이틀만 ㅁㅁ 대신 넣어주면 끝
+          event_index = i; break;
+        }
+      }
+      let end;
+      if(taskData[event_index].enddate > today) end = today;
+      else end = taskData[event_index].enddate;
+      var ev = taskData[event_index];      
+      console.log(ev);
+      var term = end.slice(-2) - ev.startdate.slice(-2) + 1;
+      console.log(user[ev.participants[0].uid][i].timeid);
+
+      //3차원 배열 생성
+      var arr = new Array(ev.participants.length);
+      var rank = new Array(ev.participants.length);
+      var avg_rank = new Array(ev.participants.length);
+      var avg_rank_point = new Array(ev.participants.length);
+      for(var i=0;i<arr.length;i++){
+        arr[i] = new Array(term);
+        rank[i] = new Array(term);
+        avg_rank[i] = new Array(term);
+        avg_rank_point[i] = new Array(term);
+        for(var j=0;j<arr[i].length;j++){
+          arr[i][j] = new Array(ev.selectedList.length);
+          rank[i][j] = new Array(ev.selectedList.length);
+          avg_rank_point[i][j] = 1;
+          for(var k=0;k<ev.selectedList.length;k++){
+            rank[i][j][k] = 1;
+          }
+        }
+      }
+
+      var cnt = 0;//기간 내 카운트
+      var day_index;
+      var flag = true;
+      
+      //배열에 데이터 저장
+      for(var i=0;i<user[ev.participants[0].uid].length;i++){
+        if(user[ev.participants[0].uid][i].timeid >= ev.startdate){
+          if(flag){
+            day_index = i;
+            flag = false;
+          }
+          if(cnt < term){
+            for(var j=0;j<ev.participants.length;j++){
+              for(var k=0;k<ev.selectedList.length;k++){
+                arr[j][cnt][k] = user[ev.participants[j].uid][i][ev.selectedList[k]];
+                console.log(arr[j][cnt][k]);
+              }
+            }
+            cnt += 1;
+          }
+          else break;
+        }
+      }
+      //카테고리 별 랭크 산출
+      for(var k=0;k<arr[0][0].length;k++){
+        for(var j=0;j<arr[0].length;j++){
+          for(var i=0;i<arr.length-1;i++){
+            for(var x=i+1;x<arr.length;x++){
+              if(arr[i][j][k] < arr[x][j][k]) rank[i][j][k] += 1;
+              else rank[x][j][k] += 1;
+            }
+          }
+        }
+      }
+      //카테고리 별 랭크의 평균
+      for(var i=0;i<arr.length;i++){
+        for(var j=0;j<arr[i].length;j++){
+          var sum = 0;
+          for(var k=0;k<arr[i][j].length;k++){
+            sum += rank[i][j][k];
+          }
+          avg_rank[i][j] = sum / arr[i][j].length;
+        }
+      }
+      //랭크 평균의 랭크 산출
+      for(var j=0;j<arr[0].length;j++){
+        for(var i=0;i<arr.length-1;i++){
+          for(var x=i+1;x<arr.length;x++){
+            if(avg_rank[i][j] < avg_rank[x][j]) avg_rank_point[i][j] += 1;
+            else avg_rank_point[x][j] += 1;
+          }
+        }
+      }
+      //dataSet 생성
+      for(var j=0;j<arr[0].length;j++){
+        for(var i=0;i<arr.length;i++){
+          if(avg_rank_point[i][j] == 1){
+            var o = new Object();
+            o.timeid = user[ev.participants[i].uid][j+day_index].timeid;
+            o.name = ev.participants[i].name;
+            o.rank = 1;
+            dataSet.push(o);
+          }
+          if(avg_rank_point[i][j] == 2){
+            var o = new Object();
+            o.timeid = user[ev.participants[i].uid][j+day_index].timeid;
+            o.name = ev.participants[i].name;
+            o.rank = 2;
+            dataSet.push(o);
+          }
+          if(avg_rank_point[i][j] == 3){
+            var o = new Object();
+            o.timeid = user[ev.participants[i].uid][j+day_index].timeid;
+            o.name = ev.participants[i].name;
+            o.rank = 3;
+            dataSet.push(o);
+          }
+        }
+      }
+
+      console.log(dataSet);
+
+    });
+  }, []);
+
+  useEffect(()=>{
+    fetchData();
+  }, [fetchData]);
+
+  //console.log(dataSet.length);
+  
+    
   return (
     <>
       <Helmet>
@@ -160,10 +304,11 @@ const Event = () => {
       <RankingContaier>
         <StepContainer>
           <StepHeaderContainer>
-            걸음 수{" "}
+            순위 그래프{" "}
             <InfoCircleOutlined style={{ fontSize: 14, marginLeft: 4 }} />
           </StepHeaderContainer>
           <LineChart
+            data={dataSet}
             num={2}
           />
         </StepContainer>
