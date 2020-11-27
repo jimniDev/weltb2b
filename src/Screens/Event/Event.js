@@ -249,20 +249,18 @@ const Event = () => {
               }
             }
           }
-          console.log(`dataset`, dataSet);
         });
     } catch (error) {
       console.log(error);
     } finally {
+      console.log(`dataset`, dataSet);
       setLoading(false);
     }
   });
 
   useEffect(() => {
     fetchData();
-  }, [taskData]);
-
-  //console.log(dataSet.length);
+  }, []);
 
   return (
     <>
