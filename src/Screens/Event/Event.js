@@ -119,142 +119,147 @@ const Event = () => {
     date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
   console.log(today);
   const fetchData = useCallback(async () => {
-    await firestore
-      .collection("event")
-      .get()
-      .then((docs) => {
-        docs.forEach((doc) => {
-          taskData.push({
-            title: doc.data().title,
-            participants: doc.data().participants,
-            selectedList: doc.data().selectedList,
-            id: doc.id,
-            startdate: doc.data().startdate,
-            enddate: doc.data().enddate,
+    try {
+      await firestore
+        .collection("event")
+        .get()
+        .then((docs) => {
+          docs.forEach((doc) => {
+            taskData.push({
+              title: doc.data().title,
+              participants: doc.data().participants,
+              selectedList: doc.data().selectedList,
+              id: doc.id,
+              startdate: doc.data().startdate,
+              enddate: doc.data().enddate,
+            });
+            console.log(taskData.length);
           });
-          console.log(taskData.length);
-        });
-        for (let i = 0; i < taskData.length; i++) {
-          if (/*eventDetail.title*/ "ㅁㅁ" == taskData[i].title) {
-            //여기서 이벤트 타이틀만 ㅁㅁ 대신 넣어주면 끝
-            event_index = i;
-            break;
-          }
-        }
-        let end;
-        if (taskData[event_index].enddate > today) end = today;
-        else end = taskData[event_index].enddate;
-        let ev = taskData[event_index];
-        console.log(ev);
-        let term = end.slice(-2) - ev.startdate.slice(-2) + 1;
-        // console.log(user[ev.participants[0].uid][i].timeid);
-
-        //3차원 배열 생성
-        let arr = new Array(ev.participants.length);
-        let rank = new Array(ev.participants.length);
-        let avg_rank = new Array(ev.participants.length);
-        let avg_rank_point = new Array(ev.participants.length);
-        for (let i = 0; i < arr.length; i++) {
-          arr[i] = new Array(term);
-          rank[i] = new Array(term);
-          avg_rank[i] = new Array(term);
-          avg_rank_point[i] = new Array(term);
-          for (let j = 0; j < arr[i].length; j++) {
-            arr[i][j] = new Array(ev.selectedList.length);
-            rank[i][j] = new Array(ev.selectedList.length);
-            avg_rank_point[i][j] = 1;
-            for (let k = 0; k < ev.selectedList.length; k++) {
-              rank[i][j][k] = 1;
+          for (let i = 0; i < taskData.length; i++) {
+            if (/*eventDetail.title*/ "ㅁㅁ" == taskData[i].title) {
+              //여기서 이벤트 타이틀만 ㅁㅁ 대신 넣어주면 끝
+              event_index = i;
+              break;
             }
           }
-        }
+          let end;
+          if (taskData[event_index].enddate > today) end = today;
+          else end = taskData[event_index].enddate;
+          let ev = taskData[event_index];
+          console.log(ev);
+          let term = end.slice(-2) - ev.startdate.slice(-2) + 1;
+          // console.log(user[ev.participants[0].uid][i].timeid);
 
-        let cnt = 0; //기간 내 카운트
-        let day_index;
-        let flag = true;
-
-        //배열에 데이터 저장
-        for (let i = 0; i < user[ev.participants[0].uid].length; i++) {
-          if (user[ev.participants[0].uid][i].timeid >= ev.startdate) {
-            if (flag) {
-              day_index = i;
-              flag = false;
+          //3차원 배열 생성
+          let arr = new Array(ev.participants.length);
+          let rank = new Array(ev.participants.length);
+          let avg_rank = new Array(ev.participants.length);
+          let avg_rank_point = new Array(ev.participants.length);
+          for (let i = 0; i < arr.length; i++) {
+            arr[i] = new Array(term);
+            rank[i] = new Array(term);
+            avg_rank[i] = new Array(term);
+            avg_rank_point[i] = new Array(term);
+            for (let j = 0; j < arr[i].length; j++) {
+              arr[i][j] = new Array(ev.selectedList.length);
+              rank[i][j] = new Array(ev.selectedList.length);
+              avg_rank_point[i][j] = 1;
+              for (let k = 0; k < ev.selectedList.length; k++) {
+                rank[i][j][k] = 1;
+              }
             }
-            if (cnt < term) {
-              for (let j = 0; j < ev.participants.length; j++) {
-                for (let k = 0; k < ev.selectedList.length; k++) {
-                  arr[j][cnt][k] =
-                    user[ev.participants[j].uid][i][ev.selectedList[k]];
-                  console.log(arr[j][cnt][k]);
+          }
+
+          let cnt = 0; //기간 내 카운트
+          let day_index;
+          let flag = true;
+
+          //배열에 데이터 저장
+          for (let i = 0; i < user[ev.participants[0].uid].length; i++) {
+            if (user[ev.participants[0].uid][i].timeid >= ev.startdate) {
+              if (flag) {
+                day_index = i;
+                flag = false;
+              }
+              if (cnt < term) {
+                for (let j = 0; j < ev.participants.length; j++) {
+                  for (let k = 0; k < ev.selectedList.length; k++) {
+                    arr[j][cnt][k] =
+                      user[ev.participants[j].uid][i][ev.selectedList[k]];
+                    console.log(arr[j][cnt][k]);
+                  }
+                }
+                cnt += 1;
+              } else break;
+            }
+          }
+          //카테고리 별 랭크 산출
+          for (let k = 0; k < arr[0][0].length; k++) {
+            for (let j = 0; j < arr[0].length; j++) {
+              for (let i = 0; i < arr.length - 1; i++) {
+                for (let x = i + 1; x < arr.length; x++) {
+                  if (arr[i][j][k] < arr[x][j][k]) rank[i][j][k] += 1;
+                  else rank[x][j][k] += 1;
                 }
               }
-              cnt += 1;
-            } else break;
+            }
           }
-        }
-        //카테고리 별 랭크 산출
-        for (let k = 0; k < arr[0][0].length; k++) {
+          //카테고리 별 랭크의 평균
+          for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+              let sum = 0;
+              for (let k = 0; k < arr[i][j].length; k++) {
+                sum += rank[i][j][k];
+              }
+              avg_rank[i][j] = sum / arr[i][j].length;
+            }
+          }
+          //랭크 평균의 랭크 산출
           for (let j = 0; j < arr[0].length; j++) {
             for (let i = 0; i < arr.length - 1; i++) {
               for (let x = i + 1; x < arr.length; x++) {
-                if (arr[i][j][k] < arr[x][j][k]) rank[i][j][k] += 1;
-                else rank[x][j][k] += 1;
+                if (avg_rank[i][j] < avg_rank[x][j]) avg_rank_point[i][j] += 1;
+                else avg_rank_point[x][j] += 1;
               }
             }
           }
-        }
-        //카테고리 별 랭크의 평균
-        for (let i = 0; i < arr.length; i++) {
-          for (let j = 0; j < arr[i].length; j++) {
-            let sum = 0;
-            for (let k = 0; k < arr[i][j].length; k++) {
-              sum += rank[i][j][k];
-            }
-            avg_rank[i][j] = sum / arr[i][j].length;
-          }
-        }
-        //랭크 평균의 랭크 산출
-        for (let j = 0; j < arr[0].length; j++) {
-          for (let i = 0; i < arr.length - 1; i++) {
-            for (let x = i + 1; x < arr.length; x++) {
-              if (avg_rank[i][j] < avg_rank[x][j]) avg_rank_point[i][j] += 1;
-              else avg_rank_point[x][j] += 1;
-            }
-          }
-        }
-        //dataSet 생성
-        for (let j = 0; j < arr[0].length; j++) {
-          for (let i = 0; i < arr.length; i++) {
-            if (avg_rank_point[i][j] == 1) {
-              let o = new Object();
-              o.timeid = user[ev.participants[i].uid][j + day_index].timeid;
-              o.name = ev.participants[i].name;
-              o.rank = 1;
-              dataSet.push(o);
-            }
-            if (avg_rank_point[i][j] == 2) {
-              let o = new Object();
-              o.timeid = user[ev.participants[i].uid][j + day_index].timeid;
-              o.name = ev.participants[i].name;
-              o.rank = 2;
-              dataSet.push(o);
-            }
-            if (avg_rank_point[i][j] == 3) {
-              let o = new Object();
-              o.timeid = user[ev.participants[i].uid][j + day_index].timeid;
-              o.name = ev.participants[i].name;
-              o.rank = 3;
-              dataSet.push(o);
+          //dataSet 생성
+          for (let j = 0; j < arr[0].length; j++) {
+            for (let i = 0; i < arr.length; i++) {
+              if (avg_rank_point[i][j] == 1) {
+                let o = new Object();
+                o.timeid = user[ev.participants[i].uid][j + day_index].timeid;
+                o.name = ev.participants[i].name;
+                o.rank = 1;
+                dataSet.push(o);
+              }
+              if (avg_rank_point[i][j] == 2) {
+                let o = new Object();
+                o.timeid = user[ev.participants[i].uid][j + day_index].timeid;
+                o.name = ev.participants[i].name;
+                o.rank = 2;
+                dataSet.push(o);
+              }
+              if (avg_rank_point[i][j] == 3) {
+                let o = new Object();
+                o.timeid = user[ev.participants[i].uid][j + day_index].timeid;
+                o.name = ev.participants[i].name;
+                o.rank = 3;
+                dataSet.push(o);
+              }
             }
           }
-        }
-        setLoading(false);
-        console.log(dataSet);
-      });
-  }, []);
+          console.log(`dataset`, dataSet);
+        });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  });
 
-  useEffect(async () => {
-    await fetchData();
+  useEffect(() => {
+    fetchData();
   }, [taskData]);
 
   //console.log(dataSet.length);
