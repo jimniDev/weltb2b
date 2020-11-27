@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Button, DatePicker, Progress, Select, Tag } from "antd";
 import { SwapOutlined } from "@ant-design/icons";
 import moment from "moment";
-import JSON from "../data.json";
+import JSON from "../assets/data/data.json";
 
 const PRItemContainer = styled.div`
   display: flex;
