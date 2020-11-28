@@ -93,6 +93,12 @@ const EventHeaderName = styled.h2``;
 
 const Home = () => {
   const [date, setDate] = useState("2020-11-05");
+  let userData = Object.entries(user).filter(
+    (person, index, array) => index <= 2
+  );
+  console.log(userData);
+
+  const [dailyAvg, setDailyAvg] = useState(0);
 
   // get Date function
   const onChangeDate = (event) => {
@@ -200,7 +206,9 @@ const Home = () => {
       </Helmet>
       <MainHeader />
       <DailyAverageHeaderContainer>
-        <DailyAverageTitle>총 수치 (평균 수치){}</DailyAverageTitle>
+        <DailyAverageTitle>
+          총 수치 (평균 수치){date} prevstate : {dailyAvg}
+        </DailyAverageTitle>
         <Space>
           <DatePicker
             onChange={onChangeDate}
