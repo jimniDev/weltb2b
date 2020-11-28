@@ -92,21 +92,29 @@ const EventHeaderContainer = styled.div`
 const EventHeaderName = styled.h2``;
 
 const Home = () => {
-  const [date, setDate] = useState("2020-11-05");
-  let userData = Object.entries(user).filter(
-    (person, index, array) => index <= 2
-  );
-  console.log(userData);
+  const [date, setDate] = useState("");
+  let avg_dis = 100;
+  let today_dis = 70;
+  let yes_dis = 80;
 
-  const [dailyAvg, setDailyAvg] = useState(0);
+  let today_waist = 35;
+  let yes_waist = 34;
+
+  let avg_kal = 10000;
+  let today_kal = 8400;
+  let yes_kal = 12500;
+
+  let avg_v = 10;
+  let today_v = 9.4;
+  let yes_v = 7.6;
 
   // get Date function
   const onChangeDate = (event) => {
-    // error Handle
-    if (!event && typeof event !== "object") return;
+    console.log(event);
+    if (!event && typeof event !== Object) return;
 
+    // evnet Handler Error
     const { _d } = event;
-
     setDate(moment(_d).format("YYYY-MM-DD"));
   };
 
@@ -221,16 +229,16 @@ const Home = () => {
         <DailyAverageItem>
           걸음 거리
           <PieChart
-            percent={((today_dis / avg_dis) * 50).toFixed(2)}
+            percent={(today_dis / avg_dis) * 50}
             color={"#2496EF"}
             con={(((today_dis - yes_dis) / today_dis) * 100).toFixed(2)}
             num={1}
-          />
+          />{" "}
         </DailyAverageItem>
         <DailyAverageItem>
           허리 둘레
           <PieChart
-            percent={((today_waist / avg_waist) * 50).toFixed(2)}
+            percent={(today_waist / avg_dis) * 50}
             color={"#EA3869"}
             con={(((today_waist - yes_waist) / today_waist) * 100).toFixed(2)}
             num={2}
@@ -239,7 +247,7 @@ const Home = () => {
         <DailyAverageItem>
           소모 칼로리
           <PieChart
-            percent={((today_kal / avg_kal) * 50).toFixed(2)}
+            percent={(today_kal / avg_kal) * 50}
             color={"#FFC54E"}
             con={(((today_kal - yes_kal) / today_kal) * 100).toFixed(2)}
             num={3}
@@ -248,7 +256,7 @@ const Home = () => {
         <DailyAverageItem>
           걸음 속도
           <PieChart
-            percent={((today_v / avg_v) * 50).toFixed(2)}
+            percent={(today_v / avg_v) * 50}
             color={"#52DDE1"}
             con={(((today_v - yes_v) / today_v) * 100).toFixed(2)}
             num={4}

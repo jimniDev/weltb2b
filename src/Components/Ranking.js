@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Button, DatePicker, Progress, Select } from "antd";
+import { Button, DatePicker, Progress, Select, Tag } from "antd";
 import { SwapOutlined } from "@ant-design/icons";
 import moment from "moment";
-import JSON from "../data.json";
+import JSON from "../assets/data/data.json";
 
 const PRItemContainer = styled.div`
   display: flex;
@@ -29,6 +29,7 @@ const RankContainer = styled.div`
     border-radius: 6px;
   }
 `;
+
 const RankItemContainer = styled.div`
   display: flex;
   align-items: center;
@@ -60,18 +61,6 @@ const RankItem = styled.span`
   margin-left: 12px;
 `;
 
-const sortAscObj = (a, b) => {
-  return a.item > b.item ? -1 : a.item < b.item ? 1 : 0;
-};
-
-const sortDescObj = (a, b) => {
-  return a.item < b.item ? -1 : a.item > b.item ? 1 : 0;
-};
-
-const numberWithCommas = (x) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-};
-
 let firstItem = 0;
 
 const Ranking = () => {
@@ -84,13 +73,36 @@ const Ranking = () => {
   };
 
   const onChangeRank = (event) => {
-    if (typeof event !== String) return;
+    if (!event && typeof event !== "object") return;
+    console.log(typeof event);
   };
 
   const onChangeDate = (event) => {
-    // evnet Handler Error
-    if (typeof event !== Object) return;
-    const { _d } = event;
+    if (!event && typeof event !== Object) return;
+    const { _i } = event;
+    console.log(`월간 : _i ${_i}`);
+  };
+
+  const sortAscObj = (a, b) => {
+    return a.item > b.item ? -1 : a.item < b.item ? 1 : 0;
+  };
+
+  const sortDescObj = (a, b) => {
+    return a.item < b.item ? -1 : a.item > b.item ? 1 : 0;
+  };
+
+  const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const tagRender = (props) => {
+    const { label, closable, onClose } = props;
+
+    return (
+      <Tag closable={closable} onClose={onClose}>
+        {label}
+      </Tag>
+    );
   };
 
   return (
@@ -107,7 +119,15 @@ const Ranking = () => {
       </PRItemContainer>
       <PRItemContainer>
         <Select
-          style={{ width: 300, height: 32, borderRadius: 6, color: "#707070" }}
+          mode="multiple"
+          tagRender={tagRender}
+          style={{
+            width: 300,
+            height: 32,
+            borderRadius: 6,
+            color: "#707070",
+          }}
+          placeholder="Please Select"
           defaultValue={"걸음 수"}
           onChange={onChangeRank}
         >

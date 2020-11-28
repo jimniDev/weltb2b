@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Chart, Legend, Line, Point, Tooltip } from "bizcharts";
-import JSON from "../data.json";
+import JSON from "../assets/data/data.json";
 
 const mountNode = document.getElementById("root");
 

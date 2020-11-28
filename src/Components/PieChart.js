@@ -18,7 +18,7 @@ const PieChart = ({ percent, color, total, subTitle, con, num }) => {
           <div style={{ fontSize: 8, marginTop: 20 }}>
             어제 대비 {con}
             {arr}
-            <div style={{ fontSize: 14, marginTop: 4 }}>{percent}%</div>
+            <div style={{ fontSize: 14, marginTop: 4 }}>{percent}</div>
           </div>
         }
         subTitle={
@@ -35,7 +35,7 @@ const PieChart = ({ percent, color, total, subTitle, con, num }) => {
           <div style={{ fontSize: 8, marginTop: 20 }}>
             어제 대비 {con}
             {arr}
-            <div style={{ fontSize: 14, marginTop: 4 }}>{percent}%</div>
+            <div style={{ fontSize: 14, marginTop: 4 }}>{percent}</div>
           </div>
         }
         subTitle={<GiBelt style={{ fontSize: 36, color: "#020202" }} />}
@@ -50,7 +50,7 @@ const PieChart = ({ percent, color, total, subTitle, con, num }) => {
           <div style={{ fontSize: 8, marginTop: 20 }}>
             어제 대비 {con}
             {arr}
-            <div style={{ fontSize: 14, marginTop: 4 }}>{percent}%</div>
+            <div style={{ fontSize: 14, marginTop: 4 }}>{percent}</div>
           </div>
         }
         subTitle={<AiTwotoneFire style={{ fontSize: 36, color: "#020202" }} />}
@@ -65,7 +65,7 @@ const PieChart = ({ percent, color, total, subTitle, con, num }) => {
           <div style={{ fontSize: 8, marginTop: 20 }}>
             어제 대비 {con}
             {arr}
-            <div style={{ fontSize: 14, marginTop: 4 }}>{percent}%</div>
+            <div style={{ fontSize: 14, marginTop: 4 }}>{percent}</div>
           </div>
         }
         subTitle={<BiWalk style={{ fontSize: 36, color: "#020202" }} />}
