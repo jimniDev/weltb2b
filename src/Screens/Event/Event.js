@@ -6,9 +6,9 @@ import { Select } from "antd";
 import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
 import Helmet from "react-helmet";
-import data from "../../data.json";
-import { firestore } from "../../firebase";
-import user from "../../userdata.json";
+import data from "../../assets/data/data.json";
+import { dbService } from "../../fbase";
+import user from "../../assets/data/userdata.json";
 import Loader from "../../Components/Loader";
 
 const StatusObj = {
@@ -121,7 +121,7 @@ const Event = () => {
   console.log(today);
   const fetchData = useCallback(async () => {
     try {
-      await firestore
+      await dbService
         .collection("event")
         .get()
         .then((docs) => {
