@@ -9,8 +9,8 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
-import user from "../../userdata.json";
-import mon from "../../monthlyData.json";
+import user from "../../assets/data/userdata.json";
+import mon from "../../assets/data/monthlyData.json";
 
 const DailyAverageHeaderContainer = styled.div`
   width: 100%;
@@ -92,21 +92,7 @@ const EventHeaderContainer = styled.div`
 const EventHeaderName = styled.h2``;
 
 const Home = () => {
-  const [date, setDate] = useState("");
-  let avg_dis = 100;
-  let today_dis = 70;
-  let yes_dis = 80;
-
-  let today_waist = 35;
-  let yes_waist = 34;
-
-  let avg_kal = 10000;
-  let today_kal = 8400;
-  let yes_kal = 12500;
-
-  let avg_v = 10;
-  let today_v = 9.4;
-  let yes_v = 7.6;
+  const [date, setDate] = useState("2020-11-05");
 
   // get Date function
   const onChangeDate = (event) => {
@@ -121,7 +107,7 @@ const Home = () => {
   useEffect(() => {
     // 여기서 setDaily에 date값 넣어서 조절해주면 될듯?
     // userData.map((person) => person.reduce());
-    // let s;
+    // var s;
     // for (var i = 0; i < 30; i++) {
     //   if (user["1nhBflpO9ehPOndqzldvHWB3ILS2"][i].timeid == date) {
     //     s = user["1nhBflpO9ehPOndqzldvHWB3ILS2"][i].step;
@@ -130,8 +116,6 @@ const Home = () => {
     // setDailyAvg();
     return () => {};
   }, []);
-
-  console.log(user["1nhBflpO9ehPOndqzldvHWB3ILS2"]);
 
   // 각 날짜 별 user의 평균 데이터
   const DailyPersonAverage = Object.values(user).map((el) => {
@@ -154,7 +138,7 @@ const Home = () => {
     ];
   });
 
-  let DailyPeopleAverage = DailyPersonAverage.reduce((acc, cur) => {
+  var DailyPeopleAverage = DailyPersonAverage.reduce((acc, cur) => {
     cur.forEach(
       (e, i) => (acc[i] = acc[i] ? acc[i] + parseInt(e) : parseInt(e))
     );
@@ -163,7 +147,7 @@ const Home = () => {
 
   console.log(DailyPersonAverage);
 
-  let YesPeopleAverage = YesPersonAverage.reduce((acc, cur) => {
+  var YesPeopleAverage = YesPersonAverage.reduce((acc, cur) => {
     cur.forEach(
       (e, i) => (acc[i] = acc[i] ? acc[i] + parseInt(e) : parseInt(e))
     );
@@ -173,8 +157,8 @@ const Home = () => {
   // 일 user 전체 평균 data
   //console.log(DailyPeopleAverage);
 
-  for (var i = 0; i < mon["monthlyData"].length; i++) {
-    if (date.slice(0, 7) == mon["monthlyData"][i].timeid) {
+  for (let i = 0; i < mon["monthlyData"].length; i++) {
+    if (date.slice(0, 7) === mon["monthlyData"][i].timeid) {
       var avg_dis = mon["monthlyData"][i].distance;
       var today_dis = DailyPeopleAverage[4];
       var yes_dis = YesPeopleAverage[4];
@@ -196,7 +180,7 @@ const Home = () => {
   }
 
   var LineArray = new Array();
-  for (var i = 0; i < mon["monthlyData"].length; i++) {
+  for (let i = 0; i < mon["monthlyData"].length; i++) {
     var d = new Object();
 
     d.month = mon["monthlyData"][i].timeid.slice(-2);
@@ -205,8 +189,6 @@ const Home = () => {
     LineArray.push(d);
   }
 
-  console.log(LineArray[0]);
-
   return (
     <>
       <Helmet>
@@ -214,14 +196,12 @@ const Home = () => {
       </Helmet>
       <MainHeader />
       <DailyAverageHeaderContainer>
-        <DailyAverageTitle>
-          총 수치 (평균 수치){date} prevstate : {dailyAvg}
-        </DailyAverageTitle>
+        <DailyAverageTitle>총 수치 (평균 수치)</DailyAverageTitle>
         <Space>
           <DatePicker
             onChange={onChangeDate}
             bordered={false}
-            defaultValue={moment("2020-10-05", "YYYY-MM-DD")}
+            defaultValue={moment("2020-11-05", "YYYY-MM-DD")}
           />
         </Space>
       </DailyAverageHeaderContainer>
@@ -229,7 +209,7 @@ const Home = () => {
         <DailyAverageItem>
           걸음 거리
           <PieChart
-            percent={(today_dis / avg_dis) * 50}
+            percent={today_dis}
             color={"#2496EF"}
             con={(((today_dis - yes_dis) / today_dis) * 100).toFixed(2)}
             num={1}
@@ -238,7 +218,7 @@ const Home = () => {
         <DailyAverageItem>
           허리 둘레
           <PieChart
-            percent={(today_waist / avg_dis) * 50}
+            percent={today_waist}
             color={"#EA3869"}
             con={(((today_waist - yes_waist) / today_waist) * 100).toFixed(2)}
             num={2}
@@ -247,7 +227,7 @@ const Home = () => {
         <DailyAverageItem>
           소모 칼로리
           <PieChart
-            percent={(today_kal / avg_kal) * 50}
+            percent={today_kal}
             color={"#FFC54E"}
             con={(((today_kal - yes_kal) / today_kal) * 100).toFixed(2)}
             num={3}
@@ -256,7 +236,7 @@ const Home = () => {
         <DailyAverageItem>
           걸음 속도
           <PieChart
-            percent={(today_v / avg_v) * 50}
+            percent={today_v}
             color={"#52DDE1"}
             con={(((today_v - yes_v) / today_v) * 100).toFixed(2)}
             num={4}

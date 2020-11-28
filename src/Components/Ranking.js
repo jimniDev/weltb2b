@@ -113,7 +113,7 @@ const Ranking = () => {
           bordered={false}
           onChange={onChangeDate}
           picker="month"
-          defaultValue={moment("2020-10", "YYYY-MM")}
+          defaultValue={moment("2020-11", "YYYY-MM")}
           style={{ color: "#707070" }}
         />
       </PRItemContainer>

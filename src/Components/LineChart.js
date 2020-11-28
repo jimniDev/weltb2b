@@ -9,7 +9,7 @@ const LineChart = ({ count, data, num }) => {
   //const { data } = JSON;
 
   //console.log(data);
-  if(num == 1){
+  if (num == 1) {
     return (
       <Chart
         scale={{ count: { min: 0, max: 25000 } }}
@@ -26,7 +26,7 @@ const LineChart = ({ count, data, num }) => {
       </Chart>
     );
   }
-  if(num == 2){
+  if (num == 2) {
     return (
       <Chart
         scale={{ count: { min: 0, max: 25000 } }}
@@ -42,9 +42,8 @@ const LineChart = ({ count, data, num }) => {
         <Tooltip shared showCrosshairs />
       </Chart>
     );
-  };
+  }
 };
-
 
 ReactDOM.render(LineChart, mountNode);
 
