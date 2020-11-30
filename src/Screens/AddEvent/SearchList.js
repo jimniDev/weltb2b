@@ -58,6 +58,7 @@ const SearchList = ({ visibility, p_list, keyword, dispatch }) => {
             var isChecked = p_list.includes(user);
             return show ? (
               <Row
+                key={user.uid}
                 userObj={user}
                 uid={user.uid}
                 name={user.name}

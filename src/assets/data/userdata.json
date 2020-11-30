@@ -2,7 +2,7 @@
   "1nhBflpO9ehPOndqzldvHWB3ILS2": [
     {
       "timeid": "2020-11-01",
-      "waist": 31,
+      "waist": 0,
       "step": 24860,
       "distance": "3.8",
       "gaitSpeed": "10.3",
@@ -10,7 +10,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 31,
+      "waist": 1,
       "step": 15736,
       "distance": "4.2",
       "gaitSpeed": "0.3",
@@ -18,7 +18,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 31,
+      "waist": 1,
       "step": 7357,
       "distance": "8.3",
       "gaitSpeed": "8.4",
@@ -26,7 +26,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 31,
+      "waist": 1,
       "step": 16357,
       "distance": "8.9",
       "gaitSpeed": "0.8",
@@ -34,7 +34,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 31,
+      "waist": 1,
       "step": 309,
       "distance": "9.0",
       "gaitSpeed": "14.2",
@@ -42,7 +42,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 31,
+      "waist": 1,
       "step": 11466,
       "distance": "0.9",
       "gaitSpeed": "8.0",
@@ -50,7 +50,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 31,
+      "waist": 1,
       "step": 24790,
       "distance": "10.5",
       "gaitSpeed": "11.4",
@@ -58,7 +58,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 31,
+      "waist": 1,
       "step": 7402,
       "distance": "8.6",
       "gaitSpeed": "12.5",
@@ -66,7 +66,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 31,
+      "waist": 1,
       "step": 4979,
       "distance": "10.2",
       "gaitSpeed": "12.0",
@@ -74,7 +74,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 31,
+      "waist": 1,
       "step": 13301,
       "distance": "14.2",
       "gaitSpeed": "8.9",
@@ -82,7 +82,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 31,
+      "waist": 1,
       "step": 3899,
       "distance": "9.9",
       "gaitSpeed": "12.3",
@@ -90,7 +90,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 31,
+      "waist": 1,
       "step": 14444,
       "distance": "7.9",
       "gaitSpeed": "14.3",
@@ -98,7 +98,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 31,
+      "waist": 1,
       "step": 20047,
       "distance": "5.7",
       "gaitSpeed": "7.1",
@@ -106,7 +106,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 31,
+      "waist": 1,
       "step": 17232,
       "distance": "6.0",
       "gaitSpeed": "0.3",
@@ -114,7 +114,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 31,
+      "waist": 1,
       "step": 21001,
       "distance": "17.3",
       "gaitSpeed": "13.2",
@@ -122,7 +122,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 31,
+      "waist": 1,
       "step": 9706,
       "distance": "5.6",
       "gaitSpeed": "1.0",
@@ -130,7 +130,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 31,
+      "waist": 1,
       "step": 20930,
       "distance": "11.9",
       "gaitSpeed": "14.8",
@@ -138,7 +138,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 31,
+      "waist": 1,
       "step": 12981,
       "distance": "3.1",
       "gaitSpeed": "3.0",
@@ -146,7 +146,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 31,
+      "waist": 1,
       "step": 10146,
       "distance": "4.3",
       "gaitSpeed": "9.5",
@@ -154,7 +154,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 31,
+      "waist": 1,
       "step": 12743,
       "distance": "11.9",
       "gaitSpeed": "11.6",
@@ -162,7 +162,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 31,
+      "waist": 1,
       "step": 1163,
       "distance": "7.9",
       "gaitSpeed": "11.4",
@@ -170,7 +170,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 31,
+      "waist": 2,
       "step": 15690,
       "distance": "6.0",
       "gaitSpeed": "9.3",
@@ -178,7 +178,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 31,
+      "waist": 1,
       "step": 24389,
       "distance": "7.9",
       "gaitSpeed": "7.7",
@@ -186,7 +186,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 31,
+      "waist": 1,
       "step": 9010,
       "distance": "9.5",
       "gaitSpeed": "12.8",
@@ -194,7 +194,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 31,
+      "waist": 1,
       "step": 18629,
       "distance": "6.0",
       "gaitSpeed": "2.3",
@@ -202,7 +202,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 31,
+      "waist": 1,
       "step": 23937,
       "distance": "8.0",
       "gaitSpeed": "13.0",
@@ -210,7 +210,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 31,
+      "waist": 1,
       "step": 19805,
       "distance": "7.9",
       "gaitSpeed": "4.2",
@@ -218,7 +218,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 31,
+      "waist": 2,
       "step": 541,
       "distance": "13.3",
       "gaitSpeed": "2.1",
@@ -226,7 +226,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 31,
+      "waist": 1,
       "step": 18071,
       "distance": "19.1",
       "gaitSpeed": "2.3",
@@ -234,7 +234,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 31,
+      "waist": 1,
       "step": 13905,
       "distance": "6.4",
       "gaitSpeed": "7.0",
@@ -244,7 +244,7 @@
   "2A5JM6e6QcOTJLCNeAfJlzNKXCg1": [
     {
       "timeid": "2020-11-01",
-      "waist": 37,
+      "waist": 0,
       "step": 15674,
       "distance": "11.2",
       "gaitSpeed": "13.5",
@@ -252,7 +252,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 37,
+      "waist": 1,
       "step": 18287,
       "distance": "1.8",
       "gaitSpeed": "3.5",
@@ -260,7 +260,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 37,
+      "waist": 1,
       "step": 16189,
       "distance": "17.4",
       "gaitSpeed": "0.6",
@@ -268,7 +268,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 36,
+      "waist": 1,
       "step": 10851,
       "distance": "19.1",
       "gaitSpeed": "2.6",
@@ -276,7 +276,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 36,
+      "waist": 1,
       "step": 8778,
       "distance": "4.8",
       "gaitSpeed": "7.6",
@@ -284,7 +284,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 37,
+      "waist": 2,
       "step": 10615,
       "distance": "10.6",
       "gaitSpeed": "6.8",
@@ -292,7 +292,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 37,
+      "waist": 2,
       "step": 14754,
       "distance": "12.7",
       "gaitSpeed": "7.0",
@@ -300,7 +300,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 36,
+      "waist": 2,
       "step": 11525,
       "distance": "4.2",
       "gaitSpeed": "3.0",
@@ -308,7 +308,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 37,
+      "waist": 2,
       "step": 16209,
       "distance": "5.9",
       "gaitSpeed": "10.9",
@@ -316,7 +316,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 36,
+      "waist": 1,
       "step": 13526,
       "distance": "0.6",
       "gaitSpeed": "11.1",
@@ -324,7 +324,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 36,
+      "waist": 2,
       "step": 5094,
       "distance": "3.4",
       "gaitSpeed": "5.7",
@@ -332,7 +332,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 37,
+      "waist": 2,
       "step": 2580,
       "distance": "4.0",
       "gaitSpeed": "4.3",
@@ -340,7 +340,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 37,
+      "waist": 2,
       "step": 20530,
       "distance": "16.6",
       "gaitSpeed": "3.6",
@@ -348,7 +348,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 36,
+      "waist": 3,
       "step": 13099,
       "distance": "9.8",
       "gaitSpeed": "3.8",
@@ -356,7 +356,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 37,
+      "waist": 2,
       "step": 14249,
       "distance": "4.2",
       "gaitSpeed": "1.2",
@@ -364,7 +364,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 36,
+      "waist": 3,
       "step": 2220,
       "distance": "11.2",
       "gaitSpeed": "12.7",
@@ -372,7 +372,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 37,
+      "waist": 2,
       "step": 7261,
       "distance": "12.1",
       "gaitSpeed": "5.2",
@@ -380,7 +380,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 37,
+      "waist": 2,
       "step": 8122,
       "distance": "7.5",
       "gaitSpeed": "5.4",
@@ -388,7 +388,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 37,
+      "waist": 2,
       "step": 8699,
       "distance": "7.3",
       "gaitSpeed": "6.4",
@@ -396,7 +396,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 36,
+      "waist": 3,
       "step": 8593,
       "distance": "7.3",
       "gaitSpeed": "0.8",
@@ -404,7 +404,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 36,
+      "waist": 3,
       "step": 6329,
       "distance": "12.6",
       "gaitSpeed": "0.7",
@@ -412,7 +412,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 37,
+      "waist": 2,
       "step": 10805,
       "distance": "6.2",
       "gaitSpeed": "14.9",
@@ -420,7 +420,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 36,
+      "waist": 3,
       "step": 11261,
       "distance": "7.6",
       "gaitSpeed": "8.9",
@@ -428,7 +428,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 36,
+      "waist": 3,
       "step": 19626,
       "distance": "0.2",
       "gaitSpeed": "14.4",
@@ -436,7 +436,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 37,
+      "waist": 2,
       "step": 16771,
       "distance": "12.0",
       "gaitSpeed": "7.8",
@@ -444,7 +444,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 37,
+      "waist": 2,
       "step": 20811,
       "distance": "5.8",
       "gaitSpeed": "7.6",
@@ -452,7 +452,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 36,
+      "waist": 3,
       "step": 17411,
       "distance": "17.2",
       "gaitSpeed": "2.7",
@@ -460,7 +460,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 37,
+      "waist": 2,
       "step": 9318,
       "distance": "10.4",
       "gaitSpeed": "9.0",
@@ -468,7 +468,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 36,
+      "waist": 2,
       "step": 17769,
       "distance": "13.9",
       "gaitSpeed": "0.4",
@@ -476,7 +476,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 37,
+      "waist": 2,
       "step": 24154,
       "distance": "11.9",
       "gaitSpeed": "6.7",
@@ -486,7 +486,7 @@
   "40Fm0uglFze4ha3JituKk1cp7Ts1": [
     {
       "timeid": "2020-11-01",
-      "waist": 32,
+      "waist": 0,
       "step": 10421,
       "distance": "1.4",
       "gaitSpeed": "1.7",
@@ -494,7 +494,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 33,
+      "waist": 1,
       "step": 3258,
       "distance": "18.6",
       "gaitSpeed": "0.2",
@@ -502,7 +502,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 32,
+      "waist": 2,
       "step": 4720,
       "distance": "18.2",
       "gaitSpeed": "14.2",
@@ -510,7 +510,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 32,
+      "waist": 2,
       "step": 6874,
       "distance": "13.6",
       "gaitSpeed": "5.4",
@@ -518,7 +518,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 32,
+      "waist": 2,
       "step": 6038,
       "distance": "18.4",
       "gaitSpeed": "1.8",
@@ -526,7 +526,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 32,
+      "waist": 2,
       "step": 17967,
       "distance": "3.2",
       "gaitSpeed": "4.7",
@@ -534,7 +534,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 33,
+      "waist": 1,
       "step": 16939,
       "distance": "8.7",
       "gaitSpeed": "9.2",
@@ -542,7 +542,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 33,
+      "waist": 1,
       "step": 4262,
       "distance": "8.2",
       "gaitSpeed": "8.5",
@@ -550,7 +550,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 33,
+      "waist": 1,
       "step": 8942,
       "distance": "18.3",
       "gaitSpeed": "2.0",
@@ -558,7 +558,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 32,
+      "waist": 2,
       "step": 24645,
       "distance": "9.3",
       "gaitSpeed": "3.4",
@@ -566,7 +566,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 33,
+      "waist": 1,
       "step": 5320,
       "distance": "5.8",
       "gaitSpeed": "8.4",
@@ -574,7 +574,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 32,
+      "waist": 2,
       "step": 1648,
       "distance": "4.4",
       "gaitSpeed": "1.5",
@@ -582,7 +582,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 33,
+      "waist": 1,
       "step": 6623,
       "distance": "10.2",
       "gaitSpeed": "4.0",
@@ -590,7 +590,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 32,
+      "waist": 2,
       "step": 20240,
       "distance": "5.0",
       "gaitSpeed": "6.6",
@@ -598,7 +598,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 33,
+      "waist": 1,
       "step": 18826,
       "distance": "8.7",
       "gaitSpeed": "9.2",
@@ -606,7 +606,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 33,
+      "waist": 1,
       "step": 19098,
       "distance": "4.2",
       "gaitSpeed": "0.9",
@@ -614,7 +614,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 33,
+      "waist": 1,
       "step": 14628,
       "distance": "9.2",
       "gaitSpeed": "3.5",
@@ -622,7 +622,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 33,
+      "waist": 1,
       "step": 9539,
       "distance": "11.0",
       "gaitSpeed": "10.5",
@@ -630,7 +630,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 32,
+      "waist": 2,
       "step": 20949,
       "distance": "4.1",
       "gaitSpeed": "12.9",
@@ -638,7 +638,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 33,
+      "waist": 1,
       "step": 2674,
       "distance": "15.5",
       "gaitSpeed": "4.3",
@@ -646,7 +646,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 32,
+      "waist": 2,
       "step": 14396,
       "distance": "5.9",
       "gaitSpeed": "5.1",
@@ -654,7 +654,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 33,
+      "waist": 1,
       "step": 19793,
       "distance": "11.1",
       "gaitSpeed": "2.6",
@@ -662,7 +662,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 32,
+      "waist": 2,
       "step": 9977,
       "distance": "10.9",
       "gaitSpeed": "6.4",
@@ -670,7 +670,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 33,
+      "waist": 1,
       "step": 16764,
       "distance": "0.5",
       "gaitSpeed": "14.9",
@@ -678,7 +678,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 33,
+      "waist": 1,
       "step": 15840,
       "distance": "2.2",
       "gaitSpeed": "10.4",
@@ -686,7 +686,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 32,
+      "waist": 2,
       "step": 9839,
       "distance": "7.0",
       "gaitSpeed": "6.0",
@@ -694,7 +694,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 32,
+      "waist": 2,
       "step": 23856,
       "distance": "7.3",
       "gaitSpeed": "8.7",
@@ -702,7 +702,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 33,
+      "waist": 1,
       "step": 17976,
       "distance": "6.8",
       "gaitSpeed": "2.0",
@@ -710,7 +710,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 32,
+      "waist": 2,
       "step": 13033,
       "distance": "5.3",
       "gaitSpeed": "7.0",
@@ -718,7 +718,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 32,
+      "waist": 2,
       "step": 4985,
       "distance": "14.0",
       "gaitSpeed": "0.3",
@@ -728,7 +728,7 @@
   "6gWiB2O4z3ch760t8rRFdrz9Rz43": [
     {
       "timeid": "2020-11-01",
-      "waist": 29,
+      "waist": 0,
       "step": 23908,
       "distance": "14.8",
       "gaitSpeed": "2.9",
@@ -736,7 +736,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 28,
+      "waist": 1,
       "step": 7756,
       "distance": "3.1",
       "gaitSpeed": "7.9",
@@ -744,7 +744,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 28,
+      "waist": 1,
       "step": 4271,
       "distance": "11.4",
       "gaitSpeed": "12.6",
@@ -752,7 +752,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 28,
+      "waist": 1,
       "step": 10055,
       "distance": "9.1",
       "gaitSpeed": "4.7",
@@ -760,7 +760,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 29,
+      "waist": 2,
       "step": 17090,
       "distance": "1.0",
       "gaitSpeed": "12.9",
@@ -768,7 +768,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 28,
+      "waist": 1,
       "step": 24972,
       "distance": "2.7",
       "gaitSpeed": "10.7",
@@ -776,7 +776,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 29,
+      "waist": 2,
       "step": 3174,
       "distance": "12.1",
       "gaitSpeed": "13.6",
@@ -784,7 +784,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 29,
+      "waist": 2,
       "step": 11408,
       "distance": "9.9",
       "gaitSpeed": "3.3",
@@ -792,7 +792,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 28,
+      "waist": 1,
       "step": 7489,
       "distance": "1.7",
       "gaitSpeed": "9.0",
@@ -800,7 +800,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 29,
+      "waist": 2,
       "step": 956,
       "distance": "7.8",
       "gaitSpeed": "12.3",
@@ -808,7 +808,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 29,
+      "waist": 2,
       "step": 1866,
       "distance": "2.6",
       "gaitSpeed": "11.8",
@@ -816,7 +816,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 28,
+      "waist": 1,
       "step": 11475,
       "distance": "4.9",
       "gaitSpeed": "5.9",
@@ -824,7 +824,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 29,
+      "waist": 2,
       "step": 251,
       "distance": "12.1",
       "gaitSpeed": "8.7",
@@ -832,7 +832,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 29,
+      "waist": 2,
       "step": 19630,
       "distance": "19.8",
       "gaitSpeed": "8.1",
@@ -840,7 +840,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 29,
+      "waist": 2,
       "step": 8887,
       "distance": "16.0",
       "gaitSpeed": "3.9",
@@ -848,7 +848,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 29,
+      "waist": 2,
       "step": 10433,
       "distance": "17.1",
       "gaitSpeed": "11.2",
@@ -856,7 +856,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 28,
+      "waist": 1,
       "step": 5496,
       "distance": "7.5",
       "gaitSpeed": "2.7",
@@ -864,7 +864,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 29,
+      "waist": 2,
       "step": 24764,
       "distance": "16.0",
       "gaitSpeed": "4.1",
@@ -872,7 +872,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 29,
+      "waist": 2,
       "step": 679,
       "distance": "10.5",
       "gaitSpeed": "9.5",
@@ -880,7 +880,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 28,
+      "waist": 1,
       "step": 12558,
       "distance": "7.6",
       "gaitSpeed": "0.9",
@@ -888,7 +888,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 29,
+      "waist": 2,
       "step": 8884,
       "distance": "14.6",
       "gaitSpeed": "5.1",
@@ -896,7 +896,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 28,
+      "waist": 1,
       "step": 11669,
       "distance": "5.8",
       "gaitSpeed": "9.4",
@@ -904,7 +904,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 29,
+      "waist": 2,
       "step": 24272,
       "distance": "5.5",
       "gaitSpeed": "7.6",
@@ -912,7 +912,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 28,
+      "waist": 1,
       "step": 3510,
       "distance": "8.3",
       "gaitSpeed": "9.4",
@@ -920,7 +920,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 28,
+      "waist": 1,
       "step": 17921,
       "distance": "8.2",
       "gaitSpeed": "3.0",
@@ -928,7 +928,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 28,
+      "waist": 1,
       "step": 247,
       "distance": "8.0",
       "gaitSpeed": "7.5",
@@ -936,7 +936,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 28,
+      "waist": 1,
       "step": 20898,
       "distance": "6.7",
       "gaitSpeed": "14.5",
@@ -944,7 +944,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 29,
+      "waist": 2,
       "step": 2400,
       "distance": "19.3",
       "gaitSpeed": "8.4",
@@ -952,7 +952,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 28,
+      "waist": 1,
       "step": 17176,
       "distance": "6.3",
       "gaitSpeed": "10.4",
@@ -960,7 +960,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 29,
+      "waist": 2,
       "step": 20337,
       "distance": "5.1",
       "gaitSpeed": "12.0",
@@ -970,7 +970,7 @@
   "7JAubrfJ7LTvEYrmdOODQX5ImwE3": [
     {
       "timeid": "2020-11-01",
-      "waist": 34,
+      "waist": 0,
       "step": 8964,
       "distance": "1.1",
       "gaitSpeed": "2.2",
@@ -978,7 +978,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 34,
+      "waist": 1,
       "step": 14284,
       "distance": "15.8",
       "gaitSpeed": "8.8",
@@ -986,7 +986,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 34,
+      "waist": 1,
       "step": 24800,
       "distance": "9.2",
       "gaitSpeed": "8.1",
@@ -994,7 +994,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 34,
+      "waist": 1,
       "step": 20899,
       "distance": "17.0",
       "gaitSpeed": "13.3",
@@ -1002,7 +1002,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 34,
+      "waist": 1,
       "step": 6304,
       "distance": "18.8",
       "gaitSpeed": "10.9",
@@ -1010,7 +1010,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 34,
+      "waist": 2,
       "step": 16783,
       "distance": "14.4",
       "gaitSpeed": "4.0",
@@ -1018,7 +1018,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 34,
+      "waist": 2,
       "step": 23057,
       "distance": "19.3",
       "gaitSpeed": "2.7",
@@ -1026,7 +1026,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 34,
+      "waist": 2,
       "step": 278,
       "distance": "11.8",
       "gaitSpeed": "13.3",
@@ -1034,7 +1034,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 34,
+      "waist": 3,
       "step": 4367,
       "distance": "0.6",
       "gaitSpeed": "13.2",
@@ -1042,7 +1042,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 34,
+      "waist": 2,
       "step": 15963,
       "distance": "10.4",
       "gaitSpeed": "2.9",
@@ -1050,7 +1050,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 34,
+      "waist": 3,
       "step": 9423,
       "distance": "9.2",
       "gaitSpeed": "7.3",
@@ -1058,7 +1058,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 34,
+      "waist": 2,
       "step": 17463,
       "distance": "16.6",
       "gaitSpeed": "7.1",
@@ -1066,7 +1066,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 34,
+      "waist": 2,
       "step": 5934,
       "distance": "11.4",
       "gaitSpeed": "6.4",
@@ -1074,7 +1074,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 34,
+      "waist": 3,
       "step": 13635,
       "distance": "8.3",
       "gaitSpeed": "0.9",
@@ -1082,7 +1082,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 34,
+      "waist": 3,
       "step": 22375,
       "distance": "3.4",
       "gaitSpeed": "3.0",
@@ -1090,7 +1090,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 34,
+      "waist": 3,
       "step": 9603,
       "distance": "18.2",
       "gaitSpeed": "6.9",
@@ -1098,7 +1098,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 34,
+      "waist": 3,
       "step": 6272,
       "distance": "12.4",
       "gaitSpeed": "6.7",
@@ -1106,7 +1106,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 34,
+      "waist": 3,
       "step": 23698,
       "distance": "12.6",
       "gaitSpeed": "14.2",
@@ -1114,7 +1114,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 34,
+      "waist": 3,
       "step": 19957,
       "distance": "3.4",
       "gaitSpeed": "11.3",
@@ -1122,7 +1122,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 34,
+      "waist": 3,
       "step": 8490,
       "distance": "16.4",
       "gaitSpeed": "15.0",
@@ -1130,7 +1130,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 34,
+      "waist": 3,
       "step": 21202,
       "distance": "10.0",
       "gaitSpeed": "12.4",
@@ -1138,7 +1138,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 34,
+      "waist": 2,
       "step": 22886,
       "distance": "12.3",
       "gaitSpeed": "2.2",
@@ -1146,7 +1146,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 34,
+      "waist": 2,
       "step": 18457,
       "distance": "9.3",
       "gaitSpeed": "13.8",
@@ -1154,7 +1154,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 34,
+      "waist": 2,
       "step": 10179,
       "distance": "2.9",
       "gaitSpeed": "11.0",
@@ -1162,7 +1162,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 34,
+      "waist": 3,
       "step": 16464,
       "distance": "15.4",
       "gaitSpeed": "1.3",
@@ -1170,7 +1170,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 34,
+      "waist": 3,
       "step": 14758,
       "distance": "1.5",
       "gaitSpeed": "10.0",
@@ -1178,7 +1178,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 34,
+      "waist": 3,
       "step": 24413,
       "distance": "10.3",
       "gaitSpeed": "1.2",
@@ -1186,7 +1186,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 34,
+      "waist": 3,
       "step": 2095,
       "distance": "3.8",
       "gaitSpeed": "5.8",
@@ -1194,7 +1194,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 34,
+      "waist": 3,
       "step": 14877,
       "distance": "16.5",
       "gaitSpeed": "2.3",
@@ -1202,7 +1202,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 34,
+      "waist": 3,
       "step": 15810,
       "distance": "10.3",
       "gaitSpeed": "12.0",
@@ -1212,7 +1212,7 @@
   "AHHDXSuP04ScX7iChM8FOt8SlOU2": [
     {
       "timeid": "2020-11-01",
-      "waist": 29,
+      "waist": 0,
       "step": 24010,
       "distance": "17.5",
       "gaitSpeed": "3.7",
@@ -1220,7 +1220,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 29,
+      "waist": 2,
       "step": 12281,
       "distance": "13.8",
       "gaitSpeed": "8.4",
@@ -1228,7 +1228,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 29,
+      "waist": 2,
       "step": 20232,
       "distance": "17.2",
       "gaitSpeed": "0.3",
@@ -1236,7 +1236,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 29,
+      "waist": 2,
       "step": 14296,
       "distance": "7.4",
       "gaitSpeed": "10.0",
@@ -1244,7 +1244,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 29,
+      "waist": 2,
       "step": 8421,
       "distance": "15.7",
       "gaitSpeed": "3.1",
@@ -1252,7 +1252,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 29,
+      "waist": 2,
       "step": 16006,
       "distance": "15.1",
       "gaitSpeed": "7.0",
@@ -1260,7 +1260,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 29,
+      "waist": 2,
       "step": 22191,
       "distance": "17.8",
       "gaitSpeed": "1.0",
@@ -1268,7 +1268,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 29,
+      "waist": 2,
       "step": 24622,
       "distance": "15.6",
       "gaitSpeed": "5.8",
@@ -1276,7 +1276,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 29,
+      "waist": 2,
       "step": 19696,
       "distance": "16.6",
       "gaitSpeed": "0.1",
@@ -1284,7 +1284,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 29,
+      "waist": 2,
       "step": 4539,
       "distance": "19.8",
       "gaitSpeed": "3.1",
@@ -1292,7 +1292,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 29,
+      "waist": 2,
       "step": 13371,
       "distance": "19.4",
       "gaitSpeed": "10.5",
@@ -1300,7 +1300,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 29,
+      "waist": 2,
       "step": 24017,
       "distance": "2.7",
       "gaitSpeed": "12.6",
@@ -1308,7 +1308,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 29,
+      "waist": 2,
       "step": 11042,
       "distance": "11.3",
       "gaitSpeed": "13.9",
@@ -1316,7 +1316,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 29,
+      "waist": 2,
       "step": 14330,
       "distance": "6.1",
       "gaitSpeed": "5.7",
@@ -1324,7 +1324,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 29,
+      "waist": 2,
       "step": 18272,
       "distance": "7.5",
       "gaitSpeed": "9.0",
@@ -1332,7 +1332,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 29,
+      "waist": 2,
       "step": 20840,
       "distance": "1.8",
       "gaitSpeed": "8.6",
@@ -1340,7 +1340,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 29,
+      "waist": 2,
       "step": 11925,
       "distance": "7.7",
       "gaitSpeed": "6.2",
@@ -1348,7 +1348,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 29,
+      "waist": 2,
       "step": 15675,
       "distance": "7.0",
       "gaitSpeed": "5.6",
@@ -1356,7 +1356,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 29,
+      "waist": 2,
       "step": 1020,
       "distance": "9.4",
       "gaitSpeed": "1.0",
@@ -1364,7 +1364,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 29,
+      "waist": 2,
       "step": 13618,
       "distance": "0.9",
       "gaitSpeed": "7.5",
@@ -1372,7 +1372,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 29,
+      "waist": 2,
       "step": 7533,
       "distance": "12.7",
       "gaitSpeed": "10.0",
@@ -1380,7 +1380,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 29,
+      "waist": 2,
       "step": 5612,
       "distance": "1.9",
       "gaitSpeed": "7.6",
@@ -1388,7 +1388,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 29,
+      "waist": 2,
       "step": 5187,
       "distance": "10.6",
       "gaitSpeed": "7.5",
@@ -1396,7 +1396,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 29,
+      "waist": 2,
       "step": 3706,
       "distance": "2.8",
       "gaitSpeed": "13.2",
@@ -1404,7 +1404,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 29,
+      "waist": 2,
       "step": 7650,
       "distance": "3.5",
       "gaitSpeed": "0.6",
@@ -1412,7 +1412,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 29,
+      "waist": 2,
       "step": 12215,
       "distance": "2.4",
       "gaitSpeed": "10.6",
@@ -1420,7 +1420,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 29,
+      "waist": 2,
       "step": 5829,
       "distance": "5.8",
       "gaitSpeed": "9.5",
@@ -1428,7 +1428,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 29,
+      "waist": 2,
       "step": 9810,
       "distance": "14.5",
       "gaitSpeed": "14.1",
@@ -1436,7 +1436,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 29,
+      "waist": 2,
       "step": 9614,
       "distance": "13.2",
       "gaitSpeed": "12.4",
@@ -1444,7 +1444,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 29,
+      "waist": 2,
       "step": 22262,
       "distance": "4.2",
       "gaitSpeed": "1.2",
@@ -1454,7 +1454,7 @@
   "aNO79mbH1meQFb3a4PhvD7uPKyp2": [
     {
       "timeid": "2020-11-01",
-      "waist": 27,
+      "waist": 0,
       "step": 18539,
       "distance": "14.4",
       "gaitSpeed": "13.2",
@@ -1462,7 +1462,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 27,
+      "waist": 2,
       "step": 18026,
       "distance": "12.5",
       "gaitSpeed": "14.0",
@@ -1470,7 +1470,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 27,
+      "waist": 2,
       "step": 12430,
       "distance": "16.0",
       "gaitSpeed": "1.1",
@@ -1478,7 +1478,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 27,
+      "waist": 2,
       "step": 22575,
       "distance": "17.2",
       "gaitSpeed": "6.8",
@@ -1486,7 +1486,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 27,
+      "waist": 2,
       "step": 22893,
       "distance": "14.0",
       "gaitSpeed": "14.2",
@@ -1494,7 +1494,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 27,
+      "waist": 2,
       "step": 10315,
       "distance": "10.4",
       "gaitSpeed": "11.2",
@@ -1502,7 +1502,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 27,
+      "waist": 2,
       "step": 17384,
       "distance": "17.2",
       "gaitSpeed": "6.6",
@@ -1510,7 +1510,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 27,
+      "waist": 2,
       "step": 7610,
       "distance": "15.1",
       "gaitSpeed": "11.2",
@@ -1518,7 +1518,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 27,
+      "waist": 2,
       "step": 11236,
       "distance": "17.0",
       "gaitSpeed": "1.6",
@@ -1526,7 +1526,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 27,
+      "waist": 2,
       "step": 14964,
       "distance": "19.5",
       "gaitSpeed": "12.2",
@@ -1534,7 +1534,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 27,
+      "waist": 2,
       "step": 21915,
       "distance": "6.5",
       "gaitSpeed": "13.7",
@@ -1542,7 +1542,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 27,
+      "waist": 2,
       "step": 15110,
       "distance": "2.2",
       "gaitSpeed": "2.3",
@@ -1550,7 +1550,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 27,
+      "waist": 2,
       "step": 6959,
       "distance": "11.0",
       "gaitSpeed": "5.5",
@@ -1558,7 +1558,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 27,
+      "waist": 2,
       "step": 14543,
       "distance": "9.1",
       "gaitSpeed": "9.1",
@@ -1566,7 +1566,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 27,
+      "waist": 2,
       "step": 20704,
       "distance": "0.3",
       "gaitSpeed": "5.1",
@@ -1574,7 +1574,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 27,
+      "waist": 2,
       "step": 12136,
       "distance": "2.6",
       "gaitSpeed": "9.9",
@@ -1582,7 +1582,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 27,
+      "waist": 2,
       "step": 6057,
       "distance": "6.6",
       "gaitSpeed": "13.5",
@@ -1590,7 +1590,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 27,
+      "waist": 2,
       "step": 568,
       "distance": "4.1",
       "gaitSpeed": "10.0",
@@ -1598,7 +1598,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 27,
+      "waist": 2,
       "step": 17444,
       "distance": "6.5",
       "gaitSpeed": "7.9",
@@ -1606,7 +1606,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 27,
+      "waist": 2,
       "step": 2250,
       "distance": "5.5",
       "gaitSpeed": "9.9",
@@ -1614,7 +1614,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 27,
+      "waist": 2,
       "step": 11385,
       "distance": "5.1",
       "gaitSpeed": "12.0",
@@ -1622,7 +1622,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 27,
+      "waist": 2,
       "step": 1791,
       "distance": "6.1",
       "gaitSpeed": "12.3",
@@ -1630,7 +1630,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 27,
+      "waist": 2,
       "step": 16744,
       "distance": "18.2",
       "gaitSpeed": "9.8",
@@ -1638,7 +1638,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 27,
+      "waist": 2,
       "step": 9898,
       "distance": "10.4",
       "gaitSpeed": "3.5",
@@ -1646,7 +1646,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 27,
+      "waist": 2,
       "step": 24086,
       "distance": "7.2",
       "gaitSpeed": "3.9",
@@ -1654,7 +1654,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 27,
+      "waist": 2,
       "step": 2083,
       "distance": "9.5",
       "gaitSpeed": "11.2",
@@ -1662,7 +1662,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 27,
+      "waist": 2,
       "step": 140,
       "distance": "9.0",
       "gaitSpeed": "6.3",
@@ -1670,7 +1670,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 27,
+      "waist": 2,
       "step": 4747,
       "distance": "12.5",
       "gaitSpeed": "8.5",
@@ -1678,7 +1678,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 27,
+      "waist": 2,
       "step": 22948,
       "distance": "9.3",
       "gaitSpeed": "5.7",
@@ -1686,7 +1686,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 27,
+      "waist": 2,
       "step": 14432,
       "distance": "4.6",
       "gaitSpeed": "1.4",
@@ -1696,7 +1696,7 @@
   "BfMAVuvEw6bqS0HdSjsYaOxYqLF2": [
     {
       "timeid": "2020-11-01",
-      "waist": 26,
+      "waist": 0,
       "step": 3074,
       "distance": "8.5",
       "gaitSpeed": "10.7",
@@ -1704,7 +1704,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 26,
+      "waist": 1,
       "step": 4190,
       "distance": "15.4",
       "gaitSpeed": "11.5",
@@ -1712,7 +1712,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 26,
+      "waist": 1,
       "step": 4298,
       "distance": "18.9",
       "gaitSpeed": "8.3",
@@ -1720,7 +1720,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 26,
+      "waist": 1,
       "step": 2233,
       "distance": "5.8",
       "gaitSpeed": "8.7",
@@ -1728,7 +1728,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 26,
+      "waist": 1,
       "step": 23993,
       "distance": "15.4",
       "gaitSpeed": "2.8",
@@ -1736,7 +1736,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 26,
+      "waist": 1,
       "step": 14066,
       "distance": "5.2",
       "gaitSpeed": "4.6",
@@ -1744,7 +1744,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 26,
+      "waist": 1,
       "step": 8694,
       "distance": "5.7",
       "gaitSpeed": "2.5",
@@ -1752,7 +1752,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 26,
+      "waist": 1,
       "step": 686,
       "distance": "17.8",
       "gaitSpeed": "9.1",
@@ -1760,7 +1760,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 26,
+      "waist": 1,
       "step": 1659,
       "distance": "8.6",
       "gaitSpeed": "2.0",
@@ -1768,7 +1768,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 26,
+      "waist": 1,
       "step": 9170,
       "distance": "10.9",
       "gaitSpeed": "13.7",
@@ -1776,7 +1776,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 26,
+      "waist": 1,
       "step": 14517,
       "distance": "10.6",
       "gaitSpeed": "7.8",
@@ -1784,7 +1784,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 26,
+      "waist": 1,
       "step": 4109,
       "distance": "16.4",
       "gaitSpeed": "8.4",
@@ -1792,7 +1792,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 26,
+      "waist": 1,
       "step": 10529,
       "distance": "10.1",
       "gaitSpeed": "4.2",
@@ -1800,7 +1800,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 26,
+      "waist": 1,
       "step": 1270,
       "distance": "18.8",
       "gaitSpeed": "12.2",
@@ -1808,7 +1808,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 26,
+      "waist": 1,
       "step": 11333,
       "distance": "19.2",
       "gaitSpeed": "12.7",
@@ -1816,7 +1816,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 26,
+      "waist": 1,
       "step": 5106,
       "distance": "14.2",
       "gaitSpeed": "13.9",
@@ -1824,7 +1824,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 26,
+      "waist": 1,
       "step": 8920,
       "distance": "15.6",
       "gaitSpeed": "1.8",
@@ -1832,7 +1832,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 26,
+      "waist": 1,
       "step": 18377,
       "distance": "8.2",
       "gaitSpeed": "3.6",
@@ -1840,7 +1840,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 26,
+      "waist": 1,
       "step": 3102,
       "distance": "4.8",
       "gaitSpeed": "11.1",
@@ -1848,7 +1848,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 26,
+      "waist": 1,
       "step": 21787,
       "distance": "10.1",
       "gaitSpeed": "7.5",
@@ -1856,7 +1856,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 26,
+      "waist": 1,
       "step": 20869,
       "distance": "6.4",
       "gaitSpeed": "11.1",
@@ -1864,7 +1864,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 26,
+      "waist": 1,
       "step": 7161,
       "distance": "11.1",
       "gaitSpeed": "11.6",
@@ -1872,7 +1872,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 26,
+      "waist": 1,
       "step": 24104,
       "distance": "18.2",
       "gaitSpeed": "0.0",
@@ -1880,7 +1880,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 26,
+      "waist": 1,
       "step": 24385,
       "distance": "15.0",
       "gaitSpeed": "10.2",
@@ -1888,7 +1888,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 26,
+      "waist": 1,
       "step": 6015,
       "distance": "6.5",
       "gaitSpeed": "10.0",
@@ -1896,7 +1896,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 26,
+      "waist": 1,
       "step": 613,
       "distance": "11.6",
       "gaitSpeed": "7.3",
@@ -1904,7 +1904,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 26,
+      "waist": 1,
       "step": 23471,
       "distance": "4.8",
       "gaitSpeed": "14.5",
@@ -1912,7 +1912,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 26,
+      "waist": 1,
       "step": 1961,
       "distance": "14.7",
       "gaitSpeed": "14.6",
@@ -1920,7 +1920,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 26,
+      "waist": 1,
       "step": 15379,
       "distance": "11.3",
       "gaitSpeed": "1.2",
@@ -1928,7 +1928,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 26,
+      "waist": 1,
       "step": 12798,
       "distance": "4.3",
       "gaitSpeed": "13.2",
@@ -1938,7 +1938,7 @@
   "BU4qFVRiqsdmQHnva7TkiK6s1wx2": [
     {
       "timeid": "2020-11-01",
-      "waist": 30,
+      "waist": 0,
       "step": 4856,
       "distance": "16.4",
       "gaitSpeed": "2.5",
@@ -1946,7 +1946,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 30,
+      "waist": 1,
       "step": 8309,
       "distance": "15.6",
       "gaitSpeed": "8.9",
@@ -1954,7 +1954,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 29,
+      "waist": 2,
       "step": 11725,
       "distance": "19.9",
       "gaitSpeed": "2.3",
@@ -1962,7 +1962,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 30,
+      "waist": 1,
       "step": 19030,
       "distance": "12.0",
       "gaitSpeed": "9.6",
@@ -1970,7 +1970,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 30,
+      "waist": 1,
       "step": 21052,
       "distance": "17.7",
       "gaitSpeed": "13.5",
@@ -1978,7 +1978,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 30,
+      "waist": 1,
       "step": 3824,
       "distance": "20.0",
       "gaitSpeed": "14.3",
@@ -1986,7 +1986,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 30,
+      "waist": 1,
       "step": 9085,
       "distance": "15.5",
       "gaitSpeed": "1.2",
@@ -1994,7 +1994,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 30,
+      "waist": 1,
       "step": 5052,
       "distance": "19.4",
       "gaitSpeed": "5.6",
@@ -2002,7 +2002,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 30,
+      "waist": 1,
       "step": 19894,
       "distance": "13.8",
       "gaitSpeed": "10.9",
@@ -2010,7 +2010,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 29,
+      "waist": 2,
       "step": 24302,
       "distance": "0.2",
       "gaitSpeed": "12.1",
@@ -2018,7 +2018,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 30,
+      "waist": 1,
       "step": 8094,
       "distance": "1.8",
       "gaitSpeed": "0.0",
@@ -2026,7 +2026,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 30,
+      "waist": 1,
       "step": 13502,
       "distance": "1.0",
       "gaitSpeed": "2.4",
@@ -2034,7 +2034,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 29,
+      "waist": 2,
       "step": 908,
       "distance": "10.1",
       "gaitSpeed": "4.9",
@@ -2042,7 +2042,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 30,
+      "waist": 1,
       "step": 12534,
       "distance": "7.1",
       "gaitSpeed": "7.7",
@@ -2050,7 +2050,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 30,
+      "waist": 1,
       "step": 8408,
       "distance": "5.5",
       "gaitSpeed": "6.5",
@@ -2058,7 +2058,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 29,
+      "waist": 2,
       "step": 10342,
       "distance": "7.6",
       "gaitSpeed": "13.6",
@@ -2066,7 +2066,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 29,
+      "waist": 2,
       "step": 18711,
       "distance": "2.1",
       "gaitSpeed": "5.9",
@@ -2074,7 +2074,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 30,
+      "waist": 1,
       "step": 6800,
       "distance": "6.4",
       "gaitSpeed": "0.3",
@@ -2082,7 +2082,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 29,
+      "waist": 2,
       "step": 2332,
       "distance": "2.9",
       "gaitSpeed": "13.5",
@@ -2090,7 +2090,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 29,
+      "waist": 2,
       "step": 15103,
       "distance": "7.3",
       "gaitSpeed": "10.2",
@@ -2098,7 +2098,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 30,
+      "waist": 1,
       "step": 18440,
       "distance": "12.7",
       "gaitSpeed": "2.3",
@@ -2106,7 +2106,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 30,
+      "waist": 1,
       "step": 13617,
       "distance": "14.2",
       "gaitSpeed": "14.4",
@@ -2114,7 +2114,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 29,
+      "waist": 2,
       "step": 9746,
       "distance": "5.8",
       "gaitSpeed": "10.5",
@@ -2122,7 +2122,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 30,
+      "waist": 1,
       "step": 22675,
       "distance": "10.4",
       "gaitSpeed": "9.4",
@@ -2130,7 +2130,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 30,
+      "waist": 1,
       "step": 10337,
       "distance": "10.1",
       "gaitSpeed": "5.8",
@@ -2138,7 +2138,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 30,
+      "waist": 1,
       "step": 16374,
       "distance": "14.9",
       "gaitSpeed": "4.3",
@@ -2146,7 +2146,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 30,
+      "waist": 1,
       "step": 3679,
       "distance": "18.4",
       "gaitSpeed": "8.5",
@@ -2154,7 +2154,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 30,
+      "waist": 1,
       "step": 14286,
       "distance": "18.0",
       "gaitSpeed": "9.9",
@@ -2162,7 +2162,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 30,
+      "waist": 1,
       "step": 23035,
       "distance": "0.7",
       "gaitSpeed": "2.5",
@@ -2170,7 +2170,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 30,
+      "waist": 1,
       "step": 18287,
       "distance": "2.8",
       "gaitSpeed": "7.0",
@@ -2180,7 +2180,7 @@
   "Ci8c2DWpTVOgvsTUk3ZBXHx0BYT2": [
     {
       "timeid": "2020-11-01",
-      "waist": 29,
+      "waist": 0,
       "step": 10106,
       "distance": "3.4",
       "gaitSpeed": "11.4",
@@ -2188,7 +2188,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 29,
+      "waist": 2,
       "step": 3509,
       "distance": "8.6",
       "gaitSpeed": "8.7",
@@ -2196,7 +2196,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 29,
+      "waist": 2,
       "step": 11183,
       "distance": "12.6",
       "gaitSpeed": "11.8",
@@ -2204,7 +2204,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 29,
+      "waist": 2,
       "step": 3430,
       "distance": "1.2",
       "gaitSpeed": "0.6",
@@ -2212,7 +2212,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 30,
+      "waist": 1,
       "step": 14072,
       "distance": "14.9",
       "gaitSpeed": "4.0",
@@ -2220,7 +2220,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 30,
+      "waist": 1,
       "step": 3742,
       "distance": "10.0",
       "gaitSpeed": "14.1",
@@ -2228,7 +2228,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 30,
+      "waist": 1,
       "step": 13826,
       "distance": "8.5",
       "gaitSpeed": "2.5",
@@ -2236,7 +2236,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 29,
+      "waist": 2,
       "step": 8835,
       "distance": "2.2",
       "gaitSpeed": "8.8",
@@ -2244,7 +2244,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 29,
+      "waist": 2,
       "step": 14145,
       "distance": "13.1",
       "gaitSpeed": "11.7",
@@ -2252,7 +2252,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 30,
+      "waist": 1,
       "step": 3835,
       "distance": "13.4",
       "gaitSpeed": "0.5",
@@ -2260,7 +2260,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 30,
+      "waist": 1,
       "step": 15048,
       "distance": "16.8",
       "gaitSpeed": "9.2",
@@ -2268,7 +2268,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 29,
+      "waist": 2,
       "step": 24488,
       "distance": "2.5",
       "gaitSpeed": "2.5",
@@ -2276,7 +2276,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 29,
+      "waist": 2,
       "step": 5386,
       "distance": "0.7",
       "gaitSpeed": "12.1",
@@ -2284,7 +2284,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 30,
+      "waist": 1,
       "step": 16038,
       "distance": "8.5",
       "gaitSpeed": "2.4",
@@ -2292,7 +2292,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 30,
+      "waist": 1,
       "step": 6689,
       "distance": "15.5",
       "gaitSpeed": "8.3",
@@ -2300,7 +2300,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 29,
+      "waist": 2,
       "step": 24904,
       "distance": "17.7",
       "gaitSpeed": "13.7",
@@ -2308,7 +2308,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 29,
+      "waist": 2,
       "step": 19970,
       "distance": "15.2",
       "gaitSpeed": "8.3",
@@ -2316,7 +2316,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 30,
+      "waist": 1,
       "step": 3794,
       "distance": "16.5",
       "gaitSpeed": "11.9",
@@ -2324,7 +2324,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 29,
+      "waist": 2,
       "step": 20720,
       "distance": "0.2",
       "gaitSpeed": "4.3",
@@ -2332,7 +2332,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 29,
+      "waist": 2,
       "step": 15892,
       "distance": "0.7",
       "gaitSpeed": "0.8",
@@ -2340,7 +2340,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 30,
+      "waist": 1,
       "step": 11806,
       "distance": "2.8",
       "gaitSpeed": "4.7",
@@ -2348,7 +2348,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 30,
+      "waist": 1,
       "step": 12412,
       "distance": "6.7",
       "gaitSpeed": "5.0",
@@ -2356,7 +2356,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 30,
+      "waist": 1,
       "step": 23543,
       "distance": "0.2",
       "gaitSpeed": "9.2",
@@ -2364,7 +2364,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 29,
+      "waist": 2,
       "step": 7642,
       "distance": "2.4",
       "gaitSpeed": "10.9",
@@ -2372,7 +2372,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 29,
+      "waist": 2,
       "step": 24726,
       "distance": "7.7",
       "gaitSpeed": "1.5",
@@ -2380,7 +2380,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 30,
+      "waist": 1,
       "step": 4196,
       "distance": "18.2",
       "gaitSpeed": "11.2",
@@ -2388,7 +2388,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 29,
+      "waist": 2,
       "step": 18970,
       "distance": "15.6",
       "gaitSpeed": "13.9",
@@ -2396,7 +2396,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 30,
+      "waist": 1,
       "step": 20332,
       "distance": "16.3",
       "gaitSpeed": "10.7",
@@ -2404,7 +2404,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 29,
+      "waist": 2,
       "step": 2097,
       "distance": "11.7",
       "gaitSpeed": "12.5",
@@ -2412,7 +2412,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 30,
+      "waist": 1,
       "step": 12535,
       "distance": "7.4",
       "gaitSpeed": "1.3",
@@ -2422,7 +2422,7 @@
   "FxJcrHEY00PSv7DeNGKJDGRm0Au2": [
     {
       "timeid": "2020-11-01",
-      "waist": 31,
+      "waist": 0,
       "step": 5122,
       "distance": "9.3",
       "gaitSpeed": "5.0",
@@ -2430,7 +2430,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 31,
+      "waist": 1,
       "step": 21472,
       "distance": "6.5",
       "gaitSpeed": "6.1",
@@ -2438,7 +2438,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 30,
+      "waist": 1,
       "step": 23302,
       "distance": "5.5",
       "gaitSpeed": "7.7",
@@ -2446,7 +2446,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 31,
+      "waist": 1,
       "step": 18900,
       "distance": "10.4",
       "gaitSpeed": "3.5",
@@ -2454,7 +2454,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 31,
+      "waist": 1,
       "step": 9023,
       "distance": "14.7",
       "gaitSpeed": "14.9",
@@ -2462,7 +2462,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 31,
+      "waist": 1,
       "step": 23596,
       "distance": "6.4",
       "gaitSpeed": "11.8",
@@ -2470,7 +2470,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 30,
+      "waist": 1,
       "step": 4622,
       "distance": "9.0",
       "gaitSpeed": "3.9",
@@ -2478,7 +2478,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 30,
+      "waist": 1,
       "step": 6960,
       "distance": "9.9",
       "gaitSpeed": "10.8",
@@ -2486,7 +2486,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 30,
+      "waist": 1,
       "step": 3085,
       "distance": "5.7",
       "gaitSpeed": "2.4",
@@ -2494,7 +2494,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 31,
+      "waist": 1,
       "step": 10729,
       "distance": "1.1",
       "gaitSpeed": "4.5",
@@ -2502,7 +2502,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 30,
+      "waist": 2,
       "step": 22942,
       "distance": "2.5",
       "gaitSpeed": "6.2",
@@ -2510,7 +2510,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 31,
+      "waist": 2,
       "step": 14951,
       "distance": "11.3",
       "gaitSpeed": "3.6",
@@ -2518,7 +2518,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 31,
+      "waist": 2,
       "step": 15812,
       "distance": "0.7",
       "gaitSpeed": "0.3",
@@ -2526,7 +2526,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 30,
+      "waist": 1,
       "step": 15523,
       "distance": "12.7",
       "gaitSpeed": "9.1",
@@ -2534,7 +2534,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 31,
+      "waist": 1,
       "step": 19871,
       "distance": "14.3",
       "gaitSpeed": "8.9",
@@ -2542,7 +2542,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 30,
+      "waist": 2,
       "step": 15715,
       "distance": "19.1",
       "gaitSpeed": "7.3",
@@ -2550,7 +2550,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 31,
+      "waist": 2,
       "step": 19625,
       "distance": "11.0",
       "gaitSpeed": "12.8",
@@ -2558,7 +2558,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 30,
+      "waist": 1,
       "step": 10098,
       "distance": "4.2",
       "gaitSpeed": "2.6",
@@ -2566,7 +2566,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 30,
+      "waist": 1,
       "step": 2971,
       "distance": "19.1",
       "gaitSpeed": "2.7",
@@ -2574,7 +2574,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 30,
+      "waist": 1,
       "step": 16820,
       "distance": "11.1",
       "gaitSpeed": "3.2",
@@ -2582,7 +2582,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 30,
+      "waist": 1,
       "step": 3664,
       "distance": "13.2",
       "gaitSpeed": "11.5",
@@ -2590,7 +2590,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 31,
+      "waist": 1,
       "step": 12377,
       "distance": "15.2",
       "gaitSpeed": "12.6",
@@ -2598,7 +2598,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 30,
+      "waist": 1,
       "step": 24309,
       "distance": "17.8",
       "gaitSpeed": "14.3",
@@ -2606,7 +2606,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 30,
+      "waist": 1,
       "step": 20824,
       "distance": "15.9",
       "gaitSpeed": "12.9",
@@ -2614,7 +2614,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 31,
+      "waist": 1,
       "step": 19352,
       "distance": "11.4",
       "gaitSpeed": "0.2",
@@ -2622,7 +2622,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 30,
+      "waist": 1,
       "step": 18316,
       "distance": "3.9",
       "gaitSpeed": "1.0",
@@ -2630,7 +2630,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 30,
+      "waist": 1,
       "step": 10142,
       "distance": "13.0",
       "gaitSpeed": "10.1",
@@ -2638,7 +2638,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 30,
+      "waist": 1,
       "step": 24509,
       "distance": "12.9",
       "gaitSpeed": "5.7",
@@ -2646,7 +2646,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 30,
+      "waist": 1,
       "step": 6464,
       "distance": "16.3",
       "gaitSpeed": "14.7",
@@ -2654,7 +2654,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 30,
+      "waist": 1,
       "step": 17426,
       "distance": "16.5",
       "gaitSpeed": "0.7",
@@ -2664,7 +2664,7 @@
   "FY4GvejPhsV7wKiNGoYZZDVjyx32": [
     {
       "timeid": "2020-11-01",
-      "waist": 31,
+      "waist": 0,
       "step": 20109,
       "distance": "6.5",
       "gaitSpeed": "12.6",
@@ -2672,7 +2672,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 31,
+      "waist": 1,
       "step": 4136,
       "distance": "6.6",
       "gaitSpeed": "0.4",
@@ -2680,7 +2680,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 31,
+      "waist": 2,
       "step": 19931,
       "distance": "16.1",
       "gaitSpeed": "0.5",
@@ -2688,7 +2688,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 31,
+      "waist": 2,
       "step": 11294,
       "distance": "5.7",
       "gaitSpeed": "10.9",
@@ -2696,7 +2696,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 31,
+      "waist": 1,
       "step": 13633,
       "distance": "5.6",
       "gaitSpeed": "6.5",
@@ -2704,7 +2704,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 31,
+      "waist": 1,
       "step": 24427,
       "distance": "3.0",
       "gaitSpeed": "8.4",
@@ -2712,7 +2712,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 31,
+      "waist": 1,
       "step": 22474,
       "distance": "14.7",
       "gaitSpeed": "0.4",
@@ -2720,7 +2720,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 30,
+      "waist": 2,
       "step": 24582,
       "distance": "18.9",
       "gaitSpeed": "1.9",
@@ -2728,7 +2728,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 31,
+      "waist": 1,
       "step": 6483,
       "distance": "7.3",
       "gaitSpeed": "7.7",
@@ -2736,7 +2736,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 31,
+      "waist": 2,
       "step": 12326,
       "distance": "7.3",
       "gaitSpeed": "0.3",
@@ -2744,7 +2744,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 31,
+      "waist": 1,
       "step": 8257,
       "distance": "11.4",
       "gaitSpeed": "0.8",
@@ -2752,7 +2752,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 30,
+      "waist": 2,
       "step": 215,
       "distance": "0.9",
       "gaitSpeed": "3.4",
@@ -2760,7 +2760,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 30,
+      "waist": 1,
       "step": 17898,
       "distance": "9.0",
       "gaitSpeed": "11.1",
@@ -2768,7 +2768,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 30,
+      "waist": 1,
       "step": 12956,
       "distance": "11.2",
       "gaitSpeed": "7.0",
@@ -2776,7 +2776,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 30,
+      "waist": 1,
       "step": 4734,
       "distance": "14.3",
       "gaitSpeed": "7.5",
@@ -2784,7 +2784,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 31,
+      "waist": 1,
       "step": 20293,
       "distance": "11.5",
       "gaitSpeed": "13.1",
@@ -2792,7 +2792,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 31,
+      "waist": 1,
       "step": 11693,
       "distance": "11.6",
       "gaitSpeed": "9.5",
@@ -2800,7 +2800,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 30,
+      "waist": 1,
       "step": 2146,
       "distance": "15.0",
       "gaitSpeed": "10.9",
@@ -2808,7 +2808,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 31,
+      "waist": 1,
       "step": 10909,
       "distance": "9.9",
       "gaitSpeed": "10.5",
@@ -2816,7 +2816,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 31,
+      "waist": 2,
       "step": 13022,
       "distance": "19.5",
       "gaitSpeed": "6.7",
@@ -2824,7 +2824,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 31,
+      "waist": 2,
       "step": 18101,
       "distance": "10.7",
       "gaitSpeed": "10.5",
@@ -2832,7 +2832,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 30,
+      "waist": 1,
       "step": 16501,
       "distance": "4.6",
       "gaitSpeed": "1.2",
@@ -2840,7 +2840,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 30,
+      "waist": 1,
       "step": 22460,
       "distance": "7.7",
       "gaitSpeed": "6.1",
@@ -2848,7 +2848,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 31,
+      "waist": 2,
       "step": 15578,
       "distance": "12.2",
       "gaitSpeed": "11.9",
@@ -2856,7 +2856,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 31,
+      "waist": 2,
       "step": 8393,
       "distance": "0.9",
       "gaitSpeed": "9.4",
@@ -2864,7 +2864,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 30,
+      "waist": 1,
       "step": 19454,
       "distance": "19.9",
       "gaitSpeed": "2.0",
@@ -2872,7 +2872,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 31,
+      "waist": 2,
       "step": 21486,
       "distance": "8.7",
       "gaitSpeed": "11.5",
@@ -2880,7 +2880,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 30,
+      "waist": 1,
       "step": 23042,
       "distance": "3.8",
       "gaitSpeed": "7.9",
@@ -2888,7 +2888,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 30,
+      "waist": 1,
       "step": 24882,
       "distance": "2.9",
       "gaitSpeed": "12.0",
@@ -2896,7 +2896,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 30,
+      "waist": 2,
       "step": 24407,
       "distance": "15.0",
       "gaitSpeed": "13.2",
@@ -2906,7 +2906,7 @@
   "G6xA9MdpUTapsoymw30Tn5uOiV02": [
     {
       "timeid": "2020-11-01",
-      "waist": 31,
+      "waist": 0,
       "step": 8129,
       "distance": "18.4",
       "gaitSpeed": "12.7",
@@ -2914,7 +2914,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 30,
+      "waist": 1,
       "step": 5086,
       "distance": "7.9",
       "gaitSpeed": "6.6",
@@ -2922,7 +2922,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 30,
+      "waist": 2,
       "step": 24307,
       "distance": "17.1",
       "gaitSpeed": "10.7",
@@ -2930,7 +2930,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 30,
+      "waist": 2,
       "step": 20926,
       "distance": "8.5",
       "gaitSpeed": "3.8",
@@ -2938,7 +2938,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 31,
+      "waist": 2,
       "step": 19684,
       "distance": "7.2",
       "gaitSpeed": "9.3",
@@ -2946,7 +2946,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 31,
+      "waist": 1,
       "step": 17503,
       "distance": "13.3",
       "gaitSpeed": "3.3",
@@ -2954,7 +2954,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 31,
+      "waist": 1,
       "step": 17371,
       "distance": "17.5",
       "gaitSpeed": "8.2",
@@ -2962,7 +2962,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 30,
+      "waist": 1,
       "step": 8518,
       "distance": "0.6",
       "gaitSpeed": "3.4",
@@ -2970,7 +2970,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 30,
+      "waist": 2,
       "step": 24570,
       "distance": "2.1",
       "gaitSpeed": "9.5",
@@ -2978,7 +2978,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 30,
+      "waist": 1,
       "step": 16083,
       "distance": "0.0",
       "gaitSpeed": "8.0",
@@ -2986,7 +2986,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 30,
+      "waist": 1,
       "step": 24863,
       "distance": "19.8",
       "gaitSpeed": "7.0",
@@ -2994,7 +2994,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 30,
+      "waist": 2,
       "step": 24278,
       "distance": "3.1",
       "gaitSpeed": "2.8",
@@ -3002,7 +3002,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 31,
+      "waist": 1,
       "step": 16257,
       "distance": "10.9",
       "gaitSpeed": "13.1",
@@ -3010,7 +3010,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 31,
+      "waist": 1,
       "step": 5441,
       "distance": "6.6",
       "gaitSpeed": "4.3",
@@ -3018,7 +3018,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 30,
+      "waist": 1,
       "step": 20019,
       "distance": "13.1",
       "gaitSpeed": "4.2",
@@ -3026,7 +3026,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 30,
+      "waist": 1,
       "step": 185,
       "distance": "5.5",
       "gaitSpeed": "0.9",
@@ -3034,7 +3034,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 31,
+      "waist": 1,
       "step": 3861,
       "distance": "7.0",
       "gaitSpeed": "8.8",
@@ -3042,7 +3042,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 31,
+      "waist": 1,
       "step": 9339,
       "distance": "19.7",
       "gaitSpeed": "15.0",
@@ -3050,7 +3050,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 30,
+      "waist": 2,
       "step": 6394,
       "distance": "2.3",
       "gaitSpeed": "2.0",
@@ -3058,7 +3058,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 31,
+      "waist": 1,
       "step": 17335,
       "distance": "12.9",
       "gaitSpeed": "4.4",
@@ -3066,7 +3066,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 31,
+      "waist": 1,
       "step": 1317,
       "distance": "12.5",
       "gaitSpeed": "7.0",
@@ -3074,7 +3074,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 30,
+      "waist": 1,
       "step": 17930,
       "distance": "4.6",
       "gaitSpeed": "6.9",
@@ -3082,7 +3082,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 31,
+      "waist": 1,
       "step": 20159,
       "distance": "14.4",
       "gaitSpeed": "8.0",
@@ -3090,7 +3090,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 30,
+      "waist": 1,
       "step": 11331,
       "distance": "3.0",
       "gaitSpeed": "1.2",
@@ -3098,7 +3098,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 30,
+      "waist": 1,
       "step": 4070,
       "distance": "17.9",
       "gaitSpeed": "5.4",
@@ -3106,7 +3106,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 31,
+      "waist": 1,
       "step": 1703,
       "distance": "13.1",
       "gaitSpeed": "7.2",
@@ -3114,7 +3114,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 30,
+      "waist": 1,
       "step": 2955,
       "distance": "4.6",
       "gaitSpeed": "6.3",
@@ -3122,7 +3122,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 31,
+      "waist": 1,
       "step": 12594,
       "distance": "0.2",
       "gaitSpeed": "7.2",
@@ -3130,7 +3130,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 31,
+      "waist": 1,
       "step": 4138,
       "distance": "10.6",
       "gaitSpeed": "1.8",
@@ -3138,7 +3138,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 31,
+      "waist": 1,
       "step": 2639,
       "distance": "17.8",
       "gaitSpeed": "5.5",
@@ -3148,7 +3148,7 @@
   "HAnOrbgWhcOr3pFkFnOlAeIfmql2": [
     {
       "timeid": "2020-11-01",
-      "waist": 32,
+      "waist": 0,
       "step": 11581,
       "distance": "0.4",
       "gaitSpeed": "11.4",
@@ -3156,7 +3156,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 33,
+      "waist": 1,
       "step": 9890,
       "distance": "0.9",
       "gaitSpeed": "9.6",
@@ -3164,7 +3164,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 32,
+      "waist": 2,
       "step": 15416,
       "distance": "19.5",
       "gaitSpeed": "6.9",
@@ -3172,7 +3172,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 32,
+      "waist": 2,
       "step": 1440,
       "distance": "3.1",
       "gaitSpeed": "3.4",
@@ -3180,7 +3180,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 32,
+      "waist": 2,
       "step": 12142,
       "distance": "17.1",
       "gaitSpeed": "10.6",
@@ -3188,7 +3188,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 32,
+      "waist": 2,
       "step": 4959,
       "distance": "0.9",
       "gaitSpeed": "14.6",
@@ -3196,7 +3196,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 33,
+      "waist": 1,
       "step": 13701,
       "distance": "13.6",
       "gaitSpeed": "13.4",
@@ -3204,7 +3204,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 32,
+      "waist": 2,
       "step": 12390,
       "distance": "2.6",
       "gaitSpeed": "4.0",
@@ -3212,7 +3212,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 33,
+      "waist": 1,
       "step": 11221,
       "distance": "18.6",
       "gaitSpeed": "11.5",
@@ -3220,7 +3220,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 32,
+      "waist": 2,
       "step": 15358,
       "distance": "0.6",
       "gaitSpeed": "2.3",
@@ -3228,7 +3228,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 32,
+      "waist": 2,
       "step": 8074,
       "distance": "8.7",
       "gaitSpeed": "7.7",
@@ -3236,7 +3236,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 33,
+      "waist": 1,
       "step": 22053,
       "distance": "7.6",
       "gaitSpeed": "12.2",
@@ -3244,7 +3244,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 32,
+      "waist": 2,
       "step": 22311,
       "distance": "2.8",
       "gaitSpeed": "7.8",
@@ -3252,7 +3252,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 32,
+      "waist": 2,
       "step": 2535,
       "distance": "17.6",
       "gaitSpeed": "0.6",
@@ -3260,7 +3260,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 32,
+      "waist": 2,
       "step": 7780,
       "distance": "7.7",
       "gaitSpeed": "10.0",
@@ -3268,7 +3268,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 33,
+      "waist": 1,
       "step": 21242,
       "distance": "5.5",
       "gaitSpeed": "5.2",
@@ -3276,7 +3276,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 32,
+      "waist": 2,
       "step": 5644,
       "distance": "3.1",
       "gaitSpeed": "1.2",
@@ -3284,7 +3284,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 33,
+      "waist": 1,
       "step": 2470,
       "distance": "0.4",
       "gaitSpeed": "0.2",
@@ -3292,7 +3292,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 32,
+      "waist": 2,
       "step": 24318,
       "distance": "2.5",
       "gaitSpeed": "2.5",
@@ -3300,7 +3300,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 32,
+      "waist": 2,
       "step": 21242,
       "distance": "19.4",
       "gaitSpeed": "13.4",
@@ -3308,7 +3308,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 32,
+      "waist": 2,
       "step": 24666,
       "distance": "7.2",
       "gaitSpeed": "9.4",
@@ -3316,7 +3316,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 33,
+      "waist": 1,
       "step": 7719,
       "distance": "8.7",
       "gaitSpeed": "0.1",
@@ -3324,7 +3324,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 32,
+      "waist": 2,
       "step": 968,
       "distance": "16.3",
       "gaitSpeed": "14.2",
@@ -3332,7 +3332,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 32,
+      "waist": 2,
       "step": 15976,
       "distance": "8.5",
       "gaitSpeed": "14.4",
@@ -3340,7 +3340,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 32,
+      "waist": 2,
       "step": 12089,
       "distance": "8.1",
       "gaitSpeed": "1.7",
@@ -3348,7 +3348,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 33,
+      "waist": 1,
       "step": 21329,
       "distance": "2.1",
       "gaitSpeed": "4.5",
@@ -3356,7 +3356,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 32,
+      "waist": 2,
       "step": 8927,
       "distance": "12.7",
       "gaitSpeed": "8.1",
@@ -3364,7 +3364,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 32,
+      "waist": 2,
       "step": 17059,
       "distance": "11.2",
       "gaitSpeed": "3.2",
@@ -3372,7 +3372,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 32,
+      "waist": 2,
       "step": 5675,
       "distance": "6.8",
       "gaitSpeed": "9.2",
@@ -3380,7 +3380,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 33,
+      "waist": 1,
       "step": 18646,
       "distance": "0.4",
       "gaitSpeed": "5.8",
@@ -3390,7 +3390,7 @@
   "ljrB0dk1HuYjsEsuChLPDAA5oiO2": [
     {
       "timeid": "2020-11-01",
-      "waist": 32,
+      "waist": 0,
       "step": 7007,
       "distance": "1.8",
       "gaitSpeed": "2.6",
@@ -3398,7 +3398,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 32,
+      "waist": 2,
       "step": 24112,
       "distance": "12.7",
       "gaitSpeed": "8.3",
@@ -3406,7 +3406,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 33,
+      "waist": 1,
       "step": 8132,
       "distance": "8.8",
       "gaitSpeed": "3.3",
@@ -3414,7 +3414,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 33,
+      "waist": 1,
       "step": 10160,
       "distance": "6.0",
       "gaitSpeed": "14.8",
@@ -3422,7 +3422,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 32,
+      "waist": 2,
       "step": 13697,
       "distance": "0.3",
       "gaitSpeed": "3.7",
@@ -3430,7 +3430,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 32,
+      "waist": 2,
       "step": 23177,
       "distance": "6.3",
       "gaitSpeed": "9.9",
@@ -3438,7 +3438,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 33,
+      "waist": 1,
       "step": 15855,
       "distance": "0.9",
       "gaitSpeed": "4.9",
@@ -3446,7 +3446,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 32,
+      "waist": 2,
       "step": 21133,
       "distance": "4.9",
       "gaitSpeed": "12.2",
@@ -3454,7 +3454,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 33,
+      "waist": 1,
       "step": 19012,
       "distance": "14.3",
       "gaitSpeed": "8.0",
@@ -3462,7 +3462,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 32,
+      "waist": 2,
       "step": 7653,
       "distance": "2.2",
       "gaitSpeed": "3.9",
@@ -3470,7 +3470,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 33,
+      "waist": 1,
       "step": 8712,
       "distance": "5.9",
       "gaitSpeed": "14.6",
@@ -3478,7 +3478,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 32,
+      "waist": 2,
       "step": 15698,
       "distance": "5.8",
       "gaitSpeed": "7.4",
@@ -3486,7 +3486,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 33,
+      "waist": 1,
       "step": 23329,
       "distance": "18.4",
       "gaitSpeed": "8.7",
@@ -3494,7 +3494,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 32,
+      "waist": 2,
       "step": 186,
       "distance": "8.6",
       "gaitSpeed": "7.0",
@@ -3502,7 +3502,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 33,
+      "waist": 1,
       "step": 13098,
       "distance": "1.9",
       "gaitSpeed": "14.2",
@@ -3510,7 +3510,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 32,
+      "waist": 2,
       "step": 9464,
       "distance": "5.8",
       "gaitSpeed": "8.6",
@@ -3518,7 +3518,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 33,
+      "waist": 1,
       "step": 9246,
       "distance": "18.4",
       "gaitSpeed": "3.7",
@@ -3526,7 +3526,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 32,
+      "waist": 2,
       "step": 18071,
       "distance": "8.6",
       "gaitSpeed": "14.1",
@@ -3534,7 +3534,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 32,
+      "waist": 2,
       "step": 14147,
       "distance": "0.7",
       "gaitSpeed": "8.7",
@@ -3542,7 +3542,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 32,
+      "waist": 2,
       "step": 13589,
       "distance": "3.2",
       "gaitSpeed": "12.7",
@@ -3550,7 +3550,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 33,
+      "waist": 1,
       "step": 8411,
       "distance": "8.5",
       "gaitSpeed": "4.6",
@@ -3558,7 +3558,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 33,
+      "waist": 1,
       "step": 6489,
       "distance": "4.1",
       "gaitSpeed": "3.5",
@@ -3566,7 +3566,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 32,
+      "waist": 2,
       "step": 22814,
       "distance": "8.2",
       "gaitSpeed": "13.7",
@@ -3574,7 +3574,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 32,
+      "waist": 2,
       "step": 24186,
       "distance": "17.3",
       "gaitSpeed": "1.4",
@@ -3582,7 +3582,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 33,
+      "waist": 1,
       "step": 22993,
       "distance": "4.6",
       "gaitSpeed": "1.8",
@@ -3590,7 +3590,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 32,
+      "waist": 2,
       "step": 15603,
       "distance": "15.5",
       "gaitSpeed": "11.6",
@@ -3598,7 +3598,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 33,
+      "waist": 1,
       "step": 7704,
       "distance": "13.4",
       "gaitSpeed": "11.4",
@@ -3606,7 +3606,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 33,
+      "waist": 1,
       "step": 12969,
       "distance": "2.5",
       "gaitSpeed": "11.3",
@@ -3614,7 +3614,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 33,
+      "waist": 1,
       "step": 16751,
       "distance": "7.7",
       "gaitSpeed": "7.5",
@@ -3622,7 +3622,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 33,
+      "waist": 1,
       "step": 8708,
       "distance": "3.6",
       "gaitSpeed": "12.6",
@@ -3632,7 +3632,7 @@
   "mS8RdZSl4sQOwQIiPhru0vnuY6c2": [
     {
       "timeid": "2020-11-01",
-      "waist": 33,
+      "waist": 0,
       "step": 5354,
       "distance": "15.3",
       "gaitSpeed": "5.4",
@@ -3640,7 +3640,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 32,
+      "waist": 2,
       "step": 7517,
       "distance": "3.2",
       "gaitSpeed": "6.4",
@@ -3648,7 +3648,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 32,
+      "waist": 2,
       "step": 13440,
       "distance": "8.5",
       "gaitSpeed": "11.1",
@@ -3656,7 +3656,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 33,
+      "waist": 1,
       "step": 15704,
       "distance": "2.5",
       "gaitSpeed": "9.9",
@@ -3664,7 +3664,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 32,
+      "waist": 2,
       "step": 15978,
       "distance": "5.8",
       "gaitSpeed": "4.0",
@@ -3672,7 +3672,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 33,
+      "waist": 1,
       "step": 23153,
       "distance": "3.5",
       "gaitSpeed": "1.7",
@@ -3680,7 +3680,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 32,
+      "waist": 2,
       "step": 12323,
       "distance": "14.9",
       "gaitSpeed": "1.1",
@@ -3688,7 +3688,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 33,
+      "waist": 1,
       "step": 6786,
       "distance": "12.1",
       "gaitSpeed": "8.2",
@@ -3696,7 +3696,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 32,
+      "waist": 2,
       "step": 22110,
       "distance": "1.3",
       "gaitSpeed": "0.9",
@@ -3704,7 +3704,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 33,
+      "waist": 1,
       "step": 18123,
       "distance": "2.6",
       "gaitSpeed": "7.2",
@@ -3712,7 +3712,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 33,
+      "waist": 1,
       "step": 20074,
       "distance": "1.3",
       "gaitSpeed": "14.6",
@@ -3720,7 +3720,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 32,
+      "waist": 2,
       "step": 2687,
       "distance": "17.7",
       "gaitSpeed": "4.4",
@@ -3728,7 +3728,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 32,
+      "waist": 2,
       "step": 21973,
       "distance": "7.0",
       "gaitSpeed": "0.7",
@@ -3736,7 +3736,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 32,
+      "waist": 2,
       "step": 20882,
       "distance": "15.5",
       "gaitSpeed": "12.4",
@@ -3744,7 +3744,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 33,
+      "waist": 1,
       "step": 87,
       "distance": "11.0",
       "gaitSpeed": "4.5",
@@ -3752,7 +3752,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 32,
+      "waist": 2,
       "step": 18472,
       "distance": "14.5",
       "gaitSpeed": "6.2",
@@ -3760,7 +3760,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 33,
+      "waist": 1,
       "step": 24182,
       "distance": "17.6",
       "gaitSpeed": "1.4",
@@ -3768,7 +3768,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 33,
+      "waist": 1,
       "step": 16280,
       "distance": "0.5",
       "gaitSpeed": "11.6",
@@ -3776,7 +3776,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 33,
+      "waist": 1,
       "step": 14472,
       "distance": "0.3",
       "gaitSpeed": "4.4",
@@ -3784,7 +3784,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 33,
+      "waist": 1,
       "step": 18349,
       "distance": "14.8",
       "gaitSpeed": "8.0",
@@ -3792,7 +3792,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 33,
+      "waist": 1,
       "step": 22191,
       "distance": "18.8",
       "gaitSpeed": "12.5",
@@ -3800,7 +3800,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 32,
+      "waist": 2,
       "step": 19468,
       "distance": "16.3",
       "gaitSpeed": "12.8",
@@ -3808,7 +3808,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 32,
+      "waist": 2,
       "step": 839,
       "distance": "15.0",
       "gaitSpeed": "0.3",
@@ -3816,7 +3816,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 33,
+      "waist": 1,
       "step": 1505,
       "distance": "5.7",
       "gaitSpeed": "11.5",
@@ -3824,7 +3824,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 33,
+      "waist": 1,
       "step": 4347,
       "distance": "13.3",
       "gaitSpeed": "13.7",
@@ -3832,7 +3832,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 32,
+      "waist": 2,
       "step": 10971,
       "distance": "7.1",
       "gaitSpeed": "9.6",
@@ -3840,7 +3840,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 32,
+      "waist": 2,
       "step": 15270,
       "distance": "13.8",
       "gaitSpeed": "6.1",
@@ -3848,7 +3848,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 33,
+      "waist": 1,
       "step": 24109,
       "distance": "19.0",
       "gaitSpeed": "6.3",
@@ -3856,7 +3856,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 33,
+      "waist": 1,
       "step": 14639,
       "distance": "4.9",
       "gaitSpeed": "9.3",
@@ -3864,7 +3864,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 32,
+      "waist": 2,
       "step": 16080,
       "distance": "14.8",
       "gaitSpeed": "0.9",
@@ -3874,7 +3874,7 @@
   "ODhau7DfpMWNAaMjDVdfGW8Oxxj1": [
     {
       "timeid": "2020-11-01",
-      "waist": 34,
+      "waist": 0,
       "step": 5723,
       "distance": "7.4",
       "gaitSpeed": "14.3",
@@ -3882,7 +3882,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 35,
+      "waist": 1,
       "step": 16687,
       "distance": "6.5",
       "gaitSpeed": "5.1",
@@ -3890,7 +3890,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 35,
+      "waist": 1,
       "step": 22329,
       "distance": "2.8",
       "gaitSpeed": "6.3",
@@ -3898,7 +3898,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 34,
+      "waist": 1,
       "step": 17218,
       "distance": "8.2",
       "gaitSpeed": "5.8",
@@ -3906,7 +3906,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 35,
+      "waist": 2,
       "step": 1108,
       "distance": "12.2",
       "gaitSpeed": "1.3",
@@ -3914,7 +3914,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 35,
+      "waist": 3,
       "step": 10953,
       "distance": "2.8",
       "gaitSpeed": "9.0",
@@ -3922,7 +3922,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 34,
+      "waist": 2,
       "step": 23170,
       "distance": "11.7",
       "gaitSpeed": "7.1",
@@ -3930,7 +3930,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 34,
+      "waist": 3,
       "step": 1159,
       "distance": "18.1",
       "gaitSpeed": "5.7",
@@ -3938,7 +3938,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 34,
+      "waist": 3,
       "step": 3707,
       "distance": "5.9",
       "gaitSpeed": "1.8",
@@ -3946,7 +3946,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 34,
+      "waist": 3,
       "step": 19108,
       "distance": "13.1",
       "gaitSpeed": "1.9",
@@ -3954,7 +3954,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 34,
+      "waist": 3,
       "step": 15487,
       "distance": "18.5",
       "gaitSpeed": "13.6",
@@ -3962,7 +3962,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 35,
+      "waist": 3,
       "step": 3642,
       "distance": "8.7",
       "gaitSpeed": "4.5",
@@ -3970,7 +3970,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 35,
+      "waist": 3,
       "step": 9807,
       "distance": "19.2",
       "gaitSpeed": "5.8",
@@ -3978,7 +3978,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 34,
+      "waist": 3,
       "step": 9441,
       "distance": "8.4",
       "gaitSpeed": "5.2",
@@ -3986,7 +3986,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 34,
+      "waist": 3,
       "step": 8269,
       "distance": "16.7",
       "gaitSpeed": "9.0",
@@ -3994,7 +3994,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 34,
+      "waist": 3,
       "step": 16945,
       "distance": "12.6",
       "gaitSpeed": "10.8",
@@ -4002,7 +4002,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 34,
+      "waist": 3,
       "step": 21405,
       "distance": "19.9",
       "gaitSpeed": "9.2",
@@ -4010,7 +4010,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 35,
+      "waist": 3,
       "step": 3105,
       "distance": "16.3",
       "gaitSpeed": "13.0",
@@ -4018,7 +4018,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 35,
+      "waist": 3,
       "step": 10047,
       "distance": "13.0",
       "gaitSpeed": "2.6",
@@ -4026,7 +4026,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 35,
+      "waist": 3,
       "step": 9198,
       "distance": "16.4",
       "gaitSpeed": "6.7",
@@ -4034,7 +4034,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 34,
+      "waist": 3,
       "step": 15076,
       "distance": "5.9",
       "gaitSpeed": "6.7",
@@ -4042,7 +4042,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 35,
+      "waist": 2,
       "step": 15420,
       "distance": "16.5",
       "gaitSpeed": "14.1",
@@ -4050,7 +4050,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 34,
+      "waist": 3,
       "step": 18885,
       "distance": "19.1",
       "gaitSpeed": "8.9",
@@ -4058,7 +4058,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 34,
+      "waist": 3,
       "step": 623,
       "distance": "16.6",
       "gaitSpeed": "0.5",
@@ -4066,7 +4066,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 35,
+      "waist": 3,
       "step": 16245,
       "distance": "19.2",
       "gaitSpeed": "1.3",
@@ -4074,7 +4074,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 34,
+      "waist": 3,
       "step": 21581,
       "distance": "8.8",
       "gaitSpeed": "12.1",
@@ -4082,7 +4082,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 34,
+      "waist": 3,
       "step": 21044,
       "distance": "10.9",
       "gaitSpeed": "11.9",
@@ -4090,7 +4090,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 34,
+      "waist": 3,
       "step": 5723,
       "distance": "5.6",
       "gaitSpeed": "2.5",
@@ -4098,7 +4098,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 35,
+      "waist": 3,
       "step": 4381,
       "distance": "6.7",
       "gaitSpeed": "9.2",
@@ -4106,7 +4106,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 35,
+      "waist": 3,
       "step": 16393,
       "distance": "4.1",
       "gaitSpeed": "4.4",
@@ -4116,7 +4116,7 @@
   "oHDHVfz3K1TNmOqLlGFz5hsiAh23": [
     {
       "timeid": "2020-11-01",
-      "waist": 35,
+      "waist": 0,
       "step": 10456,
       "distance": "2.0",
       "gaitSpeed": "5.1",
@@ -4124,7 +4124,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 35,
+      "waist": 1,
       "step": 16718,
       "distance": "10.7",
       "gaitSpeed": "10.7",
@@ -4132,7 +4132,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 34,
+      "waist": 1,
       "step": 21935,
       "distance": "15.6",
       "gaitSpeed": "14.9",
@@ -4140,7 +4140,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 35,
+      "waist": 1,
       "step": 2255,
       "distance": "11.0",
       "gaitSpeed": "10.3",
@@ -4148,7 +4148,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 35,
+      "waist": 1,
       "step": 12301,
       "distance": "18.2",
       "gaitSpeed": "13.0",
@@ -4156,7 +4156,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 34,
+      "waist": 1,
       "step": 3980,
       "distance": "11.6",
       "gaitSpeed": "1.6",
@@ -4164,7 +4164,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 35,
+      "waist": 1,
       "step": 4698,
       "distance": "0.2",
       "gaitSpeed": "11.8",
@@ -4172,7 +4172,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 35,
+      "waist": 2,
       "step": 19897,
       "distance": "15.3",
       "gaitSpeed": "7.5",
@@ -4180,7 +4180,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 34,
+      "waist": 2,
       "step": 6004,
       "distance": "8.0",
       "gaitSpeed": "10.5",
@@ -4188,7 +4188,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 35,
+      "waist": 2,
       "step": 8491,
       "distance": "0.8",
       "gaitSpeed": "0.2",
@@ -4196,7 +4196,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 34,
+      "waist": 2,
       "step": 6401,
       "distance": "14.9",
       "gaitSpeed": "5.2",
@@ -4204,7 +4204,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 35,
+      "waist": 2,
       "step": 18159,
       "distance": "19.3",
       "gaitSpeed": "9.7",
@@ -4212,7 +4212,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 35,
+      "waist": 2,
       "step": 18535,
       "distance": "17.1",
       "gaitSpeed": "12.0",
@@ -4220,7 +4220,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 35,
+      "waist": 3,
       "step": 19852,
       "distance": "18.7",
       "gaitSpeed": "4.7",
@@ -4228,7 +4228,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 34,
+      "waist": 3,
       "step": 17849,
       "distance": "16.2",
       "gaitSpeed": "1.4",
@@ -4236,7 +4236,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 34,
+      "waist": 3,
       "step": 5507,
       "distance": "3.4",
       "gaitSpeed": "13.5",
@@ -4244,7 +4244,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 34,
+      "waist": 3,
       "step": 15437,
       "distance": "6.0",
       "gaitSpeed": "11.3",
@@ -4252,7 +4252,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 34,
+      "waist": 3,
       "step": 4963,
       "distance": "14.4",
       "gaitSpeed": "12.0",
@@ -4260,7 +4260,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 34,
+      "waist": 3,
       "step": 4973,
       "distance": "12.8",
       "gaitSpeed": "8.9",
@@ -4268,7 +4268,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 35,
+      "waist": 3,
       "step": 8320,
       "distance": "8.4",
       "gaitSpeed": "9.9",
@@ -4276,7 +4276,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 35,
+      "waist": 3,
       "step": 2784,
       "distance": "18.7",
       "gaitSpeed": "5.8",
@@ -4284,7 +4284,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 35,
+      "waist": 3,
       "step": 11982,
       "distance": "0.2",
       "gaitSpeed": "14.2",
@@ -4292,7 +4292,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 34,
+      "waist": 3,
       "step": 19963,
       "distance": "10.8",
       "gaitSpeed": "7.0",
@@ -4300,7 +4300,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 35,
+      "waist": 3,
       "step": 22704,
       "distance": "18.5",
       "gaitSpeed": "9.7",
@@ -4308,7 +4308,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 35,
+      "waist": 3,
       "step": 16695,
       "distance": "12.1",
       "gaitSpeed": "1.8",
@@ -4316,7 +4316,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 34,
+      "waist": 3,
       "step": 20345,
       "distance": "1.1",
       "gaitSpeed": "8.4",
@@ -4324,7 +4324,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 34,
+      "waist": 3,
       "step": 5080,
       "distance": "3.9",
       "gaitSpeed": "11.9",
@@ -4332,7 +4332,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 35,
+      "waist": 3,
       "step": 21778,
       "distance": "10.7",
       "gaitSpeed": "2.2",
@@ -4340,7 +4340,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 34,
+      "waist": 3,
       "step": 17983,
       "distance": "14.7",
       "gaitSpeed": "9.4",
@@ -4348,7 +4348,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 34,
+      "waist": 3,
       "step": 12702,
       "distance": "4.1",
       "gaitSpeed": "14.8",
@@ -4358,7 +4358,7 @@
   "pfRhXsXJVbM3m80jYpZJyjqdZyn2": [
     {
       "timeid": "2020-11-01",
-      "waist": 35,
+      "waist": 0,
       "step": 11643,
       "distance": "3.3",
       "gaitSpeed": "7.4",
@@ -4366,7 +4366,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 34,
+      "waist": 2,
       "step": 20273,
       "distance": "6.0",
       "gaitSpeed": "8.6",
@@ -4374,7 +4374,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 34,
+      "waist": 3,
       "step": 6864,
       "distance": "15.6",
       "gaitSpeed": "2.2",
@@ -4382,7 +4382,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 35,
+      "waist": 3,
       "step": 23016,
       "distance": "16.7",
       "gaitSpeed": "11.4",
@@ -4390,7 +4390,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 35,
+      "waist": 3,
       "step": 20119,
       "distance": "5.8",
       "gaitSpeed": "0.4",
@@ -4398,7 +4398,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 34,
+      "waist": 3,
       "step": 14206,
       "distance": "13.4",
       "gaitSpeed": "5.2",
@@ -4406,7 +4406,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 35,
+      "waist": 3,
       "step": 3505,
       "distance": "12.2",
       "gaitSpeed": "10.5",
@@ -4414,7 +4414,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 34,
+      "waist": 3,
       "step": 20910,
       "distance": "11.0",
       "gaitSpeed": "0.8",
@@ -4422,7 +4422,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 34,
+      "waist": 3,
       "step": 18587,
       "distance": "1.4",
       "gaitSpeed": "8.1",
@@ -4430,7 +4430,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 34,
+      "waist": 3,
       "step": 8326,
       "distance": "6.9",
       "gaitSpeed": "3.3",
@@ -4438,7 +4438,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 35,
+      "waist": 3,
       "step": 22245,
       "distance": "14.1",
       "gaitSpeed": "13.3",
@@ -4446,7 +4446,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 34,
+      "waist": 3,
       "step": 7848,
       "distance": "2.7",
       "gaitSpeed": "6.3",
@@ -4454,7 +4454,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 35,
+      "waist": 3,
       "step": 9939,
       "distance": "5.9",
       "gaitSpeed": "1.5",
@@ -4462,7 +4462,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 34,
+      "waist": 3,
       "step": 11419,
       "distance": "0.7",
       "gaitSpeed": "6.4",
@@ -4470,7 +4470,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 34,
+      "waist": 3,
       "step": 16270,
       "distance": "0.4",
       "gaitSpeed": "4.6",
@@ -4478,7 +4478,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 34,
+      "waist": 3,
       "step": 11738,
       "distance": "7.5",
       "gaitSpeed": "1.1",
@@ -4486,7 +4486,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 34,
+      "waist": 3,
       "step": 17286,
       "distance": "13.3",
       "gaitSpeed": "5.5",
@@ -4494,7 +4494,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 34,
+      "waist": 3,
       "step": 21089,
       "distance": "15.8",
       "gaitSpeed": "4.4",
@@ -4502,7 +4502,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 35,
+      "waist": 3,
       "step": 21327,
       "distance": "10.3",
       "gaitSpeed": "6.6",
@@ -4510,7 +4510,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 34,
+      "waist": 3,
       "step": 24347,
       "distance": "11.4",
       "gaitSpeed": "12.9",
@@ -4518,7 +4518,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 34,
+      "waist": 3,
       "step": 8269,
       "distance": "18.0",
       "gaitSpeed": "5.5",
@@ -4526,7 +4526,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 35,
+      "waist": 3,
       "step": 3672,
       "distance": "9.2",
       "gaitSpeed": "12.5",
@@ -4534,7 +4534,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 34,
+      "waist": 3,
       "step": 11551,
       "distance": "6.9",
       "gaitSpeed": "10.5",
@@ -4542,7 +4542,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 34,
+      "waist": 3,
       "step": 13092,
       "distance": "3.4",
       "gaitSpeed": "12.4",
@@ -4550,7 +4550,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 35,
+      "waist": 3,
       "step": 18074,
       "distance": "9.7",
       "gaitSpeed": "4.8",
@@ -4558,7 +4558,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 35,
+      "waist": 3,
       "step": 6082,
       "distance": "4.4",
       "gaitSpeed": "14.7",
@@ -4566,7 +4566,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 34,
+      "waist": 3,
       "step": 22623,
       "distance": "9.7",
       "gaitSpeed": "5.8",
@@ -4574,7 +4574,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 34,
+      "waist": 3,
       "step": 12887,
       "distance": "5.6",
       "gaitSpeed": "10.7",
@@ -4582,7 +4582,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 35,
+      "waist": 3,
       "step": 22171,
       "distance": "10.9",
       "gaitSpeed": "3.6",
@@ -4590,7 +4590,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 34,
+      "waist": 3,
       "step": 18488,
       "distance": "10.7",
       "gaitSpeed": "10.0",
@@ -4600,7 +4600,7 @@
   "PwbygP9skkdouF5n8EdJPwPSoe33": [
     {
       "timeid": "2020-11-01",
-      "waist": 26,
+      "waist": 0,
       "step": 13409,
       "distance": "13.1",
       "gaitSpeed": "6.4",
@@ -4608,7 +4608,7 @@
     },
     {
       "timeid": "2020-11-02",
-      "waist": 26,
+      "waist": 1,
       "step": 12708,
       "distance": "12.9",
       "gaitSpeed": "8.1",
@@ -4616,7 +4616,7 @@
     },
     {
       "timeid": "2020-11-03",
-      "waist": 27,
+      "waist": 2,
       "step": 15389,
       "distance": "10.1",
       "gaitSpeed": "4.5",
@@ -4624,7 +4624,7 @@
     },
     {
       "timeid": "2020-11-04",
-      "waist": 27,
+      "waist": 2,
       "step": 3778,
       "distance": "3.8",
       "gaitSpeed": "11.6",
@@ -4632,7 +4632,7 @@
     },
     {
       "timeid": "2020-11-05",
-      "waist": 27,
+      "waist": 2,
       "step": 2755,
       "distance": "13.0",
       "gaitSpeed": "5.1",
@@ -4640,7 +4640,7 @@
     },
     {
       "timeid": "2020-11-06",
-      "waist": 26,
+      "waist": 1,
       "step": 24043,
       "distance": "11.9",
       "gaitSpeed": "5.8",
@@ -4648,7 +4648,7 @@
     },
     {
       "timeid": "2020-11-07",
-      "waist": 26,
+      "waist": 1,
       "step": 8535,
       "distance": "3.1",
       "gaitSpeed": "14.5",
@@ -4656,7 +4656,7 @@
     },
     {
       "timeid": "2020-11-08",
-      "waist": 27,
+      "waist": 2,
       "step": 20638,
       "distance": "12.4",
       "gaitSpeed": "0.9",
@@ -4664,7 +4664,7 @@
     },
     {
       "timeid": "2020-11-09",
-      "waist": 27,
+      "waist": 2,
       "step": 16305,
       "distance": "13.1",
       "gaitSpeed": "5.1",
@@ -4672,7 +4672,7 @@
     },
     {
       "timeid": "2020-11-10",
-      "waist": 27,
+      "waist": 2,
       "step": 4663,
       "distance": "10.8",
       "gaitSpeed": "9.5",
@@ -4680,7 +4680,7 @@
     },
     {
       "timeid": "2020-11-11",
-      "waist": 27,
+      "waist": 2,
       "step": 16823,
       "distance": "17.3",
       "gaitSpeed": "0.0",
@@ -4688,7 +4688,7 @@
     },
     {
       "timeid": "2020-11-12",
-      "waist": 27,
+      "waist": 2,
       "step": 14654,
       "distance": "0.6",
       "gaitSpeed": "11.5",
@@ -4696,7 +4696,7 @@
     },
     {
       "timeid": "2020-11-13",
-      "waist": 27,
+      "waist": 2,
       "step": 732,
       "distance": "12.4",
       "gaitSpeed": "3.3",
@@ -4704,7 +4704,7 @@
     },
     {
       "timeid": "2020-11-14",
-      "waist": 27,
+      "waist": 2,
       "step": 1184,
       "distance": "10.7",
       "gaitSpeed": "4.7",
@@ -4712,7 +4712,7 @@
     },
     {
       "timeid": "2020-11-15",
-      "waist": 26,
+      "waist": 1,
       "step": 21248,
       "distance": "10.7",
       "gaitSpeed": "7.2",
@@ -4720,7 +4720,7 @@
     },
     {
       "timeid": "2020-11-16",
-      "waist": 26,
+      "waist": 1,
       "step": 1099,
       "distance": "17.4",
       "gaitSpeed": "7.8",
@@ -4728,7 +4728,7 @@
     },
     {
       "timeid": "2020-11-17",
-      "waist": 26,
+      "waist": 1,
       "step": 16449,
       "distance": "12.4",
       "gaitSpeed": "3.6",
@@ -4736,7 +4736,7 @@
     },
     {
       "timeid": "2020-11-18",
-      "waist": 26,
+      "waist": 1,
       "step": 24285,
       "distance": "0.8",
       "gaitSpeed": "5.4",
@@ -4744,7 +4744,7 @@
     },
     {
       "timeid": "2020-11-19",
-      "waist": 27,
+      "waist": 2,
       "step": 10170,
       "distance": "19.8",
       "gaitSpeed": "14.5",
@@ -4752,7 +4752,7 @@
     },
     {
       "timeid": "2020-11-20",
-      "waist": 27,
+      "waist": 2,
       "step": 21871,
       "distance": "0.4",
       "gaitSpeed": "3.4",
@@ -4760,7 +4760,7 @@
     },
     {
       "timeid": "2020-11-21",
-      "waist": 26,
+      "waist": 1,
       "step": 20527,
       "distance": "10.6",
       "gaitSpeed": "7.1",
@@ -4768,7 +4768,7 @@
     },
     {
       "timeid": "2020-11-22",
-      "waist": 26,
+      "waist": 1,
       "step": 1271,
       "distance": "7.2",
       "gaitSpeed": "3.4",
@@ -4776,7 +4776,7 @@
     },
     {
       "timeid": "2020-11-23",
-      "waist": 26,
+      "waist": 1,
       "step": 23052,
       "distance": "17.7",
       "gaitSpeed": "11.0",
@@ -4784,7 +4784,7 @@
     },
     {
       "timeid": "2020-11-24",
-      "waist": 26,
+      "waist": 1,
       "step": 18310,
       "distance": "17.6",
       "gaitSpeed": "3.7",
@@ -4792,7 +4792,7 @@
     },
     {
       "timeid": "2020-11-25",
-      "waist": 26,
+      "waist": 1,
       "step": 3592,
       "distance": "18.5",
       "gaitSpeed": "12.6",
@@ -4800,7 +4800,7 @@
     },
     {
       "timeid": "2020-11-26",
-      "waist": 26,
+      "waist": 1,
       "step": 19405,
       "distance": "8.0",
       "gaitSpeed": "8.1",
@@ -4808,7 +4808,7 @@
     },
     {
       "timeid": "2020-11-27",
-      "waist": 27,
+      "waist": 2,
       "step": 20591,
       "distance": "13.8",
       "gaitSpeed": "3.8",
@@ -4816,7 +4816,7 @@
     },
     {
       "timeid": "2020-11-28",
-      "waist": 27,
+      "waist": 2,
       "step": 5661,
       "distance": "6.8",
       "gaitSpeed": "3.5",
@@ -4824,7 +4824,7 @@
     },
     {
       "timeid": "2020-11-29",
-      "waist": 27,
+      "waist": 2,
       "step": 14945,
       "distance": "15.6",
       "gaitSpeed": "5.5",
@@ -4832,7 +4832,7 @@
     },
     {
       "timeid": "2020-11-30",
-      "waist": 26,
+      "waist": 1,
       "step": 24372,
       "distance": "8.7",
       "gaitSpeed": "9.9",

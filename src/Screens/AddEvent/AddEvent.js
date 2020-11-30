@@ -171,8 +171,8 @@ const AddEvent = () => {
       `참가자리스트: ` +
       participants +
       "\n" +
-      `메모: ${memo} \n` +
-      console.log(str);
+      `메모: ${memo} \n`;
+    console.log(str);
 
     if (title === "") {
       alert("이벤트명을 입력해주세요.");

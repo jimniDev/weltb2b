@@ -1,7 +1,8 @@
+import { CloseOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { REMOVE_PARTICIPANTS } from "./AddEvent";
 
-export const Ul = styled.ul`
+const Ul = styled.ul`
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
@@ -14,7 +15,8 @@ export const Ul = styled.ul`
   left: 0;
   width: 575px;
 `;
-export const Li = styled.li`
+
+const Li = styled.li`
   border: none;
   background: #4f42a7;
   border-radius: 14px;
@@ -25,8 +27,11 @@ export const Li = styled.li`
   align-items: center;
   padding: 5px 15px;
 `;
-export const Name = styled.p`
-  margin-right: 10px;
+
+const Name = styled.p`
+  margin-right: 8px;
+  font-size: 16px;
+  font-family: "KoPubWorld Dotum Medium";
 `;
 
 const ParticipantsList = ({ p_list, dispatch }) => {
@@ -41,9 +46,11 @@ const ParticipantsList = ({ p_list, dispatch }) => {
     <Ul>
       {p_list.map((p) => {
         return (
-          <Li>
+          <Li key={p.uid}>
             <Name>{p.name}</Name>
-            <p onClick={(e) => onDelete(p.uid, p.name, p.email)}>x</p>
+            <p onClick={(e) => onDelete(p.uid, p.name, p.email)}>
+              <CloseOutlined style={{ fontSize: "14px" }} />
+            </p>
           </Li>
         );
       })}

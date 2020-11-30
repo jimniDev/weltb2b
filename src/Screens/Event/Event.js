@@ -118,7 +118,6 @@ const Event = () => {
   const date = new Date();
   let today =
     date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-  console.log(today);
   const fetchData = useCallback(async () => {
     try {
       await dbService
@@ -134,7 +133,6 @@ const Event = () => {
               startdate: doc.data().startdate,
               enddate: doc.data().enddate,
             });
-            console.log(taskData.length);
           });
           for (let i = 0; i < taskData.length; i++) {
             if (/*eventDetail.title*/ "ㅁㅁ" === taskData[i].title) {
@@ -147,7 +145,6 @@ const Event = () => {
           if (taskData[event_index].enddate > today) end = today;
           else end = taskData[event_index].enddate;
           let ev = taskData[event_index];
-          console.log(ev);
           let term = end.slice(-2) - ev.startdate.slice(-2) + 1;
           // console.log(user[ev.participants[0].uid][i].timeid);
 
@@ -187,7 +184,6 @@ const Event = () => {
                   for (let k = 0; k < ev.selectedList.length; k++) {
                     arr[j][cnt][k] =
                       user[ev.participants[j].uid][i][ev.selectedList[k]];
-                    console.log(arr[j][cnt][k]);
                   }
                 }
                 cnt += 1;
