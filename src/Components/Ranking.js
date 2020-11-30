@@ -71,7 +71,7 @@ const Ranking = () => {
   const userList = Object.keys(userDataApi);
 
   const answer = userData.map((userMontlyData, index) => {
-    console.log(userMontlyData);
+    // console.log(userMontlyData);
     let avgMontlyData = {
       uid: "",
       waist: 0,

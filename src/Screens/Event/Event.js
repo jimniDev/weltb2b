@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
 import MainHeader from "../../Components/MainHeader";
-import { DeleteOutlined, InfoCircleOutlined } from "@ant-design/icons";
+import { ConsoleSqlOutlined, DeleteOutlined, InfoCircleOutlined } from "@ant-design/icons";
 import { Select, DatePicker } from "antd";
 import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
@@ -125,8 +125,8 @@ const PersonalRankingContainer = styled.div`
 
 
 const Event = () => {
-  const { eventData } = data;
-  const [eventDetail, setEventDetail] = useState(eventData[0]);
+  // const { eventData } = data;
+  // const [eventDetail, setEventDetail] = useState(eventData[0]);
   const [taskData, setTaskData] = useState([]);
   const [rankingData, setRankingData] = useState([]);
   const [walkData, setWalkData] = useState([]);
@@ -147,19 +147,22 @@ const Event = () => {
     if (!event && typeof event !== Object) return;
     const { _d } = event;
     setDate(moment(_d).format("YYYY-MM-DD"));
-    console.log(selectedDate)
-    makeAverageChange(thisEvent, moment(_d).format("YYYY-MM-DD"));
+    updateAverageChange(thisEvent, moment(_d).format("YYYY-MM-DD"));
   };
 
 
   const onChangeEvent = (value) => {
     if (typeof value !== "string") return;
-    setEventDetail(eventData.find((event) => event.title === value));
+    console.log("onChangeEvent");
+    let m_event = taskData.find((event) => event.title === value)
+    setThisEvent(m_event)
+    updateAverageChange(m_event, today)
+    // setEventDetail(eventData.find((event) => event.title === value));
   };
 
-  const makeAverageChange = (event, date) => {
-    console.log("makeAverageChange");
-    console.log(date)
+  const updateAverageChange = (event, date) => {
+    console.log("updateAverageChange");
+    console.log(date);
     console.log(thisEvent);
 
     //event average
@@ -177,9 +180,9 @@ const Event = () => {
     let parLength = event.participants.length;
     for(let i = 0; i < parLength; i++){
       let t_user = user[event.participants[i].uid][date.slice(-2) - 1];
-      console.log(event.participants[i].uid);
-      console.log(date.slice(-2) - 1);
-      console.log(t_user);
+      // console.log(event.participants[i].uid);
+      // console.log(date.slice(-2) - 1);
+      // console.log(t_user);
       walk_sum += t_user.step;
       waist_sum += t_user.waist;
       cal_sum += parseFloat(t_user.calories);
@@ -187,7 +190,7 @@ const Event = () => {
       speed_sum += parseFloat(t_user.gaitSpeed);
 
       let y_user = user[event.participants[i].uid][date.slice(-2) - 2];
-      console.log(y_user);
+      // console.log(y_user);
       y_walk_sum += y_user.step;
       y_waist_sum += y_user.waist;
       y_cal_sum += parseFloat(y_user.calories);
@@ -230,6 +233,10 @@ const Event = () => {
         .get()
         .then((docs) => {
           docs.forEach((doc) => {
+            let m_status = -1;
+            if (today > doc.data().enddate) m_status = 2;
+            else if (today < doc.data().startdate) m_status = 0;
+            else m_status = 1;
             taskData.push({
               title: doc.data().title,
               participants: doc.data().participants,
@@ -237,9 +244,10 @@ const Event = () => {
               id: doc.id,
               startdate: doc.data().startdate,
               enddate: doc.data().enddate,
+              status: m_status,
             });
-            console.log(taskData)
-            console.log(taskData.length);
+            // console.log(taskData)
+            // console.log(taskData.length);
           });
           for (let i = 0; i < taskData.length; i++) {
             if (/*eventDetail.title*/ "ㅁㅁ" === taskData[i].title) {
@@ -252,7 +260,6 @@ const Event = () => {
           if (taskData[event_index].enddate > today) end = today;
           else end = taskData[event_index].enddate;
           ev = taskData[event_index];
-          console.log(ev);
           let term = end.slice(-2) - ev.startdate.slice(-2) + 1;
           // console.log(user[ev.participants[0].uid][i].timeid);
 
@@ -292,7 +299,7 @@ const Event = () => {
                   for (let k = 0; k < ev.selectedList.length; k++) {
                     arr[j][cnt][k] =
                       user[ev.participants[j].uid][i][ev.selectedList[k]];
-                    console.log(arr[j][cnt][k]);
+                    // console.log(arr[j][cnt][k]);
                   }
                 }
                 cnt += 1;
@@ -353,24 +360,20 @@ const Event = () => {
                 o.rank = 3;
                 dataSet.push(o);
               }
-
             }
-
+            setThisEvent(ev);
+            console.log(ev);
+            // console.log(eventData[0]);
+            updateAverageChange(ev, today);
+            setTaskData(taskData);
           }
         });
+
     } catch (error) {
       console.log(error);
     } finally {
       setRankingData(dataSet);
       setLoading(false);
-      // setWalkData(walkDataSet)
-      // setWaistData(waistDataSet)
-      // setCalData(calDataSet)
-      // setDisData(disDataSet)
-      // setSpeedData(speedDataSet)
-      setThisEvent(ev);
-      makeAverageChange(ev, today);
-
     }
   }, []);
 
@@ -400,11 +403,11 @@ const Event = () => {
                   borderRadius: 6,
                   color: "#707070",
                 }}
-                defaultValue={eventData[0].title}
+                defaultValue={thisEvent.title}
                 onChange={onChangeEvent}
               >
-                {eventData &&
-                  eventData.map((event) => (
+                {taskData &&
+                  taskData.map((event) => (
                     <Select.Option
                       value={event.title}
                       key={event.title + event.status}
@@ -415,16 +418,16 @@ const Event = () => {
               </Select>
               <Status
                 style={{
-                  backgroundColor: StatusObj[eventDetail.status].color,
+                  backgroundColor: StatusObj[thisEvent.status].color,
                 }}
               >
-                {StatusObj[eventDetail.status].status}
+                {StatusObj[thisEvent.status].status}
               </Status>
             </EventTitleContainer>
             <EventDetailContainer>
-              <EventDetail>참여인원 : {eventDetail.participants}명</EventDetail>
+              <EventDetail>참여인원 : {thisEvent.participants.length}명</EventDetail>
               <EventDetail>
-                날짜 : {eventDetail.startDate} ~ {eventDetail.endDate}
+                날짜 : {thisEvent.startdate} ~ {thisEvent.enddate}
               </EventDetail>
               <DeleteOutlined style={{ fontSize: 16 }} />
             </EventDetailContainer>
