@@ -1,7 +1,7 @@
 .EVENT_TABLE_DESIGN thead tr th {
-    font-size: 12px;
+    font-size: 10px;
     font-style: normal;
-    line-height: 10px;
+    line-height: 8px;
     letter-spacing: normal;
     color: #fff;
     background-color: #4f42a7;
@@ -25,14 +25,14 @@
   }
   
   .EVENT_TABLE_DESIGN tbody tr td {
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 10px;
+    line-height: 5px;
     font-style: normal;
     font-stretch: normal;
     letter-spacing: 0.5px;
     color: #707070;
     vertical-align: middle;
-    padding: 0.5rem;
+    padding: 0.12rem;
   }
   
   .EVENT_TABLE_DESIGN tbody tr {

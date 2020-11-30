@@ -10,10 +10,10 @@ const Status = styled.div`
   margin-right:auto;
   justify-content: center;
   align-items: center;
-  height: 24px;
+  height: 22px;
   width: 60px;
   color: #f6f6f6;
-  font-size: 12px;
+  font-size: 10px;
   border-radius: 3px;
 `;
 const StatusObj = {
@@ -77,7 +77,7 @@ const EventTable = () => {
         dataSource={eventData}
         columns = {columns}
         pagination={{ hideOnSinglePage: true }} 
-        scroll={{ y: 170}}
+        scroll={{ y: 200}}
       >   
       </Table>
     );
