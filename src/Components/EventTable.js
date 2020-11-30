@@ -1,8 +1,8 @@
-import React from "react";
-import JSON from "../data.json";
+import React, { useEffect, useState, useCallback } from "react";
 import { Table} from 'antd';
 import styled from "styled-components";
-import eventStyled from "./EventTable.css";
+import { dbService } from "../fbase";
+import "./EventTable.css";
 
 const Status = styled.div`
   display: flex;
@@ -69,17 +69,59 @@ const columns = [
         render: (text, record) => <span>{record.startDate} ~ {record.startDate}</span>,
     },
 ]
+
 const EventTable = () => {
-    const { eventData } = JSON;
+  const date = new Date();
+  let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + String(date.getDate()).padStart(2, '0');
+  let dataSet = [];
+  const [eventdataset, setEventData] = useState([]);
+  const fetchData = useCallback(async () => {
+    try {
+      await dbService
+        .collection("event")
+        .get()
+        .then((docs) => {
+          docs.forEach((doc) => {
+            let o = {};
+            let size = doc.data().participants.length;
+            let startDate = doc.data().startdate;
+            let endDate = doc.data().enddate;
+            if(startDate > today){
+              o.status = 0;
+            }
+            else if(endDate < today){
+              o.status = 2;
+            }
+            else{
+              o.status = 1;
+            }
+            
+            o.title = doc.data().title;
+            o.participants = size;
+            o.startDate = startDate;
+            o.endDate = endDate;
+            dataSet.push(o);
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setEventData(dataSet)
+    }
+  }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
     return (
       <Table
         className="EVENT_TABLE_DESIGN"
-        dataSource={eventData}
+        dataSource={eventdataset}
         columns = {columns}
         pagination={{ hideOnSinglePage: true }} 
-        scroll={{ y: 200}}
+        scroll={{ y: 180}}
       >   
       </Table>
     );
+   
 };
 export default EventTable;

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Button, DatePicker, Progress, Select } from "antd";
+import { Button, DatePicker, Progress, Select, Tag } from "antd";
 import { SwapOutlined } from "@ant-design/icons";
 import moment from "moment";
-import JSON from "../data.json";
+import userDataApi from "../assets/data/userdata.json";
+import userInfoApi from "../assets/data/userInfo.json";
 
 const PRItemContainer = styled.div`
   display: flex;
@@ -53,7 +54,7 @@ const RankNum = styled.span`
 
 const RankName = styled.span`
   margin-left: 18px;
-  margin-right: 44px;
+  margin-right: 30px;
 `;
 
 const RankItem = styled.span`
@@ -64,34 +65,95 @@ const RankItem = styled.span`
 let firstItem = 0;
 
 const Ranking = () => {
-  const { userData } = JSON;
   const [sort, setSort] = useState(true);
+  const [rankValue, setRankValue] = useState("step");
+  const userData = Object.entries(userDataApi);
+  const userList = Object.keys(userDataApi);
 
+  const answer = userData.map((userMontlyData, index) => {
+    console.log(userMontlyData);
+    let avgMontlyData = {
+      uid: "",
+      waist: 0,
+      step: 0,
+      distance: 0,
+      calories: 0,
+      gaitSpeed: 0,
+    };
+    for (const {
+      waist,
+      step,
+      distance,
+      gaitSpeed,
+      calories,
+    } of userMontlyData[1]) {
+      avgMontlyData.waist += parseInt(waist);
+      avgMontlyData.step += parseInt(step);
+      avgMontlyData.distance += parseInt(distance);
+      avgMontlyData.gaitSpeed += parseInt(gaitSpeed);
+      avgMontlyData.calories += parseInt(calories);
+    }
+    avgMontlyData.waist = (avgMontlyData.waist / 30).toFixed(2);
+    avgMontlyData.step = Math.floor(avgMontlyData.step / 30);
+    avgMontlyData.distance = (avgMontlyData.distance / 30).toFixed(2);
+    avgMontlyData.gaitSpeed = (avgMontlyData.gaitSpeed / 30).toFixed(2);
+    avgMontlyData.calories = Math.floor(avgMontlyData.calories / 30);
+    avgMontlyData.uid = userList[index];
+    return avgMontlyData;
+  });
+  const { users } = userInfoApi;
   const onClickHandler = (event) => {
     event.preventDefault();
     setSort(!sort);
   };
 
   const onChangeRank = (event) => {
-    if (typeof event !== String) return;
+    if (!event && typeof event !== "object") return;
+    setRankValue(event);
   };
 
   const onChangeDate = (event) => {
-    // evnet Handler Error
-    if (typeof event !== Object) return;
-    const { _d } = event;
+    if (!event && typeof event !== Object) return;
   };
 
-  const sortAscObj = (a, b) => {
-    return a.item > b.item ? -1 : a.item < b.item ? 1 : 0;
+  const sort_by = (field, reverse) => {
+    const key = (value) => parseFloat(value[field]);
+    reverse = !reverse ? 1 : -1;
+
+    return function (a, b) {
+      return (a = key(a)), (b = key(b)), reverse * ((a > b) - (b > a));
+    };
   };
 
-  const sortDescObj = (a, b) => {
-    return a.item < b.item ? -1 : a.item > b.item ? 1 : 0;
+  const unitStandard = (value) => {
+    switch (value) {
+      case "step":
+        return "걸음";
+      case "calories":
+        return "kcal";
+      case "waist":
+        return "inch";
+      case "gaitSpeed":
+        return "km/h";
+      case "distance":
+        return "km";
+      default:
+        break;
+    }
   };
 
   const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const tagRender = (props) => {
+    const { label, closable, onClose } = props;
+
+    return (
+      <Tag closable={closable} onClose={onClose}>
+        {label}
+      </Tag>
+    );
   };
 
   return (
@@ -102,21 +164,28 @@ const Ranking = () => {
           bordered={false}
           onChange={onChangeDate}
           picker="month"
-          defaultValue={moment("2020-10", "YYYY-MM")}
+          defaultValue={moment("2020-11", "YYYY-MM")}
           style={{ color: "#707070" }}
         />
       </PRItemContainer>
       <PRItemContainer>
         <Select
-          style={{ width: 300, height: 32, borderRadius: 6, color: "#707070" }}
+          tagRender={tagRender}
+          style={{
+            width: 300,
+            height: 32,
+            borderRadius: 6,
+            color: "#707070",
+          }}
+          placeholder="Please Select"
           defaultValue={"걸음 수"}
           onChange={onChangeRank}
         >
-          <Select.Option value="걸음 수">걸음 수</Select.Option>
-          <Select.Option value="소모 칼로리">소모 칼로리</Select.Option>
-          <Select.Option value="허리 둘레">허리 둘레</Select.Option>
-          <Select.Option value="걸음 속도">걸음 속도</Select.Option>
-          <Select.Option value="걸은 거리">걸은 거리</Select.Option>
+          <Select.Option value="step">걸음 수</Select.Option>
+          <Select.Option value="calories">소모 칼로리</Select.Option>
+          <Select.Option value="waist">허리 둘레</Select.Option>
+          <Select.Option value="gaitSpeed">걸음 속도</Select.Option>
+          <Select.Option value="distance">걸은 거리</Select.Option>
         </Select>
         <Button
           type="primary"
@@ -132,22 +201,26 @@ const Ranking = () => {
         />
       </PRItemContainer>
       <RankContainer>
-        {userData.sort(sort ? sortAscObj : sortDescObj).map((user, index) => {
+        {answer.sort(sort_by(rankValue, sort)).map((user, index) => {
           firstItem = sort
-            ? userData[0].item
-            : userData[userData.length - 1].item;
+            ? answer[0][rankValue]
+            : answer[answer.length - 1][rankValue];
           return (
-            <RankItemContainer key={user.id}>
+            <RankItemContainer key={user.uid}>
               <RankNum>{index + 1}</RankNum>
-              <RankName>{user.name}</RankName>
+              <RankName>
+                {users.find((rankuser) => user.uid === rankuser.uid).name}
+              </RankName>
               <Progress
-                style={{ width: 140 }}
+                style={{ width: 160 }}
                 showInfo={false}
                 strokeColor={"#4F42A7"}
-                percent={(user.item / firstItem) * 100}
+                percent={(user[rankValue] / firstItem) * 100}
                 strokeWidth={10}
               />
-              <RankItem>{numberWithCommas(user.item)} 걸음</RankItem>
+              <RankItem>
+                {numberWithCommas(user[rankValue])} {unitStandard(rankValue)}
+              </RankItem>
             </RankItemContainer>
           );
         })}
