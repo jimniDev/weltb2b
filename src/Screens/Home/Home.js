@@ -9,6 +9,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
+import EventTable from "../../Components/EventTable";
 import user from "../../assets/data/userdata.json";
 import mon from "../../assets/data/monthlyData.json";
 
@@ -276,6 +277,7 @@ const Home = () => {
             ></Button>
           </Link>
         </EventHeaderContainer>
+        <EventTable />
       </EventContainer>
     </>
   );
