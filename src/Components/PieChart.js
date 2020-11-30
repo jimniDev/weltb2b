@@ -1,5 +1,4 @@
 import { Pie } from "ant-design-pro/lib/Charts";
-import { useState } from "react";
 import { AiOutlineEnvironment, AiTwotoneFire } from "react-icons/ai";
 import { BiWalk } from "react-icons/bi";
 import { GiBelt } from "react-icons/gi";
