@@ -47,7 +47,7 @@ export const FormLabel = styled.span`
   width: 15%;
   font-size: 18px;
   color: #707070;
-  text-algin: left;
+  text-align: left;
   margin-right: 15px;
   height: 30px;
   line-height: 30px;

@@ -5,10 +5,7 @@ import JSON from "../assets/data/data.json";
 
 const mountNode = document.getElementById("root");
 
-const LineChart = ({ count, data, num }) => {
-  //const { data } = JSON;
-
-  //console.log(data);
+const LineChart = ({ data, num }) => {
   if (num == 1) {
     return (
       <Chart

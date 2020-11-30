@@ -10,7 +10,7 @@ const StyledHeader = styled.header`
   height: 48px;
   background-color: #4f42a7;
   z-index: 10;
-  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2);
 `;
 
 const List = styled.ul`

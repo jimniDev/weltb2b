@@ -102,7 +102,6 @@ const Home = () => {
     // evnet Handler Error
     const { _d } = event;
     setDate(moment(_d).format("YYYY-MM-DD"));
-
   };
 
   useEffect(() => {
@@ -139,7 +138,7 @@ const Home = () => {
     ];
   });
 
-  var DailyPeopleAverage = DailyPersonAverage.reduce((acc, cur) => {
+  const DailyPeopleAverage = DailyPersonAverage.reduce((acc, cur) => {
     cur.forEach(
       (e, i) => (acc[i] = acc[i] ? acc[i] + parseInt(e) : parseInt(e))
     );
@@ -148,7 +147,7 @@ const Home = () => {
 
   console.log(DailyPersonAverage);
 
-  var YesPeopleAverage = YesPersonAverage.reduce((acc, cur) => {
+  const YesPeopleAverage = YesPersonAverage.reduce((acc, cur) => {
     cur.forEach(
       (e, i) => (acc[i] = acc[i] ? acc[i] + parseInt(e) : parseInt(e))
     );
@@ -180,11 +179,11 @@ const Home = () => {
     }
   }
 
-  var LineArray = new Array();
+  let LineArray = [];
   for (let i = 0; i < mon["monthlyData"].length; i++) {
-    var d = new Object();
+    let d = {};
 
-    d.month = mon["monthlyData"][i].timeid.slice(-2);
+    d.month = mon["monthlyData"][i].month;
     d.year = mon["monthlyData"][i].timeid.slice(0, 4);
     d.count = mon["monthlyData"][i].step;
     LineArray.push(d);
@@ -202,44 +201,50 @@ const Home = () => {
           <DatePicker
             onChange={onChangeDate}
             bordered={false}
-            defaultValue={moment("2020-11-05", "YYYY-MM-DD")}
+            defaultValue={moment("2020-11-30", "YYYY-MM-DD")}
           />
         </Space>
       </DailyAverageHeaderContainer>
       <DailyAverageContainer>
         <DailyAverageItem>
-          걸음 거리
+          걸은 거리
           <PieChart
-            percent={today_dis}
+            content={((today_dis / avg_dis) * 50).toFixed(2)}
             color={"#2496EF"}
-            con={(((today_dis - yes_dis) / today_dis) * 100).toFixed(2)}
+            percent={(((today_dis - yes_dis) / today_dis) * 100).toFixed(2)}
+            item={today_dis}
             num={1}
           />{" "}
         </DailyAverageItem>
         <DailyAverageItem>
           허리 둘레
           <PieChart
-            percent={today_waist}
+            content={((today_waist / avg_waist) * 1000).toFixed(2)}
             color={"#EA3869"}
-            con={(((today_waist - yes_waist) / today_waist) * 100).toFixed(2)}
+            percent={(((today_waist - yes_waist) / today_waist) * 100).toFixed(
+              2
+            )}
+            item={today_waist}
             num={2}
           />
         </DailyAverageItem>
         <DailyAverageItem>
           소모 칼로리
           <PieChart
-            percent={today_kal}
+            content={((today_kal / avg_kal) * 50).toFixed(2)}
             color={"#FFC54E"}
-            con={(((today_kal - yes_kal) / today_kal) * 100).toFixed(2)}
+            percent={(((today_kal - yes_kal) / today_kal) * 100).toFixed(2)}
+            item={today_kal}
             num={3}
           />
         </DailyAverageItem>
         <DailyAverageItem>
           걸음 속도
           <PieChart
-            percent={today_v}
+            content={((today_v / avg_v) * 50).toFixed(2)}
             color={"#52DDE1"}
-            con={(((today_v - yes_v) / today_v) * 100).toFixed(2)}
+            percent={(((today_v - yes_v) / today_v) * 100).toFixed(2)}
+            item={today_v}
             num={4}
           />
         </DailyAverageItem>
