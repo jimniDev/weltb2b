@@ -135,6 +135,7 @@ const Event = () => {
   const [disData, setDisData] = useState([]);
   const [speedData, setSpeedData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [thisEvent, setThisEvent] = useState({});
   const date = new Date();
   let today =
     date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
@@ -146,6 +147,7 @@ const Event = () => {
     const { _d } = event;
     setDate(moment(_d).format("YYYY-MM-DD"));
     console.log(selectedDate)
+    makeAverageChange(thisEvent, moment(_d).format("YYYY-MM-DD"));
   };
 
 
@@ -153,6 +155,62 @@ const Event = () => {
     if (typeof value !== "string") return;
     setEventDetail(eventData.find((event) => event.title === value));
   };
+
+  const makeAverageChange = (event, date) => {
+    console.log("makeAverageChange");
+    console.log(date)
+    console.log(thisEvent);
+
+    //event average
+    let walk_sum = 0;
+    let waist_sum = 0;
+    let cal_sum = 0;
+    let dis_sum = 0;
+    let speed_sum = 0;
+    let y_walk_sum = 0;
+    let y_waist_sum = 0;
+    let y_cal_sum = 0;
+    let y_dis_sum = 0;
+    let y_speed_sum = 0;
+
+    let parLength = event.participants.length;
+    for(let i = 0; i < parLength; i++){
+      let t_user = user[event.participants[i].uid][date.slice(-2) - 1];
+      // console.log(event.participants[i].uid);
+      // console.log(selectedDate.slice(-2) - 1);
+      console.log(t_user);
+      walk_sum += t_user.step;
+      waist_sum += t_user.waist;
+      cal_sum += parseFloat(t_user.calories);
+      dis_sum += parseFloat(t_user.distance);
+      speed_sum += parseFloat(t_user.gaitSpeed);
+
+      let y_user = user[event.participants[i].uid][date.slice(-2) - 2];
+      console.log(y_user);
+      y_walk_sum += y_user.step;
+      y_waist_sum += y_user.waist;
+      y_cal_sum += parseFloat(y_user.calories);
+      y_dis_sum += parseFloat(y_user.distance);
+      y_speed_sum += parseFloat(y_user.gaitSpeed);
+    }
+    walkDataSet.value = (walk_sum / parLength).toFixed(0);
+    waistDataSet.value = (waist_sum / parLength).toFixed(1);
+    calDataSet.value = (cal_sum / parLength).toFixed(0);
+    disDataSet.value = (dis_sum / parLength).toFixed(1);
+    speedDataSet.value = (speed_sum / parLength).toFixed(1);
+
+    walkDataSet.percent = (((walk_sum / y_walk_sum) - 1) * 100).toFixed(2);
+    waistDataSet.percent = (((waist_sum / y_waist_sum) - 1) * 100).toFixed(2);
+    calDataSet.percent = (((cal_sum / y_cal_sum) - 1) * 100).toFixed(2);
+    disDataSet.percent = (((dis_sum / y_dis_sum) - 1) * 100).toFixed(2);
+    speedDataSet.percent = (((speed_sum / y_speed_sum) - 1) * 100).toFixed(2);
+    setWalkData(walkDataSet);
+    setWaistData(waistDataSet);
+    setCalData(calDataSet);
+    setDisData(disDataSet);
+    setSpeedData(speedDataSet);
+  };
+
 
   let dataSet = [];
   let walkDataSet = {};
@@ -162,6 +220,7 @@ const Event = () => {
   let speedDataSet = {};
 
   let event_index;
+  let ev = {};
   
   const fetchData = useCallback(async () => {
     try {
@@ -191,7 +250,7 @@ const Event = () => {
           let end;
           if (taskData[event_index].enddate > today) end = today;
           else end = taskData[event_index].enddate;
-          let ev = taskData[event_index];
+          ev = taskData[event_index];
           console.log(ev);
           let term = end.slice(-2) - ev.startdate.slice(-2) + 1;
           // console.log(user[ev.participants[0].uid][i].timeid);
@@ -297,62 +356,20 @@ const Event = () => {
             }
 
           }
-
-
-          //event average
-          let walk_sum = 0;
-          let waist_sum = 0;
-          let cal_sum = 0;
-          let dis_sum = 0;
-          let speed_sum = 0;
-          let y_walk_sum = 0;
-          let y_waist_sum = 0;
-          let y_cal_sum = 0;
-          let y_dis_sum = 0;
-          let y_speed_sum = 0;
-
-          let parLength = ev.participants.length;
-          for(let i = 0; i < parLength; i++){
-            let t_user = user[ev.participants[i].uid][selectedDate.slice(-1) - 1];
-            console.log(t_user);
-            walk_sum += t_user.step;
-            waist_sum += t_user.waist;
-            cal_sum += parseFloat(t_user.calories);
-            dis_sum += parseFloat(t_user.distance);
-            speed_sum += parseFloat(t_user.gaitSpeed);
-
-            let y_user = user[ev.participants[i].uid][selectedDate.slice(-1) - 2];
-            console.log(y_user);
-            y_walk_sum += y_user.step;
-            y_waist_sum += y_user.waist;
-            y_cal_sum += parseFloat(y_user.calories);
-            y_dis_sum += parseFloat(y_user.distance);
-            y_speed_sum += parseFloat(y_user.gaitSpeed);
-          }
-          walkDataSet.value = (walk_sum / parLength).toFixed(0);
-          waistDataSet.value = (waist_sum / parLength).toFixed(1);
-          calDataSet.value = (cal_sum / parLength).toFixed(0);
-          disDataSet.value = (dis_sum / parLength).toFixed(1);
-          speedDataSet.value = (speed_sum / parLength).toFixed(1);
-
-          walkDataSet.percent = (100 - (walk_sum / y_walk_sum) * 100).toFixed(2);
-          waistDataSet.percent = (100 - ((waist_sum / y_waist_sum) * 100).toFixed(2));
-          calDataSet.percent = (100 - (cal_sum / y_cal_sum) * 100).toFixed(2);
-          disDataSet.percent = (100 - (dis_sum / y_dis_sum) * 100).toFixed(2);
-          speedDataSet.percent = (100 - (speed_sum / y_speed_sum) * 100).toFixed(2);
-
-          
         });
     } catch (error) {
       console.log(error);
     } finally {
       setRankingData(dataSet);
       setLoading(false);
-      setWalkData(walkDataSet)
-      setWaistData(waistDataSet)
-      setCalData(calDataSet)
-      setDisData(disDataSet)
-      setSpeedData(speedDataSet)
+      // setWalkData(walkDataSet)
+      // setWaistData(waistDataSet)
+      // setCalData(calDataSet)
+      // setDisData(disDataSet)
+      // setSpeedData(speedDataSet)
+      setThisEvent(ev);
+      makeAverageChange(ev, today);
+
     }
   }, []);
 
