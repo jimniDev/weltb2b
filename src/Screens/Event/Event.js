@@ -313,7 +313,9 @@ const Event = () => {
 
           let parLength = ev.participants.length;
           for(let i = 0; i < parLength; i++){
-            let t_user = user[ev.participants[i].uid][selectedDate.slice(-1) - 1];
+            let t_user = user[ev.participants[i].uid][selectedDate.slice(-2) - 1];
+            console.log(ev.participants[i].uid);
+            console.log(selectedDate.slice(-2) - 1);
             console.log(t_user);
             walk_sum += t_user.step;
             waist_sum += t_user.waist;
@@ -321,7 +323,7 @@ const Event = () => {
             dis_sum += parseFloat(t_user.distance);
             speed_sum += parseFloat(t_user.gaitSpeed);
 
-            let y_user = user[ev.participants[i].uid][selectedDate.slice(-1) - 2];
+            let y_user = user[ev.participants[i].uid][selectedDate.slice(-2) - 2];
             console.log(y_user);
             y_walk_sum += y_user.step;
             y_waist_sum += y_user.waist;
@@ -348,11 +350,11 @@ const Event = () => {
     } finally {
       setRankingData(dataSet);
       setLoading(false);
-      setWalkData(walkDataSet)
-      setWaistData(waistDataSet)
-      setCalData(calDataSet)
-      setDisData(disDataSet)
-      setSpeedData(speedDataSet)
+      setWalkData(walkDataSet);
+      setWaistData(waistDataSet);
+      setCalData(calDataSet);
+      setDisData(disDataSet);
+      setSpeedData(speedDataSet);
     }
   }, []);
 
