@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
 import MainHeader from "../../Components/MainHeader";
 import { DeleteOutlined, InfoCircleOutlined } from "@ant-design/icons";
-import { Select } from "antd";
+import { Select, DatePicker } from "antd";
 import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
 import Helmet from "react-helmet";
@@ -10,6 +10,8 @@ import data from "../../assets/data/data.json";
 import { dbService } from "../../fbase";
 import user from "../../userdata.json";
 import Loader from "../../Components/Loader";
+import EventAverageItem from "../../Components/EventAverageItem"
+import moment from "moment";
 
 const StatusObj = {
   0: {
@@ -72,6 +74,25 @@ const EventAverageContainer = styled.div`
   padding: 20px 16px;
 `;
 
+const EventAverageContentContainer = styled.h3`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 24px 0px;
+
+`;
+
+const EventAverageTitleContainer = styled.div`
+  height: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+`;
+
+
 const RankingContaier = styled.div`
   display: flex;
   justify-content: space-between;
@@ -100,12 +121,33 @@ const PersonalRankingContainer = styled.div`
   padding: 12px 20px;
 `;
 
+
+
+
 const Event = () => {
   const { eventData } = data;
   const [eventDetail, setEventDetail] = useState(eventData[0]);
   const [taskData, setTaskData] = useState([]);
   const [rankingData, setRankingData] = useState([]);
+  const [walkData, setWalkData] = useState([]);
+  const [waistData, setWaistData] = useState([]);
+  const [calData, setCalData] = useState([]);
+  const [disData, setDisData] = useState([]);
+  const [speedData, setSpeedData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const date = new Date();
+  let today =
+    date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+  const [selectedDate, setDate] = useState(today);
+
+  const onChangeDate = (event) => {
+    // evnet Handler Error
+    if (!event && typeof event !== Object) return;
+    const { _d } = event;
+    setDate(moment(_d).format("YYYY-MM-DD"));
+    console.log(selectedDate)
+  };
+
 
   const onChangeEvent = (value) => {
     if (typeof value !== "string") return;
@@ -113,11 +155,14 @@ const Event = () => {
   };
 
   let dataSet = [];
+  let walkDataSet = {};
+  let waistDataSet = {};
+  let calDataSet = {};
+  let disDataSet = {};
+  let speedDataSet = {};
 
   let event_index;
-  const date = new Date();
-  let today =
-    date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+  
   const fetchData = useCallback(async () => {
     try {
       await dbService
@@ -133,6 +178,8 @@ const Event = () => {
               startdate: doc.data().startdate,
               enddate: doc.data().enddate,
             });
+            console.log(taskData)
+            console.log(taskData.length);
           });
           for (let i = 0; i < taskData.length; i++) {
             if (/*eventDetail.title*/ "ㅁㅁ" === taskData[i].title) {
@@ -145,6 +192,7 @@ const Event = () => {
           if (taskData[event_index].enddate > today) end = today;
           else end = taskData[event_index].enddate;
           let ev = taskData[event_index];
+          console.log(ev);
           let term = end.slice(-2) - ev.startdate.slice(-2) + 1;
           // console.log(user[ev.participants[0].uid][i].timeid);
 
@@ -184,6 +232,7 @@ const Event = () => {
                   for (let k = 0; k < ev.selectedList.length; k++) {
                     arr[j][cnt][k] =
                       user[ev.participants[j].uid][i][ev.selectedList[k]];
+                    console.log(arr[j][cnt][k]);
                   }
                 }
                 cnt += 1;
@@ -244,14 +293,66 @@ const Event = () => {
                 o.rank = 3;
                 dataSet.push(o);
               }
+
             }
+
           }
+
+
+          //event average
+          let walk_sum = 0;
+          let waist_sum = 0;
+          let cal_sum = 0;
+          let dis_sum = 0;
+          let speed_sum = 0;
+          let y_walk_sum = 0;
+          let y_waist_sum = 0;
+          let y_cal_sum = 0;
+          let y_dis_sum = 0;
+          let y_speed_sum = 0;
+
+          let parLength = ev.participants.length;
+          for(let i = 0; i < parLength; i++){
+            let t_user = user[ev.participants[i].uid][selectedDate.slice(-1) - 1];
+            console.log(t_user);
+            walk_sum += t_user.step;
+            waist_sum += t_user.waist;
+            cal_sum += parseFloat(t_user.calories);
+            dis_sum += parseFloat(t_user.distance);
+            speed_sum += parseFloat(t_user.gaitSpeed);
+
+            let y_user = user[ev.participants[i].uid][selectedDate.slice(-1) - 2];
+            console.log(y_user);
+            y_walk_sum += y_user.step;
+            y_waist_sum += y_user.waist;
+            y_cal_sum += parseFloat(y_user.calories);
+            y_dis_sum += parseFloat(y_user.distance);
+            y_speed_sum += parseFloat(y_user.gaitSpeed);
+          }
+          walkDataSet.value = (walk_sum / parLength).toFixed(0);
+          waistDataSet.value = (waist_sum / parLength).toFixed(1);
+          calDataSet.value = (cal_sum / parLength).toFixed(0);
+          disDataSet.value = (dis_sum / parLength).toFixed(1);
+          speedDataSet.value = (speed_sum / parLength).toFixed(1);
+
+          walkDataSet.percent = (100 - (walk_sum / y_walk_sum) * 100).toFixed(2);
+          waistDataSet.percent = (100 - ((waist_sum / y_waist_sum) * 100).toFixed(2));
+          calDataSet.percent = (100 - (cal_sum / y_cal_sum) * 100).toFixed(2);
+          disDataSet.percent = (100 - (dis_sum / y_dis_sum) * 100).toFixed(2);
+          speedDataSet.percent = (100 - (speed_sum / y_speed_sum) * 100).toFixed(2);
+
+          
         });
     } catch (error) {
       console.log(error);
     } finally {
       setRankingData(dataSet);
       setLoading(false);
+      setWalkData(walkDataSet)
+      setWaistData(waistDataSet)
+      setCalData(calDataSet)
+      setDisData(disDataSet)
+      setSpeedData(speedDataSet)
     }
   }, []);
 
@@ -310,7 +411,40 @@ const Event = () => {
               <DeleteOutlined style={{ fontSize: 16 }} />
             </EventDetailContainer>
           </EventContainer>
-          <EventAverageContainer>평균 수치</EventAverageContainer>
+          <EventAverageContainer>
+            <EventAverageTitleContainer>
+            평균 수치{" "}
+            <DatePicker
+            onChange={onChangeDate}
+            bordered={false}
+            defaultValue={moment(today, "YYYY-MM-DD")}
+            />
+            </EventAverageTitleContainer>
+          
+        <EventAverageContentContainer>
+          <EventAverageItem 
+            title="걸음 수"
+            value={walkData.value}
+            percent={walkData.percent}/>
+          <EventAverageItem 
+            title="허리둘레"
+            value={waistData.value}
+            percent={waistData.percent}/>
+          <EventAverageItem 
+            title="소모 칼로리"
+            value={calData.value}
+            percent={calData.percent}/>
+          <EventAverageItem
+            title="걸음 거리"
+            value={disData.value}
+            percent={disData.percent}/>
+          <EventAverageItem
+            title="걸음 속도"
+            value={speedData.value}
+            percent={speedData.percent}/>
+        </EventAverageContentContainer>
+
+          </EventAverageContainer>
           <RankingContaier>
             <StepContainer>
               <StepHeaderContainer>
