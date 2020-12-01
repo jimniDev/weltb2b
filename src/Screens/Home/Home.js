@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Button, DatePicker, Space } from "antd";
 import { InfoCircleOutlined, PlusOutlined } from "@ant-design/icons";
@@ -9,7 +9,8 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
-import data from "../../data.json";
+import user from "../../assets/data/userdata.json";
+import mon from "../../assets/data/monthlyData.json";
 
 const DailyAverageHeaderContainer = styled.div`
   width: 100%;
@@ -91,13 +92,102 @@ const EventHeaderContainer = styled.div`
 const EventHeaderName = styled.h2``;
 
 const Home = () => {
+  const [date, setDate] = useState("2020-11-05");
+
   // get Date function
   const onChangeDate = (event) => {
-    // evnet Handler Error
-    if (typeof event !== Object) return;
+    console.log(event);
+    if (!event && typeof event !== Object) return;
 
+    // evnet Handler Error
     const { _d } = event;
+    setDate(moment(_d).format("YYYY-MM-DD"));
   };
+
+  useEffect(() => {
+    // 여기서 setDaily에 date값 넣어서 조절해주면 될듯?
+    // userData.map((person) => person.reduce());
+    // var s;
+    // for (var i = 0; i < 30; i++) {
+    //   if (user["1nhBflpO9ehPOndqzldvHWB3ILS2"][i].timeid == date) {
+    //     s = user["1nhBflpO9ehPOndqzldvHWB3ILS2"][i].step;
+    //   }
+    // }
+    // setDailyAvg();
+    return () => {};
+  }, []);
+
+  // 각 날짜 별 user의 평균 데이터
+  const DailyPersonAverage = Object.values(user).map((el) => {
+    return [
+      el[date.slice(-2) - 1].step,
+      el[date.slice(-2) - 1].waist,
+      el[date.slice(-2) - 1].calories,
+      el[date.slice(-2) - 1].gaitSpeed,
+      el[date.slice(-2) - 1].distance,
+    ];
+  });
+
+  const YesPersonAverage = Object.values(user).map((el) => {
+    return [
+      el[date.slice(-2) - 2].step,
+      el[date.slice(-2) - 2].waist,
+      el[date.slice(-2) - 2].calories,
+      el[date.slice(-2) - 2].gaitSpeed,
+      el[date.slice(-2) - 2].distance,
+    ];
+  });
+
+  const DailyPeopleAverage = DailyPersonAverage.reduce((acc, cur) => {
+    cur.forEach(
+      (e, i) => (acc[i] = acc[i] ? acc[i] + parseInt(e) : parseInt(e))
+    );
+    return acc;
+  }, []).map((e) => e / DailyPersonAverage.length);
+
+  console.log(DailyPersonAverage);
+
+  const YesPeopleAverage = YesPersonAverage.reduce((acc, cur) => {
+    cur.forEach(
+      (e, i) => (acc[i] = acc[i] ? acc[i] + parseInt(e) : parseInt(e))
+    );
+    return acc;
+  }, []).map((e) => e / YesPersonAverage.length);
+
+  // 일 user 전체 평균 data
+  //console.log(DailyPeopleAverage);
+
+  for (let i = 0; i < mon["monthlyData"].length; i++) {
+    if (date.slice(0, 7) === mon["monthlyData"][i].timeid) {
+      var avg_dis = mon["monthlyData"][i].distance;
+      var today_dis = DailyPeopleAverage[4];
+      var yes_dis = YesPeopleAverage[4];
+
+      var avg_waist = mon["monthlyData"][i].waist;
+      var today_waist = DailyPeopleAverage[1];
+      var yes_waist = YesPeopleAverage[1];
+
+      var avg_kal = mon["monthlyData"][i].calories;
+      var today_kal = DailyPeopleAverage[2];
+      var yes_kal = YesPeopleAverage[2];
+
+      var avg_v = mon["monthlyData"][i].gaitSpeed;
+      var today_v = DailyPeopleAverage[3];
+      var yes_v = YesPeopleAverage[3];
+
+      break;
+    }
+  }
+
+  let LineArray = [];
+  for (let i = 0; i < mon["monthlyData"].length; i++) {
+    let d = {};
+
+    d.month = mon["monthlyData"][i].month;
+    d.year = mon["monthlyData"][i].timeid.slice(0, 4);
+    d.count = mon["monthlyData"][i].step;
+    LineArray.push(d);
+  }
 
   return (
     <>
@@ -111,26 +201,52 @@ const Home = () => {
           <DatePicker
             onChange={onChangeDate}
             bordered={false}
-            defaultValue={moment("2020-10-05", "YYYY-MM-DD")}
+            defaultValue={moment("2020-11-30", "YYYY-MM-DD")}
           />
         </Space>
       </DailyAverageHeaderContainer>
       <DailyAverageContainer>
         <DailyAverageItem>
-          걸음 거리
-          <PieChart percent={28} color={"#2496EF"} />
+          걸은 거리
+          <PieChart
+            content={((today_dis / avg_dis) * 50).toFixed(2)}
+            color={"#2496EF"}
+            percent={(((today_dis - yes_dis) / today_dis) * 100).toFixed(2)}
+            item={today_dis}
+            num={1}
+          />{" "}
         </DailyAverageItem>
         <DailyAverageItem>
           허리 둘레
-          <PieChart percent={48} color={"#EA3869"} />
+          <PieChart
+            content={((today_waist / avg_waist) * 1000).toFixed(2)}
+            color={"#EA3869"}
+            percent={(((today_waist - yes_waist) / today_waist) * 100).toFixed(
+              2
+            )}
+            item={today_waist}
+            num={2}
+          />
         </DailyAverageItem>
         <DailyAverageItem>
           소모 칼로리
-          <PieChart percent={27} color={"#FFC54E"} />
+          <PieChart
+            content={((today_kal / avg_kal) * 50).toFixed(2)}
+            color={"#FFC54E"}
+            percent={(((today_kal - yes_kal) / today_kal) * 100).toFixed(2)}
+            item={today_kal}
+            num={3}
+          />
         </DailyAverageItem>
         <DailyAverageItem>
           걸음 속도
-          <PieChart percent={22} color={"#52DDE1"} />
+          <PieChart
+            content={((today_v / avg_v) * 50).toFixed(2)}
+            color={"#52DDE1"}
+            percent={(((today_v - yes_v) / today_v) * 100).toFixed(2)}
+            item={today_v}
+            num={4}
+          />
         </DailyAverageItem>
       </DailyAverageContainer>
       <RankingContaier>
@@ -139,7 +255,7 @@ const Home = () => {
             걸음 수{" "}
             <InfoCircleOutlined style={{ fontSize: 14, marginLeft: 4 }} />
           </StepHeaderContainer>
-          <LineChart />
+          <LineChart data={LineArray} num={1} />
         </StepContainer>
         <PersonalRankingContainer>
           <Ranking />
