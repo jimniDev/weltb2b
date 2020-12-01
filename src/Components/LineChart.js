@@ -6,7 +6,7 @@ import JSON from "../assets/data/data.json";
 const mountNode = document.getElementById("root");
 
 const LineChart = ({ data, num }) => {
-  if (num == 1) {
+  if (num === 1) {
     return (
       <Chart
         scale={{ count: { min: 0, max: 25000 } }}
@@ -23,7 +23,7 @@ const LineChart = ({ data, num }) => {
       </Chart>
     );
   }
-  if (num == 2) {
+  if (num === 2) {
     return (
       <Chart
         scale={{ count: { min: 0, max: 25000 } }}

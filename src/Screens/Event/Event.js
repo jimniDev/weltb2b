@@ -2,14 +2,16 @@ import React, { useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
 import MainHeader from "../../Components/MainHeader";
 import { DeleteOutlined, InfoCircleOutlined } from "@ant-design/icons";
-import { Select } from "antd";
+import { Select, DatePicker } from "antd";
 import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
 import Helmet from "react-helmet";
-import data from "../../assets/data/data.json";
 import { dbService } from "../../fbase";
 import user from "../../userdata.json";
 import Loader from "../../Components/Loader";
+import EventAverageItem from "../../Components/EventAverageItem";
+import moment from "moment";
+import { useParams } from "react-router-dom";
 
 const StatusObj = {
   0: {
@@ -72,6 +74,22 @@ const EventAverageContainer = styled.div`
   padding: 20px 16px;
 `;
 
+const EventAverageContentContainer = styled.h3`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 24px 0px;
+`;
+
+const EventAverageTitleContainer = styled.div`
+  height: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 const RankingContaier = styled.div`
   display: flex;
   justify-content: space-between;
@@ -101,23 +119,55 @@ const PersonalRankingContainer = styled.div`
 `;
 
 const Event = () => {
-  const { eventData } = data;
-  const [eventDetail, setEventDetail] = useState(eventData[0]);
-  const [taskData, setTaskData] = useState([]);
+  const [eventDetail, setEventDetail] = useState(null);
+  const [allEventData, setallEventData] = useState([]);
   const [rankingData, setRankingData] = useState([]);
+  const [walkData, setWalkData] = useState({});
+  const [waistData, setWaistData] = useState([]);
+  const [calData, setCalData] = useState([]);
+  const [disData, setDisData] = useState([]);
+  const [speedData, setSpeedData] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // id 이거 쓰시면 됩니다.
+  const { id } = useParams();
+
+  let dataSet = [];
+  let walkDataSet = {};
+  let waistDataSet = {};
+  let calDataSet = {};
+  let disDataSet = {};
+  let speedDataSet = {};
+  let ev = {};
+
+  const [selectedDate, setDate] = useState(moment(new Date(), "YYYY-MM-DD"));
+
+  const onChangeDate = (event) => {
+    // evnet Handler Error
+    if (!event && typeof event !== Object) return;
+    const { _d } = event;
+    setDate(moment(_d).format("YYYY-MM-DD"));
+  };
 
   const onChangeEvent = (value) => {
     if (typeof value !== "string") return;
-    setEventDetail(eventData.find((event) => event.title === value));
+    setEventDetail(allEventData.find((event) => event.title === value));
   };
 
-  let dataSet = [];
+  const setStatus = (startDate, endDate) => {
+    const { _milliseconds: startDiff } = moment.duration(
+      moment(selectedDate).diff(moment(startDate))
+    );
 
-  let event_index;
-  const date = new Date();
-  let today =
-    date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+    const { _milliseconds: endDiff } = moment.duration(
+      moment(selectedDate).diff(moment(endDate))
+    );
+
+    if (startDiff < 0) return 0;
+    if (endDiff > 0) return 2;
+    return 1;
+  };
+
   const fetchData = useCallback(async () => {
     try {
       await dbService
@@ -125,27 +175,29 @@ const Event = () => {
         .get()
         .then((docs) => {
           docs.forEach((doc) => {
-            taskData.push({
+            allEventData.push({
               title: doc.data().title,
               participants: doc.data().participants,
               selectedList: doc.data().selectedList,
               id: doc.id,
               startdate: doc.data().startdate,
               enddate: doc.data().enddate,
+              status: setStatus(doc.data().startdate, doc.data().enddate),
             });
           });
-          for (let i = 0; i < taskData.length; i++) {
-            if (/*eventDetail.title*/ "ㅁㅁ" === taskData[i].title) {
-              //여기서 이벤트 타이틀만 ㅁㅁ 대신 넣어주면 끝
-              event_index = i;
-              break;
-            }
-          }
-          let end;
-          if (taskData[event_index].enddate > today) end = today;
-          else end = taskData[event_index].enddate;
-          let ev = taskData[event_index];
-          let term = end.slice(-2) - ev.startdate.slice(-2) + 1;
+          ev = allEventData.filter((data) => data.id === id)[0];
+          // let end;
+          // if (ev.enddate > today) end = today;
+          // else end = ev.enddate;
+          console.log(ev.status);
+
+          let endDay =
+            moment(ev.enddate).diff(moment(selectedDate)) >= 0
+              ? selectedDate
+              : ev.enddate;
+
+          let timeDifference =
+            moment(endDay).diff(moment(ev.startdate), "days") + 1;
           // console.log(user[ev.participants[0].uid][i].timeid);
 
           //3차원 배열 생성
@@ -154,10 +206,10 @@ const Event = () => {
           let avg_rank = new Array(ev.participants.length);
           let avg_rank_point = new Array(ev.participants.length);
           for (let i = 0; i < arr.length; i++) {
-            arr[i] = new Array(term);
-            rank[i] = new Array(term);
-            avg_rank[i] = new Array(term);
-            avg_rank_point[i] = new Array(term);
+            arr[i] = new Array(timeDifference);
+            rank[i] = new Array(timeDifference);
+            avg_rank[i] = new Array(timeDifference);
+            avg_rank_point[i] = new Array(timeDifference);
             for (let j = 0; j < arr[i].length; j++) {
               arr[i][j] = new Array(ev.selectedList.length);
               rank[i][j] = new Array(ev.selectedList.length);
@@ -179,11 +231,12 @@ const Event = () => {
                 day_index = i;
                 flag = false;
               }
-              if (cnt < term) {
+              if (cnt < timeDifference) {
                 for (let j = 0; j < ev.participants.length; j++) {
                   for (let k = 0; k < ev.selectedList.length; k++) {
                     arr[j][cnt][k] =
                       user[ev.participants[j].uid][i][ev.selectedList[k]];
+                    // console.log(arr[j][cnt][k]);
                   }
                 }
                 cnt += 1;
@@ -239,6 +292,7 @@ const Event = () => {
               }
               if (avg_rank_point[i][j] === 3) {
                 let o = {};
+                console.log(user[ev.participants[i].uid][j + day_index].timeid);
                 o.timeid = user[ev.participants[i].uid][j + day_index].timeid;
                 o.name = ev.participants[i].name;
                 o.rank = 3;
@@ -246,12 +300,71 @@ const Event = () => {
               }
             }
           }
+          console.log(`dataSet`, dataSet);
+
+          //event average
+          let walk_sum = 0;
+          let waist_sum = 0;
+          let cal_sum = 0;
+          let dis_sum = 0;
+          let speed_sum = 0;
+          let y_walk_sum = 0;
+          let y_waist_sum = 0;
+          let y_cal_sum = 0;
+          let y_dis_sum = 0;
+          let y_speed_sum = 0;
+
+          let tempDate = moment(selectedDate).date();
+          let parLength = ev.participants.length;
+          for (let i = 0; i < parLength; i++) {
+            let t_user = user[ev.participants[i].uid][tempDate];
+            // console.log(ev.participants[i].uid);
+            // console.log(selectedDate.slice(-2) - 1);
+            // console.log(t_user);
+            walk_sum += t_user.step;
+            waist_sum += t_user.waist;
+            cal_sum += parseFloat(t_user.calories);
+            dis_sum += parseFloat(t_user.distance);
+            speed_sum += parseFloat(t_user.gaitSpeed);
+
+            let y_user = user[ev.participants[i].uid][tempDate];
+            // console.log(y_user);
+            y_walk_sum += y_user.step;
+            y_waist_sum += y_user.waist;
+            y_cal_sum += parseFloat(y_user.calories);
+            y_dis_sum += parseFloat(y_user.distance);
+            y_speed_sum += parseFloat(y_user.gaitSpeed);
+          }
+          walkDataSet.value = (walk_sum / parLength).toFixed(0);
+          waistDataSet.value = (waist_sum / parLength).toFixed(1);
+          calDataSet.value = (cal_sum / parLength).toFixed(0);
+          disDataSet.value = (dis_sum / parLength).toFixed(1);
+          speedDataSet.value = (speed_sum / parLength).toFixed(1);
+
+          walkDataSet.percent = (100 - (walk_sum / y_walk_sum) * 100).toFixed(
+            2
+          );
+          waistDataSet.percent =
+            100 - ((waist_sum / y_waist_sum) * 100).toFixed(2);
+          calDataSet.percent = (100 - (cal_sum / y_cal_sum) * 100).toFixed(2);
+          disDataSet.percent = (100 - (dis_sum / y_dis_sum) * 100).toFixed(2);
+          speedDataSet.percent = (
+            100 -
+            (speed_sum / y_speed_sum) * 100
+          ).toFixed(2);
         });
     } catch (error) {
       console.log(error);
     } finally {
       setRankingData(dataSet);
       setLoading(false);
+      setWalkData(walkDataSet);
+      setWaistData(waistDataSet);
+      setCalData(calDataSet);
+      setDisData(disDataSet);
+      setSpeedData(speedDataSet);
+      setEventDetail(ev);
+      console.log(ev);
     }
   }, []);
 
@@ -281,11 +394,11 @@ const Event = () => {
                   borderRadius: 6,
                   color: "#707070",
                 }}
-                defaultValue={eventData[0].title}
+                defaultValue={allEventData[0].title}
                 onChange={onChangeEvent}
               >
-                {eventData &&
-                  eventData.map((event) => (
+                {allEventData &&
+                  allEventData.map((event) => (
                     <Select.Option
                       value={event.title}
                       key={event.title + event.status}
@@ -294,23 +407,69 @@ const Event = () => {
                     </Select.Option>
                   ))}
               </Select>
-              <Status
-                style={{
-                  backgroundColor: StatusObj[eventDetail.status].color,
-                }}
-              >
-                {StatusObj[eventDetail.status].status}
-              </Status>
+              {eventDetail && (
+                <Status
+                  style={{
+                    backgroundColor: StatusObj[eventDetail.status].color,
+                  }}
+                >
+                  {StatusObj[eventDetail.status].status}
+                </Status>
+              )}
             </EventTitleContainer>
             <EventDetailContainer>
-              <EventDetail>참여인원 : {eventDetail.participants}명</EventDetail>
-              <EventDetail>
-                날짜 : {eventDetail.startDate} ~ {eventDetail.endDate}
-              </EventDetail>
+              {eventDetail && (
+                <>
+                  <EventDetail>
+                    참여인원 : {eventDetail.participants.length}명
+                  </EventDetail>
+                  <EventDetail>
+                    날짜 : {eventDetail.startdate} ~ {eventDetail.enddate}
+                  </EventDetail>
+                </>
+              )}
+
               <DeleteOutlined style={{ fontSize: 16 }} />
             </EventDetailContainer>
           </EventContainer>
-          <EventAverageContainer>평균 수치</EventAverageContainer>
+          <EventAverageContainer>
+            <EventAverageTitleContainer>
+              평균 수치{" "}
+              <DatePicker
+                onChange={onChangeDate}
+                bordered={false}
+                defaultValue={selectedDate}
+              />
+            </EventAverageTitleContainer>
+
+            <EventAverageContentContainer>
+              <EventAverageItem
+                title="걸음 수"
+                value={walkData.value}
+                percent={walkData.percent}
+              />
+              <EventAverageItem
+                title="허리둘레"
+                value={waistData.value}
+                percent={waistData.percent}
+              />
+              <EventAverageItem
+                title="소모 칼로리"
+                value={calData.value}
+                percent={calData.percent}
+              />
+              <EventAverageItem
+                title="걸음 거리"
+                value={disData.value}
+                percent={disData.percent}
+              />
+              <EventAverageItem
+                title="걸음 속도"
+                value={speedData.value}
+                percent={speedData.percent}
+              />
+            </EventAverageContentContainer>
+          </EventAverageContainer>
           <RankingContaier>
             <StepContainer>
               <StepHeaderContainer>
@@ -320,7 +479,7 @@ const Event = () => {
               <LineChart data={rankingData} num={2} />
             </StepContainer>
             <PersonalRankingContainer>
-              <Ranking />
+              <Ranking isDetail={true} />
             </PersonalRankingContainer>
           </RankingContaier>
         </>
