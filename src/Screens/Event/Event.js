@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import MainHeader from "../../Components/MainHeader";
 import { DeleteOutlined, InfoCircleOutlined } from "@ant-design/icons";
@@ -6,10 +6,9 @@ import { Select, DatePicker } from "antd";
 import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
 import Helmet from "react-helmet";
-import EventAverageItem from "../../Components/EventAverageItem"
+import EventAverageItem from "../../Components/EventAverageItem";
 import JSON from "../../data.json";
 import moment from "moment";
-
 
 const StatusObj = {
   0: {
@@ -79,7 +78,6 @@ const EventAverageContentContainer = styled.h3`
   display: flex;
   justify-content: space-between;
   margin: 24px 0px;
-
 `;
 
 const EventAverageTitleContainer = styled.div`
@@ -88,7 +86,6 @@ const EventAverageTitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 `;
 
 const RankingContaier = styled.div`
@@ -119,16 +116,15 @@ const PersonalRankingContainer = styled.div`
   padding: 12px 20px;
 `;
 
-const onChangeDate = (event) => {
-  // evnet Handler Error
-  if (typeof event !== Object) return;
-  const { _d } = event;
-};
-
-
 const Event = () => {
   const { eventData } = JSON;
   const [eventDetail, setEventDetail] = useState(eventData[0]);
+
+  const onChangeDate = (event) => {
+    // evnet Handler Error
+    if (typeof event !== Object) return;
+    const { _d } = event;
+  };
 
   const onChangeEvent = (value) => {
     if (typeof value !== "string") return;
@@ -194,28 +190,13 @@ const Event = () => {
             style={{ color: "#707070" }}
           />
         </EventAverageTitleContainer>
-          
+
         <EventAverageContentContainer>
-          <EventAverageItem 
-            title="걸음 수"
-            value="15300 보"
-            percent="2.04"/>
-          <EventAverageItem 
-            title="허리둘레"
-            value="32cm"
-            percent="2.04"/>
-          <EventAverageItem 
-            title="소모 칼로리"
-            value="4033kcal"
-            percent="2.04"/>
-          <EventAverageItem
-            title="걸음 거리"
-            value="15km"
-            percent="2.04"/>
-          <EventAverageItem
-            title="걸음 속도"
-            value="3.4km/h"
-            percent="2.04"/>
+          <EventAverageItem title="걸음 수" value="15300" percent="2.04" />
+          <EventAverageItem title="허리둘레" value="32" percent="2.04" />
+          <EventAverageItem title="소모 칼로리" value="4033" percent="2.04" />
+          <EventAverageItem title="걸음 거리" value="15" percent="2.04" />
+          <EventAverageItem title="걸음 속도" value="3.4" percent="2.04" />
         </EventAverageContentContainer>
       </EventAverageContainer>
       <RankingContaier>

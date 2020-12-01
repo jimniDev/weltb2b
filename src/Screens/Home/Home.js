@@ -90,15 +90,15 @@ const EventHeaderContainer = styled.div`
 
 const EventHeaderName = styled.h2``;
 
-// get Date function
-const onChangeDate = (event) => {
-  // evnet Handler Error
-  if (typeof event !== Object) return;
-
-  const { _d } = event;
-};
-
 const Home = () => {
+  // get Date function
+  const onChangeDate = (event) => {
+    // evnet Handler Error
+    if (typeof event !== Object) return;
+
+    const { _d } = event;
+  };
+
   return (
     <>
       <Helmet>

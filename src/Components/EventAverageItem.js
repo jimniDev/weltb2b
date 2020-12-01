@@ -17,33 +17,32 @@ const CateTitle = styled.h6`
 
 const ContentText = styled.h6`
   font-size: 30px;
-  color: #707070
+  color: #707070;
 `;
 
 const PercentText = styled.h6`
   font-size: 12px;
   margin: 4px 0px 12px 4px;
-  color:#E60000
+  color: #e60000;
 `;
 
 const PercentContainer = styled.div`
-padding: 4px 0px 12px 0px;
-margin-top: 8px;
-display: flex
+  padding: 4px 0px 12px 0px;
+  margin-top: 8px;
+  display: flex;
 `;
 
 const TriangleIcon = styled.div`
   margin-left: 4px;
   width: 4px;
   height: 6px;
-  border-bottom: 6px solid #E60000;
+  border-bottom: 6px solid #e60000;
   border-top: 6px solid transparent;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-
 `;
 
-const EventAverageItem = ({ title, value, percent}) => {
+const EventAverageItem = ({ title, value, percent }) => {
   return (
     <AverageContainer>
       <CateTitle>{title}</CateTitle>
@@ -51,8 +50,7 @@ const EventAverageItem = ({ title, value, percent}) => {
       <PercentContainer>
         <CateTitle>어제 대비</CateTitle>
         <PercentText>{percent}%</PercentText>
-        <TriangleIcon/>
-
+        <TriangleIcon />
       </PercentContainer>
     </AverageContainer>
   );
