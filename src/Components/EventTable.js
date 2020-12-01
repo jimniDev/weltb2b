@@ -38,7 +38,12 @@ const columns = [
     title: "EVENT",
     width: 100,
     dataIndex: "title",
-    render: (text, record) => <Link to={`/event/${record.id}`}>{text}</Link>,
+    key: "title",
+    render: (text, record) => (
+      <Link style={{ fontSize: 14 }} to={`/event/${record.id}`}>
+        {text}
+      </Link>
+    ),
   },
   {
     title: "STATUS",
@@ -51,6 +56,7 @@ const columns = [
           <Status
             style={{
               backgroundColor: StatusObj[text].color,
+              fontSize: 12,
             }}
           >
             {StatusObj[text].status}
@@ -64,6 +70,9 @@ const columns = [
     width: 50,
     dataIndex: "participants",
     key: "participants",
+    render: (text, record) => (
+      <span style={{ fontSize: 12 }}>{record.participants}</span>
+    ),
   },
   {
     title: "PERIOD",
@@ -71,7 +80,7 @@ const columns = [
     dataIndex: "date",
     key: "date",
     render: (text, record) => (
-      <span>
+      <span style={{ fontSize: 12 }}>
         {record.startDate} ~ {record.endDate}
       </span>
     ),
@@ -106,14 +115,12 @@ const EventTable = () => {
         .then((docs) => {
           docs.forEach((doc) => {
             let o = {};
-            let size = doc.data().participants.length;
             let startDate = doc.data().startdate;
             let endDate = doc.data().enddate;
-
             o.status = setStatus(startDate, endDate);
             o.id = doc.id;
             o.title = doc.data().title;
-            o.participants = size;
+            o.participants = doc.data().participants.length;
             o.startDate = startDate;
             o.endDate = endDate;
             dataSet.push(o);

@@ -107,11 +107,22 @@ const Ranking = ({ isDetail }) => {
 
   const onChangeRank = (event) => {
     if (!event && typeof event !== "object") return;
+
     setRankValue(event);
   };
 
   const onChangeDate = (event) => {
-    if (!event && typeof event !== Object) return;
+    console.log(event);
+    if (!event && typeof event !== "object") return;
+
+    // evnet Handler Error
+    let { _d } = event;
+    _d = moment(_d).format("YYYY-MM");
+
+    if (_d !== "2020-11") {
+      alert(`${_d}에는 데이터가 없습니다.`);
+      return;
+    }
   };
 
   const sort_by = (field, reverse) => {

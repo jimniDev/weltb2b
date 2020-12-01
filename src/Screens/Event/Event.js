@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import MainHeader from "../../Components/MainHeader";
 import { DeleteOutlined, InfoCircleOutlined } from "@ant-design/icons";
@@ -7,11 +8,10 @@ import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
 import Helmet from "react-helmet";
 import { dbService } from "../../fbase";
-import user from "../../userdata.json";
+import user from "../../assets/data/userdata.json";
 import Loader from "../../Components/Loader";
 import EventAverageItem from "../../Components/EventAverageItem";
 import moment from "moment";
-import { useParams } from "react-router-dom";
 
 const StatusObj = {
   0: {
@@ -120,29 +120,17 @@ const PersonalRankingContainer = styled.div`
 
 const Event = () => {
   const [eventDetail, setEventDetail] = useState(null);
-  const [allEventData, setallEventData] = useState([]);
+  const [allEventData, setAllEventData] = useState([]);
   const [rankingData, setRankingData] = useState([]);
-  const [walkData, setWalkData] = useState({});
+  const [walkData, setWalkData] = useState([]);
   const [waistData, setWaistData] = useState([]);
   const [calData, setCalData] = useState([]);
   const [disData, setDisData] = useState([]);
   const [speedData, setSpeedData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [thisEvent, setThisEvent] = useState({});
-  const date = new Date();
-  // let today =
-  //   date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-  let today = "2020-11-30";
-  const [selectedDate, setDate] = useState(today);
-
-  const onChangeDate = (event) => {
-    // evnet Handler Error
-    if (!event && typeof event !== Object) return;
-    const { _d } = event;
-    setDate(moment(_d).format("YYYY-MM-DD"));
-    updateAverageChange(thisEvent, moment(_d).format("YYYY-MM-DD"));
-  };
-
+  const [selectedDate, setSelectedDate] = useState(
+    moment(Date.now()).format("YYYY-MM-DD")
+  );
   // id 이거 쓰시면 됩니다.
   const { id } = useParams();
 
@@ -152,35 +140,112 @@ const Event = () => {
   let calDataSet = {};
   let disDataSet = {};
   let speedDataSet = {};
-  let ev = {};
+  let selectedEvent = {};
 
-  const [selectedDate, setDate] = useState(moment(new Date(), "YYYY-MM-DD"));
+  const updateAverageChange = (event, date) => {
+    let walk_sum = 0;
+    let waist_sum = 0;
+    let cal_sum = 0;
+    let dis_sum = 0;
+    let speed_sum = 0;
+    let y_walk_sum = 0;
+    let y_waist_sum = 0;
+    let y_cal_sum = 0;
+    let y_dis_sum = 0;
+    let y_speed_sum = 0;
+    let parLength = event.participants.length;
+    for (let i = 0; i < parLength; i++) {
+      let t_user = user[event.participants[i].uid][date.slice(-2) - 1];
+      walk_sum += t_user.step;
+      waist_sum += t_user.waist;
+      cal_sum += parseFloat(t_user.calories);
+      dis_sum += parseFloat(t_user.distance);
+      speed_sum += parseFloat(t_user.gaitSpeed);
 
-  const onChangeDate = (event) => {
-    // evnet Handler Error
-    if (!event && typeof event !== Object) return;
-    const { _d } = event;
-    setDate(moment(_d).format("YYYY-MM-DD"));
+      let y_user = user[event.participants[i].uid][date.slice(-2) - 2];
+      y_walk_sum += y_user.step;
+      y_waist_sum += y_user.waist;
+      y_cal_sum += parseFloat(y_user.calories);
+      y_dis_sum += parseFloat(y_user.distance);
+      y_speed_sum += parseFloat(y_user.gaitSpeed);
+    }
+    walkDataSet.value = (walk_sum / parLength).toFixed(0);
+    waistDataSet.value = (waist_sum / parLength).toFixed(2);
+    calDataSet.value = (cal_sum / parLength).toFixed(0);
+    disDataSet.value = (dis_sum / parLength).toFixed(1);
+    speedDataSet.value = (speed_sum / parLength).toFixed(1);
+
+    walkDataSet.percent = ((walk_sum / y_walk_sum - 1) * 100).toFixed(2);
+    waistDataSet.percent = ((waist_sum / y_waist_sum - 1) * 100).toFixed(2);
+    calDataSet.percent = ((cal_sum / y_cal_sum - 1) * 100).toFixed(2);
+    disDataSet.percent = ((dis_sum / y_dis_sum - 1) * 100).toFixed(2);
+    speedDataSet.percent = ((speed_sum / y_speed_sum - 1) * 100).toFixed(2);
+    setWalkData(walkDataSet);
+    setWaistData(waistDataSet);
+    setCalData(calDataSet);
+    setDisData(disDataSet);
+    setSpeedData(speedDataSet);
   };
 
   const onChangeEvent = (value) => {
     if (typeof value !== "string") return;
     setEventDetail(allEventData.find((event) => event.title === value));
+    updateAverageChange(eventDetail, selectedDate);
+  };
+
+  const onChangeDate = (event) => {
+    // evnet Handler Error
+    if (!event && typeof event !== Object) return;
+    let { _d } = event;
+    _d = moment(_d).format("YYYY-MM-DD");
+    if (!checkDate(_d, eventDetail.startDate, eventDetail.endDate)) {
+      alert(`${_d}에 해당하는 데이터가 없습니다.`);
+      return;
+    }
+    setSelectedDate(_d);
+    console.log(_d);
+    updateAverageChange(eventDetail, _d);
+  };
+
+  const checkDate = (_d, startDate, endDate) => {
+    const { _milliseconds: startDiff } = moment.duration(
+      moment(_d).diff(moment(startDate))
+    );
+
+    const { _milliseconds: endDiff } = moment.duration(
+      moment(_d).diff(moment(endDate))
+    );
+
+    const { _milliseconds: dataEndDiff } = moment.duration(
+      moment(_d).diff(moment("2020-11-30"))
+    );
+
+    if (startDiff < 0) return false;
+    if (endDiff > 0) return false;
+    console.log("durl");
+    if (dataEndDiff > 0) return false;
+    return true;
   };
 
   const setStatus = (startDate, endDate) => {
     const { _milliseconds: startDiff } = moment.duration(
       moment(selectedDate).diff(moment(startDate))
     );
-
     const { _milliseconds: endDiff } = moment.duration(
       moment(selectedDate).diff(moment(endDate))
     );
+    const { _milliseconds: dataEndDiff } = moment.duration(
+      moment(endDate).diff(moment(Date.now()))
+    );
 
+    if (dataEndDiff < 0) return 2;
     if (startDiff < 0) return 0;
     if (endDiff > 0) return 2;
     return 1;
   };
+
+  let userData = Object.entries(user);
+  let userList = Object.keys(user);
 
   const fetchData = useCallback(async () => {
     try {
@@ -190,47 +255,64 @@ const Event = () => {
         .then((docs) => {
           docs.forEach((doc) => {
             allEventData.push({
+              id: doc.id,
               title: doc.data().title,
               participants: doc.data().participants,
               selectedList: doc.data().selectedList,
-              id: doc.id,
-              startdate: doc.data().startdate,
-              enddate: doc.data().enddate,
+              startDate: doc.data().startdate,
+              endDate: doc.data().enddate,
               status: setStatus(doc.data().startdate, doc.data().enddate),
             });
-            // console.log(taskData)
-            // console.log(taskData.length);
           });
-          ev = allEventData.filter((data) => data.id === id)[0];
-          // let end;
-          // if (ev.enddate > today) end = today;
-          // else end = ev.enddate;
-          console.log(ev.status);
+
+          selectedEvent = allEventData.filter((data) => data.id === id)[0];
+
+          let tempUserList = userList.filter((user) =>
+            selectedEvent.participants.find(
+              (participant) => participant.uid === user
+            )
+          );
+
+          let tempUserData = userData.filter((user) =>
+            tempUserList.find((userId) => userId === user[0])
+          );
+
+          const tempStartDay = moment(selectedEvent.startDate).get("Date");
+          const tempEndDay = moment(selectedEvent.endDate).get("Date");
+
+          tempUserData = tempUserData.map((user) => {
+            return [user[0], user[1].slice(tempStartDay - 1, tempEndDay)];
+          });
 
           let endDay =
-            moment(ev.enddate).diff(moment(selectedDate)) >= 0
+            moment(selectedEvent.endDate).diff(moment(selectedDate)) >= 0
               ? selectedDate
-              : ev.enddate;
+              : selectedEvent.endDate;
 
           let timeDifference =
-            moment(endDay).diff(moment(ev.startdate), "days") + 1;
-          // console.log(user[ev.participants[0].uid][i].timeid);
+            moment(endDay).diff(moment(selectedEvent.startDate), "days") + 1;
+
+          let tempDate =
+            moment(selectedEvent.endDate).diff(moment(selectedDate)) >= 0
+              ? selectedDate
+              : selectedEvent.endDate;
+          setSelectedDate(tempDate);
 
           //3차원 배열 생성
-          let arr = new Array(ev.participants.length);
-          let rank = new Array(ev.participants.length);
-          let avg_rank = new Array(ev.participants.length);
-          let avg_rank_point = new Array(ev.participants.length);
+          let arr = new Array(selectedEvent.participants.length);
+          let rank = new Array(selectedEvent.participants.length);
+          let avg_rank = new Array(selectedEvent.participants.length);
+          let avg_rank_point = new Array(selectedEvent.participants.length);
           for (let i = 0; i < arr.length; i++) {
             arr[i] = new Array(timeDifference);
             rank[i] = new Array(timeDifference);
             avg_rank[i] = new Array(timeDifference);
             avg_rank_point[i] = new Array(timeDifference);
             for (let j = 0; j < arr[i].length; j++) {
-              arr[i][j] = new Array(ev.selectedList.length);
-              rank[i][j] = new Array(ev.selectedList.length);
+              arr[i][j] = new Array(selectedEvent.selectedList.length);
+              rank[i][j] = new Array(selectedEvent.selectedList.length);
               avg_rank_point[i][j] = 1;
-              for (let k = 0; k < ev.selectedList.length; k++) {
+              for (let k = 0; k < selectedEvent.selectedList.length; k++) {
                 rank[i][j][k] = 1;
               }
             }
@@ -241,18 +323,26 @@ const Event = () => {
           let flag = true;
 
           //배열에 데이터 저장
-          for (let i = 0; i < user[ev.participants[0].uid].length; i++) {
-            if (user[ev.participants[0].uid][i].timeid >= ev.startdate) {
+          for (
+            let i = 0;
+            i < user[selectedEvent.participants[0].uid].length;
+            i++
+          ) {
+            if (
+              user[selectedEvent.participants[0].uid][i].timeid >=
+              selectedEvent.startDate
+            ) {
               if (flag) {
                 day_index = i;
                 flag = false;
               }
               if (cnt < timeDifference) {
-                for (let j = 0; j < ev.participants.length; j++) {
-                  for (let k = 0; k < ev.selectedList.length; k++) {
+                for (let j = 0; j < selectedEvent.participants.length; j++) {
+                  for (let k = 0; k < selectedEvent.selectedList.length; k++) {
                     arr[j][cnt][k] =
-                      user[ev.participants[j].uid][i][ev.selectedList[k]];
-                    // console.log(arr[j][cnt][k]);
+                      user[selectedEvent.participants[j].uid][i][
+                        selectedEvent.selectedList[k]
+                      ];
                   }
                 }
                 cnt += 1;
@@ -294,34 +384,35 @@ const Event = () => {
             for (let i = 0; i < arr.length; i++) {
               if (avg_rank_point[i][j] === 1) {
                 let o = {};
-                o.timeid = user[ev.participants[i].uid][j + day_index].timeid;
-                o.name = ev.participants[i].name;
+                o.timeid =
+                  user[selectedEvent.participants[i].uid][j + day_index].timeid;
+                o.name = selectedEvent.participants[i].name;
                 o.rank = 1;
                 dataSet.push(o);
               }
               if (avg_rank_point[i][j] === 2) {
                 let o = {};
-                o.timeid = user[ev.participants[i].uid][j + day_index].timeid;
-                o.name = ev.participants[i].name;
+                o.timeid =
+                  user[selectedEvent.participants[i].uid][j + day_index].timeid;
+                o.name = selectedEvent.participants[i].name;
                 o.rank = 2;
                 dataSet.push(o);
               }
               if (avg_rank_point[i][j] === 3) {
                 let o = {};
-                console.log(user[ev.participants[i].uid][j + day_index].timeid);
-                o.timeid = user[ev.participants[i].uid][j + day_index].timeid;
-                o.name = ev.participants[i].name;
+                o.timeid =
+                  user[selectedEvent.participants[i].uid][j + day_index].timeid;
+                o.name = selectedEvent.participants[i].name;
                 o.rank = 3;
                 dataSet.push(o);
               }
             }
-            setThisEvent(ev);
-            console.log(ev);
-            // console.log(eventData[0]);
-            updateAverageChange(ev, today);
-            setTaskData(taskData);
+            setEventDetail(selectedEvent);
+            updateAverageChange(selectedEvent, tempDate);
+            setAllEventData((prevState) => {
+              return allEventData;
+            });
           }
-          console.log(`dataSet`, dataSet);
 
           //event average
           let walk_sum = 0;
@@ -335,21 +426,17 @@ const Event = () => {
           let y_dis_sum = 0;
           let y_speed_sum = 0;
 
-          let tempDate = moment(selectedDate).date();
-          let parLength = ev.participants.length;
+          let tempDay = moment(tempDate).date();
+          let parLength = selectedEvent.participants.length;
           for (let i = 0; i < parLength; i++) {
-            let t_user = user[ev.participants[i].uid][tempDate];
-            // console.log(ev.participants[i].uid);
-            // console.log(selectedDate.slice(-2) - 1);
-            // console.log(t_user);
+            let t_user = user[selectedEvent.participants[i].uid][tempDay - 1];
             walk_sum += t_user.step;
             waist_sum += t_user.waist;
             cal_sum += parseFloat(t_user.calories);
             dis_sum += parseFloat(t_user.distance);
             speed_sum += parseFloat(t_user.gaitSpeed);
 
-            let y_user = user[ev.participants[i].uid][tempDate];
-            // console.log(y_user);
+            let y_user = user[selectedEvent.participants[i].uid][tempDay - 1];
             y_walk_sum += y_user.step;
             y_waist_sum += y_user.waist;
             y_cal_sum += parseFloat(y_user.calories);
@@ -357,7 +444,7 @@ const Event = () => {
             y_speed_sum += parseFloat(y_user.gaitSpeed);
           }
           walkDataSet.value = (walk_sum / parLength).toFixed(0);
-          waistDataSet.value = (waist_sum / parLength).toFixed(1);
+          waistDataSet.value = (waist_sum / parLength).toFixed(2);
           calDataSet.value = (cal_sum / parLength).toFixed(0);
           disDataSet.value = (dis_sum / parLength).toFixed(1);
           speedDataSet.value = (speed_sum / parLength).toFixed(1);
@@ -378,14 +465,13 @@ const Event = () => {
       console.log(error);
     } finally {
       setRankingData(dataSet);
-      setLoading(false);
       setWalkData(walkDataSet);
       setWaistData(waistDataSet);
       setCalData(calDataSet);
       setDisData(disDataSet);
       setSpeedData(speedDataSet);
-      setEventDetail(ev);
-      console.log(ev);
+      setEventDetail(selectedEvent);
+      setLoading(false);
     }
   }, []);
 
@@ -445,21 +531,20 @@ const Event = () => {
                     참여인원 : {eventDetail.participants.length}명
                   </EventDetail>
                   <EventDetail>
-                    날짜 : {eventDetail.startdate} ~ {eventDetail.enddate}
+                    날짜 : {eventDetail.startDate} ~ {eventDetail.endDate}
                   </EventDetail>
                 </>
               )}
-
               <DeleteOutlined style={{ fontSize: 16 }} />
             </EventDetailContainer>
           </EventContainer>
           <EventAverageContainer>
             <EventAverageTitleContainer>
-              평균 수치{" "}
+              평균 수치
               <DatePicker
                 onChange={onChangeDate}
                 bordered={false}
-                defaultValue={selectedDate}
+                defaultValue={moment(selectedDate, "YYYY-MM-DD")}
               />
             </EventAverageTitleContainer>
 

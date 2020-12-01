@@ -28,12 +28,11 @@ const CateTitle = styled.h6`
 const PercentText = styled.h6`
   font-size: 12px;
   height: 19px;
-  // color: #E60000;
   line-height: 19px;
   margin-left: 4px;
   color: ${(props) => {
     const { percent } = props;
-    if (percent === ZERO) {
+    if (percent === ZERO || percent === 0) {
       return "#020202";
     }
     return percent > 0 ? "#EA2027" : "#0652DD";
@@ -45,21 +44,14 @@ const PercentContainer = styled.div`
   display: flex;
 `;
 
-const TriangleIcon = styled.div`
-  margin-left: 4px;
-  width: 4px;
-  height: 6px;
-  border-bottom: 6px solid #e60000;
-  border-top: 6px solid transparent;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-`;
-
 const EventAverageItem = ({ title, value, percent }) => {
   let statisticIcon;
-  if (percent === ZERO) statisticIcon = "";
-  else if (percent > 0) statisticIcon = "▲";
-  else statisticIcon = "▼";
+  const setStatisticIcon = (() => {
+    if (percent === ZERO || percent === 0) {
+      return (statisticIcon = "");
+    }
+    return percent > 0 ? (statisticIcon = "▲") : (statisticIcon = "▼");
+  })();
 
   return (
     <AverageContainer>
@@ -70,7 +62,6 @@ const EventAverageItem = ({ title, value, percent }) => {
         <PercentText percent={percent}>
           {percent}%{statisticIcon}
         </PercentText>
-        {/* <TriangleIcon/> */}
       </PercentContainer>
     </AverageContainer>
   );
