@@ -1,6 +1,6 @@
 # WELT B2B DashBorad
 
-Welt B2B Dashboard in React & Firebase
+Welt B2B Dashboard in React & Friebase
 
 ### `npm start`
 

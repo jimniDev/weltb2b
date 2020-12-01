@@ -128,6 +128,20 @@ const Event = () => {
   const [disData, setDisData] = useState([]);
   const [speedData, setSpeedData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [thisEvent, setThisEvent] = useState({});
+  const date = new Date();
+  // let today =
+  //   date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+  let today = "2020-11-30";
+  const [selectedDate, setDate] = useState(today);
+
+  const onChangeDate = (event) => {
+    // evnet Handler Error
+    if (!event && typeof event !== Object) return;
+    const { _d } = event;
+    setDate(moment(_d).format("YYYY-MM-DD"));
+    updateAverageChange(thisEvent, moment(_d).format("YYYY-MM-DD"));
+  };
 
   // id 이거 쓰시면 됩니다.
   const { id } = useParams();
@@ -184,6 +198,8 @@ const Event = () => {
               enddate: doc.data().enddate,
               status: setStatus(doc.data().startdate, doc.data().enddate),
             });
+            // console.log(taskData)
+            // console.log(taskData.length);
           });
           ev = allEventData.filter((data) => data.id === id)[0];
           // let end;
@@ -299,6 +315,11 @@ const Event = () => {
                 dataSet.push(o);
               }
             }
+            setThisEvent(ev);
+            console.log(ev);
+            // console.log(eventData[0]);
+            updateAverageChange(ev, today);
+            setTaskData(taskData);
           }
           console.log(`dataSet`, dataSet);
 

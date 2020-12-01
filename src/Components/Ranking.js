@@ -30,7 +30,6 @@ const RankContainer = styled.div`
     border-radius: 6px;
   }
 `;
-
 const RankItemContainer = styled.div`
   display: flex;
   align-items: center;
