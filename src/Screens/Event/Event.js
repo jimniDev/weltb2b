@@ -143,6 +143,7 @@ const Event = () => {
   let selectedEvent = {};
 
   const updateAverageChange = (event, date) => {
+    
     let walk_sum = 0;
     let waist_sum = 0;
     let cal_sum = 0;
@@ -187,10 +188,166 @@ const Event = () => {
     setSpeedData(speedDataSet);
   };
 
+  const updateRankGraph = (event, date) => {
+          
+
+          let tempUserList = userList.filter((user) =>
+            event.participants.find(
+              (participant) => participant.uid === user
+            )
+          );
+
+          let tempUserData = userData.filter((user) =>
+            tempUserList.find((userId) => userId === user[0])
+          );
+
+          const tempStartDay = moment(event.startDate).get("Date");
+          const tempEndDay = moment(event.endDate).get("Date");
+
+          tempUserData = tempUserData.map((user) => {
+            return [user[0], user[1].slice(tempStartDay - 1, tempEndDay)];
+          });
+
+          let endDay =
+            moment(event.endDate).diff(moment(date)) >= 0
+              ? date
+              : event.endDate;
+
+          endDay = "2020-11-30";
+          let timeDifference =
+            moment(endDay).diff(moment(event.startDate), "days") + 1;
+
+          let tempDate =
+            moment(event.endDate).diff(moment(date)) >= 0
+              ? date
+              : event.endDate;
+          setSelectedDate(tempDate);
+
+          //3차원 배열 생성
+          let arr = new Array(event.participants.length);
+          let rank = new Array(event.participants.length);
+          let avg_rank = new Array(event.participants.length);
+          let avg_rank_point = new Array(event.participants.length);
+          for (let i = 0; i < arr.length; i++) {
+            arr[i] = new Array(timeDifference);
+            rank[i] = new Array(timeDifference);
+            avg_rank[i] = new Array(timeDifference);
+            avg_rank_point[i] = new Array(timeDifference);
+            for (let j = 0; j < arr[i].length; j++) {
+              arr[i][j] = new Array(event.selectedList.length);
+              rank[i][j] = new Array(event.selectedList.length);
+              avg_rank_point[i][j] = 1;
+              for (let k = 0; k < event.selectedList.length; k++) {
+                rank[i][j][k] = 1;
+              }
+            }
+          }
+
+          let cnt = 0; //기간 내 카운트
+          let day_index;
+          let flag = true;
+
+          //배열에 데이터 저장
+          for (
+            let i = 0;
+            i < user[event.participants[0].uid].length;
+            i++
+          ) {
+            if (
+              user[event.participants[0].uid][i].timeid >=
+              event.startDate
+            ) {
+              if (flag) {
+                day_index = i;
+                flag = false;
+              }
+              if (cnt < timeDifference) {
+                for (let j = 0; j < event.participants.length; j++) {
+                  for (let k = 0; k < event.selectedList.length; k++) {
+                    arr[j][cnt][k] =
+                      user[event.participants[j].uid][i][
+                        event.selectedList[k]
+                      ];
+                  }
+                }
+                cnt += 1;
+              } else break;
+            }
+          }
+          //카테고리 별 랭크 산출
+          for (let k = 0; k < arr[0][0].length; k++) {
+            for (let j = 0; j < arr[0].length; j++) {
+              for (let i = 0; i < arr.length - 1; i++) {
+                for (let x = i + 1; x < arr.length; x++) {
+                  if (arr[i][j][k] < arr[x][j][k]) rank[i][j][k] += 1;
+                  else rank[x][j][k] += 1;
+                }
+              }
+            }
+          }
+          //카테고리 별 랭크의 평균
+          for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+              let sum = 0;
+              for (let k = 0; k < arr[i][j].length; k++) {
+                sum += rank[i][j][k];
+              }
+              avg_rank[i][j] = sum / arr[i][j].length;
+            }
+          }
+          //랭크 평균의 랭크 산출
+          for (let j = 0; j < arr[0].length; j++) {
+            for (let i = 0; i < arr.length - 1; i++) {
+              for (let x = i + 1; x < arr.length; x++) {
+                if (avg_rank[i][j] < avg_rank[x][j]) avg_rank_point[i][j] += 1;
+                else avg_rank_point[x][j] += 1;
+              }
+            }
+          }
+          //dataSet 생성
+          for (let j = 0; j < arr[0].length; j++) {
+            for (let i = 0; i < arr.length; i++) {
+              if (avg_rank_point[i][j] === 1) {
+                let o = {};
+                o.timeid =
+                  user[event.participants[i].uid][j + day_index].timeid;
+                o.name = event.participants[i].name;
+                o.rank = 1;
+                dataSet.push(o);
+              }
+              if (avg_rank_point[i][j] === 2) {
+                let o = {};
+                o.timeid =
+                  user[event.participants[i].uid][j + day_index].timeid;
+                o.name = event.participants[i].name;
+                o.rank = 2;
+                dataSet.push(o);
+              }
+              if (avg_rank_point[i][j] === 3) {
+                let o = {};
+                o.timeid =
+                  user[event.participants[i].uid][j + day_index].timeid;
+                o.name = event.participants[i].name;
+                o.rank = 3;
+                dataSet.push(o);
+              }
+            }
+            setRankingData(dataSet);
+            //setEventDetail(event);
+            //updateAverageChange(event, tempDate);
+
+            // setAllEventData((prevState) => {
+            //   return allEventData;
+            // });
+          }
+  }
+
   const onChangeEvent = (value) => {
     if (typeof value !== "string") return;
     setEventDetail(allEventData.find((event) => event.title === value));
-    updateAverageChange(eventDetail, selectedDate);
+    
+    updateRankGraph(allEventData.find((event) => event.title === value), selectedDate);
+    updateAverageChange(allEventData.find((event) => event.title === value), selectedDate);
   };
 
   const onChangeDate = (event) => {
@@ -203,7 +360,7 @@ const Event = () => {
       return;
     }
     setSelectedDate(_d);
-    console.log(_d);
+    updateRankGraph(eventDetail, _d);
     updateAverageChange(eventDetail, _d);
   };
 
@@ -289,6 +446,7 @@ const Event = () => {
               ? selectedDate
               : selectedEvent.endDate;
 
+          endDay = "2020-11-30";
           let timeDifference =
             moment(endDay).diff(moment(selectedEvent.startDate), "days") + 1;
 
@@ -407,11 +565,11 @@ const Event = () => {
                 dataSet.push(o);
               }
             }
-            setEventDetail(selectedEvent);
-            updateAverageChange(selectedEvent, tempDate);
-            setAllEventData((prevState) => {
-              return allEventData;
-            });
+            // setEventDetail(selectedEvent);
+            // updateAverageChange(selectedEvent, tempDate);
+            // setAllEventData((prevState) => {
+            //   return allEventData;
+            // });
           }
 
           //event average
