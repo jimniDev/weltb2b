@@ -97,24 +97,34 @@ const Home = () => {
 
   // get Date function
   const onChangeDate = (event) => {
-    console.log(event);
-    if (!event && typeof event !== Object) return;
+    if (!event && typeof event !== "object") return;
 
     // evnet Handler Error
-    const { _d } = event;
-    setDate(moment(_d).format("YYYY-MM-DD"));
+    let { _d } = event;
+    _d = moment(_d).format("YYYY-MM-DD");
+
+    if (!checkDate(_d)) {
+      alert(`${_d}에는 데이터가 없습니다.`);
+      return;
+    }
+    setDate(_d);
+  };
+
+  const checkDate = (_d) => {
+    const { _milliseconds: startDiff } = moment.duration(
+      moment(_d).diff(moment("2020-11-01"))
+    );
+
+    const { _milliseconds: endDiff } = moment.duration(
+      moment(_d).diff(moment("2020-11-30"))
+    );
+
+    if (startDiff <= 0) return false;
+    if (endDiff > 0) return false;
+    return true;
   };
 
   useEffect(() => {
-    // 여기서 setDaily에 date값 넣어서 조절해주면 될듯?
-    // userData.map((person) => person.reduce());
-    // var s;
-    // for (var i = 0; i < 30; i++) {
-    //   if (user["1nhBflpO9ehPOndqzldvHWB3ILS2"][i].timeid == date) {
-    //     s = user["1nhBflpO9ehPOndqzldvHWB3ILS2"][i].step;
-    //   }
-    // }
-    // setDailyAvg();
     return () => {};
   }, []);
 
@@ -259,7 +269,7 @@ const Home = () => {
           <LineChart data={LineArray} num={1} />
         </StepContainer>
         <PersonalRankingContainer>
-          <Ranking />
+          <Ranking isDetail={false} />
         </PersonalRankingContainer>
       </RankingContaier>
       <EventContainer>

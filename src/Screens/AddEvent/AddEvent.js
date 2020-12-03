@@ -169,7 +169,7 @@ const AddEvent = () => {
       `기간1: ${startdate} \n` +
       `기간2: ${enddate} \n` +
       `참가자리스트: ` +
-      participants +
+      `${participants.map((user) => user.name)}` +
       "\n" +
       `메모: ${memo} \n`;
     console.log(str);

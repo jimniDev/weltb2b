@@ -30,7 +30,6 @@ const RankContainer = styled.div`
     border-radius: 6px;
   }
 `;
-
 const RankItemContainer = styled.div`
   display: flex;
   align-items: center;
@@ -64,14 +63,13 @@ const RankItem = styled.span`
 
 let firstItem = 0;
 
-const Ranking = () => {
+const Ranking = ({ isDetail }) => {
   const [sort, setSort] = useState(true);
   const [rankValue, setRankValue] = useState("step");
   const userData = Object.entries(userDataApi);
   const userList = Object.keys(userDataApi);
 
-  const answer = userData.map((userMontlyData, index) => {
-    console.log(userMontlyData);
+  const userRankingData = userData.map((userMontlyData, index) => {
     let avgMontlyData = {
       uid: "",
       waist: 0,
@@ -109,11 +107,22 @@ const Ranking = () => {
 
   const onChangeRank = (event) => {
     if (!event && typeof event !== "object") return;
+
     setRankValue(event);
   };
 
   const onChangeDate = (event) => {
-    if (!event && typeof event !== Object) return;
+    console.log(event);
+    if (!event && typeof event !== "object") return;
+
+    // evnet Handler Error
+    let { _d } = event;
+    _d = moment(_d).format("YYYY-MM");
+
+    if (_d !== "2020-11") {
+      alert(`${_d}에는 데이터가 없습니다.`);
+      return;
+    }
   };
 
   const sort_by = (field, reverse) => {
@@ -168,43 +177,47 @@ const Ranking = () => {
           style={{ color: "#707070" }}
         />
       </PRItemContainer>
-      <PRItemContainer>
-        <Select
-          tagRender={tagRender}
-          style={{
-            width: 300,
-            height: 32,
-            borderRadius: 6,
-            color: "#707070",
-          }}
-          placeholder="Please Select"
-          defaultValue={"걸음 수"}
-          onChange={onChangeRank}
-        >
-          <Select.Option value="step">걸음 수</Select.Option>
-          <Select.Option value="calories">소모 칼로리</Select.Option>
-          <Select.Option value="waist">허리 둘레</Select.Option>
-          <Select.Option value="gaitSpeed">걸음 속도</Select.Option>
-          <Select.Option value="distance">걸은 거리</Select.Option>
-        </Select>
-        <Button
-          type="primary"
-          icon={<SwapOutlined style={{ color: "#020202" }} rotate={90} />}
-          size={"middle"}
-          ghost
-          style={{
-            border: "1px solid #c9c9c9",
-            marginLeft: 12,
-            borderRadius: 4,
-          }}
-          onClick={onClickHandler}
-        />
-      </PRItemContainer>
+      {isDetail ? (
+        <div style={{ marginTop: 24 }}></div>
+      ) : (
+        <PRItemContainer>
+          <Select
+            tagRender={tagRender}
+            style={{
+              width: 300,
+              height: 32,
+              borderRadius: 6,
+              color: "#707070",
+            }}
+            placeholder="Please Select"
+            defaultValue={"걸음 수"}
+            onChange={onChangeRank}
+          >
+            <Select.Option value="step">걸음 수</Select.Option>
+            <Select.Option value="calories">소모 칼로리</Select.Option>
+            <Select.Option value="waist">허리 둘레</Select.Option>
+            <Select.Option value="gaitSpeed">걸음 속도</Select.Option>
+            <Select.Option value="distance">걸은 거리</Select.Option>
+          </Select>
+          <Button
+            type="primary"
+            icon={<SwapOutlined style={{ color: "#020202" }} rotate={90} />}
+            size={"middle"}
+            ghost
+            style={{
+              border: "1px solid #c9c9c9",
+              marginLeft: 12,
+              borderRadius: 4,
+            }}
+            onClick={onClickHandler}
+          />
+        </PRItemContainer>
+      )}
       <RankContainer>
-        {answer.sort(sort_by(rankValue, sort)).map((user, index) => {
+        {userRankingData.sort(sort_by(rankValue, sort)).map((user, index) => {
           firstItem = sort
-            ? answer[0][rankValue]
-            : answer[answer.length - 1][rankValue];
+            ? userRankingData[0][rankValue]
+            : userRankingData[userRankingData.length - 1][rankValue];
           return (
             <RankItemContainer key={user.uid}>
               <RankNum>{index + 1}</RankNum>
