@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 import MainHeader from "../../Components/MainHeader";
 import { DeleteOutlined, InfoCircleOutlined } from "@ant-design/icons";
@@ -12,6 +12,8 @@ import user from "../../assets/data/userdata.json";
 import Loader from "../../Components/Loader";
 import EventAverageItem from "../../Components/EventAverageItem";
 import moment from "moment";
+import { useHistory } from "react-router-dom";
+
 
 const StatusObj = {
   0: {
@@ -119,6 +121,8 @@ const PersonalRankingContainer = styled.div`
 `;
 
 const Event = () => {
+  const history = useHistory();
+
   const [eventDetail, setEventDetail] = useState(null);
   const [allEventData, setAllEventData] = useState([]);
   const [rankingData, setRankingData] = useState([]);
@@ -630,6 +634,16 @@ const Event = () => {
     fetchData();
   }, []);
 
+  const onDeleteEvent = async (problem) => {
+
+    const ok = window.confirm('정말 삭제하시겠습니까??');
+    if (ok) {
+        await dbService.doc(`event/${eventDetail.id}`).delete();
+        history.goBack();
+
+    }
+  };
+
   return (
     <>
       <Helmet>
@@ -686,7 +700,11 @@ const Event = () => {
                   </EventDetail>
                 </>
               )}
-              <DeleteOutlined style={{ fontSize: 16 }} />
+              {/* <Link to = "/"> */}
+              <DeleteOutlined 
+              onClick={onDeleteEvent}
+              style={{ fontSize: 16 }} />
+              {/* </Link> */}
             </EventDetailContainer>
           </EventContainer>
           <EventAverageContainer>
