@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 import MainHeader from "../../Components/MainHeader";
 import { DeleteOutlined, InfoCircleOutlined } from "@ant-design/icons";
@@ -129,9 +129,7 @@ const Event = () => {
   const [speedData, setSpeedData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState(
-    // moment(Date.now()).format("YYYY-MM-DD")
-    //오늘 날짜로 하면 12월이라 오류나서 11월 날짜로 디폴트 박아놨습니다.(연진)
-    "2020-11-25"
+    "2020-11-05"
   );
   // id 이거 쓰시면 됩니다.
   const { id } = useParams();
@@ -252,6 +250,7 @@ const Event = () => {
           endDay = "2020-11-30";
           let timeDifference =
             moment(endDay).diff(moment(event.startDate), "days") + 1;
+            
 
           let tempDate =
             moment(event.endDate).diff(moment(date)) >= 0
@@ -420,6 +419,7 @@ const Event = () => {
   };
 
   const setStatus = (startDate, endDate) => {
+    console.log(selectedDate);
     const { _milliseconds: startDiff } = moment.duration(
       moment(selectedDate).diff(moment(startDate))
     );
@@ -427,7 +427,7 @@ const Event = () => {
       moment(selectedDate).diff(moment(endDate))
     );
     const { _milliseconds: dataEndDiff } = moment.duration(
-      moment(endDate).diff(moment(Date.now()))
+      moment(endDate).diff(moment("2020-11-05"))
     );
 
     if (dataEndDiff < 0) return 2;
@@ -628,6 +628,14 @@ const Event = () => {
     fetchData();
   }, []);
 
+  const onDeleteEvent = async (problem) => {
+    const ok = window.confirm('정말 삭제하시겠습니까??');
+    if (ok) {
+        await dbService.doc(`event/${eventDetail.id}`).delete();
+    }
+  };
+  
+
   return (
     <>
       <Helmet>
@@ -650,7 +658,7 @@ const Event = () => {
                   borderRadius: 6,
                   color: "#707070",
                 }}
-                defaultValue={allEventData[0].title}
+                defaultValue={eventDetail.title}
                 onChange={onChangeEvent}
               >
                 {allEventData &&
@@ -684,7 +692,11 @@ const Event = () => {
                   </EventDetail>
                 </>
               )}
-              <DeleteOutlined style={{ fontSize: 16 }} />
+              <Link to = "/">
+              <DeleteOutlined 
+              onClick={onDeleteEvent}
+              style={{ fontSize: 16 }} />
+              </Link>
             </EventDetailContainer>
           </EventContainer>
           <EventAverageContainer>
