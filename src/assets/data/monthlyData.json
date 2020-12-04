@@ -323,6 +323,114 @@
       "waist": 37,
       "step": 2249,
       "calories": 340
+    },
+    {
+      "gaitSpeed": 10.6,
+      "timeid": "Avg",
+      "month": "Jan",
+      "distance": 12.42,
+      "waist": 39,
+      "step": 11542,
+      "calories": 162
+    },
+    {
+      "gaitSpeed": 5.24,
+      "timeid": "Avg",
+      "month": "Feb",
+      "distance": 0.05,
+      "waist": 27,
+      "step": 15357,
+      "calories": 96
+    },
+    {
+      "gaitSpeed": 0.22,
+      "timeid": "Avg",
+      "month": "Mar",
+      "distance": 18.06,
+      "waist": 39,
+      "step": 11982,
+      "calories": 288
+    },
+    {
+      "gaitSpeed": 13.08,
+      "timeid": "Avg",
+      "month": "Apr",
+      "distance": 12.88,
+      "waist": 26,
+      "step": 13764,
+      "calories": 140
+    },
+    {
+      "gaitSpeed": 10.16,
+      "timeid": "Avg",
+      "month": "May",
+      "distance": 7.59,
+      "waist": 28,
+      "step": 12622,
+      "calories": 248
+    },
+    {
+      "gaitSpeed": 0.5,
+      "timeid": "Avg",
+      "month": "Jun",
+      "distance": 18.97,
+      "waist": 31,
+      "step": 13089,
+      "calories": 370
+    },
+    {
+      "gaitSpeed": 9.79,
+      "timeid": "Avg",
+      "month": "Jul",
+      "distance": 1.54,
+      "waist": 33,
+      "step": 15387,
+      "calories": 256
+    },
+    {
+      "gaitSpeed": 9.5,
+      "timeid": "Avg",
+      "month": "Aug",
+      "distance": 17.91,
+      "waist": 30,
+      "step": 11431,
+      "calories": 140
+    },
+    {
+      "gaitSpeed": 11.42,
+      "timeid": "Avg",
+      "month": "Sep",
+      "distance": 4.2,
+      "waist": 29,
+      "step": 9018,
+      "calories": 73
+    },
+    {
+      "gaitSpeed": 13.22,
+      "timeid": "Avg",
+      "month": "Oct",
+      "distance": 10.56,
+      "waist": 39,
+      "step": 15007,
+      "calories": 91
+    },
+    {
+      "gaitSpeed": 5.03,
+      "timeid": "Avg",
+      "month": "Nov",
+      "distance": 8.2,
+      "waist": 29,
+      "step": 17984,
+      "calories": 267
+    },
+    {
+      "gaitSpeed": 11.99,
+      "timeid": "Avg",
+      "month": "Dec",
+      "distance": 8.59,
+      "waist": 37,
+      "step": 10184,
+      "calories": 340
     }
   ]
 }
