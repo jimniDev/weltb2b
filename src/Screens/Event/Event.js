@@ -12,6 +12,8 @@ import user from "../../assets/data/userdata.json";
 import Loader from "../../Components/Loader";
 import EventAverageItem from "../../Components/EventAverageItem";
 import moment from "moment";
+import { useHistory } from "react-router-dom";
+
 
 const StatusObj = {
   0: {
@@ -119,6 +121,8 @@ const PersonalRankingContainer = styled.div`
 `;
 
 const Event = () => {
+  const history = useHistory();
+
   const [eventDetail, setEventDetail] = useState(null);
   const [allEventData, setAllEventData] = useState([]);
   const [rankingData, setRankingData] = useState([]);
@@ -333,10 +337,13 @@ const Event = () => {
       }
     }
     //dataSet 생성
+    
     for (let j = 0; j < arr[0].length; j++) {
       for (let i = 0; i < arr.length; i++) {
         if (avg_rank_point[i][j] === 1) {
           let o = {};
+          console.log(event.participants[i].uid);
+          console.log(day_index);
           o.timeid = user[event.participants[i].uid][j + day_index].timeid;
           o.name = event.participants[i].name;
           o.rank = 1;
@@ -623,12 +630,16 @@ const Event = () => {
   }, []);
 
   const onDeleteEvent = async (problem) => {
+
     const ok = window.confirm('정말 삭제하시겠습니까??');
     if (ok) {
         await dbService.doc(`event/${eventDetail.id}`).delete();
+        history.goBack();
+
     }
   };
-    return (
+
+  return (
     <>
       <Helmet>
         <title>Event | WELT</title>
@@ -684,11 +695,11 @@ const Event = () => {
                   </EventDetail>
                 </>
               )}
-              <Link to = "/">
+              {/* <Link to = "/"> */}
               <DeleteOutlined 
               onClick={onDeleteEvent}
               style={{ fontSize: 16 }} />
-              </Link>
+              {/* </Link> */}
             </EventDetailContainer>
           </EventContainer>
           <EventAverageContainer>
