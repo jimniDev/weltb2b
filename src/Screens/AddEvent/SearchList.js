@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { users } from "../../assets/data/userInfo.json";
-// import { users } from "../../user_info.json"; //전체 유저
+import { users } from "../../assets/data/userInfo.json"; //전체 유저
 import { ADD_PARTICIPANTS, REMOVE_PARTICIPANTS } from "./AddEvent";
 
 const Wrapper = styled.ul`

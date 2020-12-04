@@ -129,6 +129,8 @@ const Event = () => {
   const [speedData, setSpeedData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState(
+    // moment(Date.now()).format("YYYY-MM-DD")
+    //오늘 날짜로 하면 12월이라 오류나서 11월 날짜로 디폴트 박아놨습니다.(연진)
     "2020-11-05"
   );
   // id 이거 쓰시면 됩니다.
@@ -159,9 +161,11 @@ const Event = () => {
     for (let i = 0; i < parLength; i++) {
       console.log(i);
       console.log(event.participants[i].uid);
-      console.log(date.slice(-2) - 1);      
+      console.log(date.slice(-2) - 1); 
+      console.log(event.participants[i].uid);     
       let t_user = user[event.participants[i].uid][date.slice(-2) - 1];
       let y_user = user[event.participants[i].uid][date.slice(-2) - 2];
+      console.log(t_user);
       for (let j = 0;j<sList.length;j++){
         switch(sList[j]){
           case "step":
@@ -176,7 +180,7 @@ const Event = () => {
             waist_sum += t_user.waist;
             y_waist_sum += y_user.waist;
             break;
-          case "speed":
+          case "gaitSpeed":
             speed_sum += parseFloat(t_user.gaitSpeed);
             y_speed_sum += parseFloat(y_user.gaitSpeed);
             break;
@@ -210,10 +214,11 @@ const Event = () => {
           waistDataSet.percent = ((waist_sum / y_waist_sum - 1) * 100).toFixed(2);
           setWaistData(waistDataSet);
           break;
-        case "speed":
+        case "gaitSpeed":
           speedDataSet.value = (speed_sum / parLength).toFixed(1);
           speedDataSet.percent = ((speed_sum / y_speed_sum - 1) * 100).toFixed(2);
           setSpeedData(speedDataSet);
+          console.log(speedDataSet);
           break;
         case "distance":
           disDataSet.value = (dis_sum / parLength).toFixed(1);
@@ -250,7 +255,6 @@ const Event = () => {
           endDay = "2020-11-30";
           let timeDifference =
             moment(endDay).diff(moment(event.startDate), "days") + 1;
-            
 
           let tempDate =
             moment(event.endDate).diff(moment(date)) >= 0
@@ -374,7 +378,7 @@ const Event = () => {
             //   return allEventData;
             // });
           }
-  }
+  };
 
   const onChangeEvent = (value) => {
     if (typeof value !== "string") return;
@@ -419,7 +423,6 @@ const Event = () => {
   };
 
   const setStatus = (startDate, endDate) => {
-    console.log(selectedDate);
     const { _milliseconds: startDiff } = moment.duration(
       moment(selectedDate).diff(moment(startDate))
     );
@@ -634,9 +637,7 @@ const Event = () => {
         await dbService.doc(`event/${eventDetail.id}`).delete();
     }
   };
-  
-
-  return (
+    return (
     <>
       <Helmet>
         <title>Event | WELT</title>
@@ -710,7 +711,7 @@ const Event = () => {
             </EventAverageTitleContainer>
 
             <EventAverageContentContainer>
-              {walkData != null && (
+            {walkData != null && (
               <EventAverageItem
                 title="걸음 수"
                 value={walkData.value}
@@ -729,7 +730,7 @@ const Event = () => {
                 percent={calData.percent}
                 />)}
 
-              {disData != null && (
+                {disData != null && (
                 <EventAverageItem
                 title="걸음 거리"
                 value={disData.value}
