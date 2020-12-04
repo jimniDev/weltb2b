@@ -362,7 +362,7 @@ const Event = () => {
           dataSet.push(o);
         }
       }
-      setRankingData(dataSet);
+      
       //setEventDetail(event);
       //updateAverageChange(event, tempDate);
 
@@ -370,6 +370,7 @@ const Event = () => {
       //   return allEventData;
       // });
     }
+    setRankingData(dataSet);
   };
 
   const onChangeEvent = (value) => {
