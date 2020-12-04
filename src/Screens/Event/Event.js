@@ -342,8 +342,6 @@ const Event = () => {
       for (let i = 0; i < arr.length; i++) {
         if (avg_rank_point[i][j] === 1) {
           let o = {};
-          console.log(event.participants[i].uid);
-          console.log(day_index);
           o.timeid = user[event.participants[i].uid][j + day_index].timeid;
           o.name = event.participants[i].name;
           o.rank = 1;
@@ -378,10 +376,20 @@ const Event = () => {
     if (typeof value !== "string") return;
     setEventDetail(allEventData.find((event) => event.title === value));
     // setSelectedDate("2020-11-30");
-
+    if(allEventData.find((event) => event.title === value).status == 0){
+      //시작 전일때 
+      console.log("시작전");
+      setWalkData(null);
+      setCalData(null);
+      setWaistData(null);
+      setSpeedData(null);
+      setDisData(null);
+    }
+    else{
+      updateAverageChange(allEventData.find((event) => event.title === value), selectedDate);
+    }
     updateRankGraph(allEventData.find((event) => event.title === value), selectedDate);
-    updateAverageChange(allEventData.find((event) => event.title === value), selectedDate);
-    console.log(selectedDate);
+    
   };
 
   const onChangeDate = (event) => {
@@ -695,11 +703,9 @@ const Event = () => {
                   </EventDetail>
                 </>
               )}
-              {/* <Link to = "/"> */}
               <DeleteOutlined 
               onClick={onDeleteEvent}
               style={{ fontSize: 16 }} />
-              {/* </Link> */}
             </EventDetailContainer>
           </EventContainer>
           <EventAverageContainer>
