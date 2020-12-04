@@ -129,7 +129,7 @@ const Event = () => {
   const [speedData, setSpeedData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState(
-    moment(Date.now()).format("YYYY-MM-DD")
+    moment("2020-11-30").format("YYYY-MM-DD")
   );
   // id 이거 쓰시면 됩니다.
   const { id } = useParams();
@@ -143,6 +143,7 @@ const Event = () => {
   let selectedEvent = {};
 
   const updateAverageChange = (event, date) => {
+    console.log(date);
     let walk_sum = 0;
     let waist_sum = 0;
     let cal_sum = 0;
@@ -190,6 +191,7 @@ const Event = () => {
   const onChangeEvent = (value) => {
     if (typeof value !== "string") return;
     setEventDetail(allEventData.find((event) => event.title === value));
+    console.log(selectedDate);
     updateAverageChange(eventDetail, selectedDate);
   };
 
@@ -203,7 +205,6 @@ const Event = () => {
       return;
     }
     setSelectedDate(_d);
-    console.log(_d);
     updateAverageChange(eventDetail, _d);
   };
 
@@ -264,6 +265,7 @@ const Event = () => {
               status: setStatus(doc.data().startdate, doc.data().enddate),
             });
           });
+          console.log(allEventData);
 
           selectedEvent = allEventData.filter((data) => data.id === id)[0];
 
@@ -443,6 +445,7 @@ const Event = () => {
             y_dis_sum += parseFloat(y_user.distance);
             y_speed_sum += parseFloat(y_user.gaitSpeed);
           }
+
           walkDataSet.value = (walk_sum / parLength).toFixed(0);
           waistDataSet.value = (waist_sum / parLength).toFixed(2);
           calDataSet.value = (cal_sum / parLength).toFixed(0);
@@ -501,7 +504,7 @@ const Event = () => {
                   borderRadius: 6,
                   color: "#707070",
                 }}
-                defaultValue={allEventData[0].title}
+                defaultValue={eventDetail.title}
                 onChange={onChangeEvent}
               >
                 {allEventData &&
