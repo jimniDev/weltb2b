@@ -93,7 +93,7 @@ const EventHeaderContainer = styled.div`
 const EventHeaderName = styled.h2``;
 
 const Home = () => {
-  const [date, setDate] = useState("2020-11-05");
+  const [date, setDate] = useState("2020-11-30");
 
   // get Date function
   const onChangeDate = (event) => {
@@ -212,7 +212,7 @@ const Home = () => {
           <DatePicker
             onChange={onChangeDate}
             bordered={false}
-            defaultValue={moment("2020-11-05", "YYYY-MM-DD")}
+            defaultValue={moment("2020-11-30", "YYYY-MM-DD")}
           />
         </Space>
       </DailyAverageHeaderContainer>
