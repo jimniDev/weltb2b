@@ -88,7 +88,7 @@ const columns = [
 ];
 
 const EventTable = () => {
-  const [today, setToday] = useState(moment(new Date(), "YYYY-MM-DD"));
+  const [today, setToday] = useState( moment("2020-11-30").format("YYYY-MM-DD"));
   const [eventdataset, setEventData] = useState([]);
 
   let dataSet = [];
