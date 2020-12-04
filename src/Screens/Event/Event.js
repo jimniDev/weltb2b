@@ -206,9 +206,11 @@ const Event = () => {
     let endDay =
       moment(event.endDate).diff(moment(date)) >= 0 ? date : event.endDate;
 
-    endDay = "2020-11-30";
+    if(endDay > "2020-11-30") endDay = "2020-11-30";
     let timeDifference =
       moment(endDay).diff(moment(event.startDate), "days") + 1;
+
+    if(timeDifference < 0) timeDifference = 0;
 
     let tempDate =
       moment(event.endDate).diff(moment(date)) >= 0 ? date : event.endDate;
@@ -257,6 +259,7 @@ const Event = () => {
       }
     }
     //카테고리 별 랭크 산출
+    if(arr[0].length > 0){
     for (let k = 0; k < arr[0][0].length; k++) {
       for (let j = 0; j < arr[0].length; j++) {
         for (let i = 0; i < arr.length - 1; i++) {
@@ -266,6 +269,7 @@ const Event = () => {
           }
         }
       }
+    }
     }
     //카테고리 별 랭크의 평균
     for (let i = 0; i < arr.length; i++) {
@@ -432,9 +436,11 @@ const Event = () => {
               ? selectedDate
               : selectedEvent.endDate;
 
-          endDay = "2020-11-30";
+          if(endDay > "2020-11-30") endDay = "2020-11-30";
           let timeDifference =
             moment(endDay).diff(moment(selectedEvent.startDate), "days") + 1;
+
+          if(timeDifference < 0) timeDifference = 0;
 
           let tempDate =
             moment(selectedEvent.endDate).diff(moment(selectedDate)) >= 0
