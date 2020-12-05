@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import MainHeader from "../../Components/MainHeader";
 import { DeleteOutlined, InfoCircleOutlined } from "@ant-design/icons";
@@ -13,7 +13,6 @@ import Loader from "../../Components/Loader";
 import EventAverageItem from "../../Components/EventAverageItem";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
-
 
 const StatusObj = {
   0: {
@@ -132,9 +131,7 @@ const Event = () => {
   const [disData, setDisData] = useState(null);
   const [speedData, setSpeedData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [selectedDate, setSelectedDate] = useState(
-    "2020-11-30"
-  );
+  const [selectedDate, setSelectedDate] = useState("2020-11-30");
   // id 이거 쓰시면 됩니다.
   const { id } = useParams();
 
@@ -157,19 +154,14 @@ const Event = () => {
     let y_cal_sum = 0;
     let y_dis_sum = 0;
     let y_speed_sum = 0;
-    console.log(event);
     let parLength = event.participants.length;
     let sList = event.selectedList;
+
     for (let i = 0; i < parLength; i++) {
-      console.log(i);
-      console.log(event.participants[i].uid);
-      console.log(date.slice(-2) - 1); 
-      console.log(event.participants[i].uid);     
       let t_user = user[event.participants[i].uid][date.slice(-2) - 1];
       let y_user = user[event.participants[i].uid][date.slice(-2) - 2];
-      console.log(t_user);
-      for (let j = 0;j<sList.length;j++){
-        switch(sList[j]){
+      for (let j = 0; j < sList.length; j++) {
+        switch (sList[j]) {
           case "step":
             walk_sum += t_user.step;
             y_walk_sum += y_user.step;
@@ -190,6 +182,8 @@ const Event = () => {
             y_dis_sum += parseFloat(y_user.distance);
             dis_sum += parseFloat(t_user.distance);
             break;
+          default:
+            break;
         }
       }
     }
@@ -198,9 +192,9 @@ const Event = () => {
     setWaistData(null);
     setSpeedData(null);
     setDisData(null);
-    for (let j = 0;j<sList.length;j++){
-      console.log(sList[j]);
-      switch(sList[j]){
+
+    for (let j = 0; j < sList.length; j++) {
+      switch (sList[j]) {
         case "step":
           walkDataSet.value = (walk_sum / parLength).toFixed(0);
           walkDataSet.percent = ((walk_sum / y_walk_sum - 1) * 100).toFixed(2);
@@ -213,19 +207,24 @@ const Event = () => {
           break;
         case "waist":
           waistDataSet.value = (waist_sum / parLength).toFixed(2);
-          waistDataSet.percent = ((waist_sum / y_waist_sum - 1) * 100).toFixed(2);
+          waistDataSet.percent = ((waist_sum / y_waist_sum - 1) * 100).toFixed(
+            2
+          );
           setWaistData(waistDataSet);
           break;
         case "gaitSpeed":
           speedDataSet.value = (speed_sum / parLength).toFixed(1);
-          speedDataSet.percent = ((speed_sum / y_speed_sum - 1) * 100).toFixed(2);
+          speedDataSet.percent = ((speed_sum / y_speed_sum - 1) * 100).toFixed(
+            2
+          );
           setSpeedData(speedDataSet);
-          console.log(speedDataSet);
           break;
         case "distance":
           disDataSet.value = (dis_sum / parLength).toFixed(1);
           disDataSet.percent = ((dis_sum / y_dis_sum - 1) * 100).toFixed(2);
           setDisData(disDataSet);
+          break;
+        default:
           break;
       }
     }
@@ -250,16 +249,16 @@ const Event = () => {
     let endDay =
       moment(event.endDate).diff(moment(date)) >= 0 ? date : event.endDate;
 
-    if(endDay > "2020-11-30") endDay = "2020-11-30";
+    if (endDay > "2020-11-30") endDay = "2020-11-30";
     let timeDifference =
       moment(endDay).diff(moment(event.startDate), "days") + 1;
 
-    if(timeDifference < 0) timeDifference = 0;
+    if (timeDifference < 0) timeDifference = 0;
 
     let tempDate =
-      moment(event.endDate).diff("2020-11-30") >= 0 ? "2020-11-30" : event.endDate;
-      console.log(date);
-      console.log(tempDate);
+      moment(event.endDate).diff("2020-11-30") >= 0
+        ? "2020-11-30"
+        : event.endDate;
     setSelectedDate(tempDate);
 
     //3차원 배열 생성
@@ -305,17 +304,17 @@ const Event = () => {
       }
     }
     //카테고리 별 랭크 산출
-    if(arr[0].length > 0){
-    for (let k = 0; k < arr[0][0].length; k++) {
-      for (let j = 0; j < arr[0].length; j++) {
-        for (let i = 0; i < arr.length - 1; i++) {
-          for (let x = i + 1; x < arr.length; x++) {
-            if (arr[i][j][k] < arr[x][j][k]) rank[i][j][k] += 1;
-            else rank[x][j][k] += 1;
+    if (arr[0].length > 0) {
+      for (let k = 0; k < arr[0][0].length; k++) {
+        for (let j = 0; j < arr[0].length; j++) {
+          for (let i = 0; i < arr.length - 1; i++) {
+            for (let x = i + 1; x < arr.length; x++) {
+              if (arr[i][j][k] < arr[x][j][k]) rank[i][j][k] += 1;
+              else rank[x][j][k] += 1;
+            }
           }
         }
       }
-    }
     }
     //카테고리 별 랭크의 평균
     for (let i = 0; i < arr.length; i++) {
@@ -337,7 +336,7 @@ const Event = () => {
       }
     }
     //dataSet 생성
-    
+
     for (let j = 0; j < arr[0].length; j++) {
       for (let i = 0; i < arr.length; i++) {
         if (avg_rank_point[i][j] === 1) {
@@ -362,13 +361,6 @@ const Event = () => {
           dataSet.push(o);
         }
       }
-      
-      //setEventDetail(event);
-      //updateAverageChange(event, tempDate);
-
-      // setAllEventData((prevState) => {
-      //   return allEventData;
-      // });
     }
     setRankingData(dataSet);
   };
@@ -377,24 +369,30 @@ const Event = () => {
     if (typeof value !== "string") return;
     setEventDetail(allEventData.find((event) => event.title === value));
     // setSelectedDate("2020-11-30");
-    if(allEventData.find((event) => event.title === value).status == 0){
-      //시작 전일때 
-      console.log("시작전");
+    if (allEventData.find((event) => event.title === value).status === 0) {
+      //시작 전일때
       setWalkData(null);
       setCalData(null);
       setWaistData(null);
       setSpeedData(null);
       setDisData(null);
+    } else {
+      updateAverageChange(
+        allEventData.find((event) => event.title === value),
+        selectedDate
+      );
     }
-    else{
-      updateAverageChange(allEventData.find((event) => event.title === value), selectedDate);
-    }
-    updateRankGraph(allEventData.find((event) => event.title === value), selectedDate);
-    
+    console.log(allEventData.find((event) => event.title === value));
+    updateRankGraph(
+      allEventData.find((event) => event.title === value),
+      selectedDate
+    );
   };
 
   const onChangeDate = (event) => {
     // evnet Handler Error
+    console.log(eventDetail);
+
     if (!event && typeof event !== Object) return;
     let { _d } = event;
     _d = moment(_d).format("YYYY-MM-DD");
@@ -422,7 +420,6 @@ const Event = () => {
 
     if (startDiff < 0) return false;
     if (endDiff > 0) return false;
-    console.log("durl");
     if (dataEndDiff > 0) return false;
     return true;
   };
@@ -489,11 +486,11 @@ const Event = () => {
               ? selectedDate
               : selectedEvent.endDate;
 
-          if(endDay > "2020-11-30") endDay = "2020-11-30";
+          if (endDay > "2020-11-30") endDay = "2020-11-30";
           let timeDifference =
             moment(endDay).diff(moment(selectedEvent.startDate), "days") + 1;
 
-          if(timeDifference < 0) timeDifference = 0;
+          if (timeDifference < 0) timeDifference = 0;
 
           let tempDate =
             moment(selectedEvent.endDate).diff(moment(selectedDate)) >= 0
@@ -610,27 +607,15 @@ const Event = () => {
                 dataSet.push(o);
               }
             }
-            // setEventDetail(selectedEvent);
-            // setAllEventData((prevState) => {
-            //   return allEventData;
-            // });
           }
-          console.log(selectedEvent);
-          console.log(tempDate);
           updateAverageChange(selectedEvent, tempDate);
         });
     } catch (error) {
       console.log(error);
     } finally {
       setRankingData(dataSet);
-      // setWalkData(walkDataSet);
-      // setWaistData(waistDataSet);
-      // setCalData(calDataSet);
-      // setDisData(disDataSet);
-      // setSpeedData(speedDataSet);
       setEventDetail(selectedEvent);
       setLoading(false);
-      console.log(disDataSet);
     }
   }, []);
 
@@ -638,13 +623,11 @@ const Event = () => {
     fetchData();
   }, []);
 
-  const onDeleteEvent = async (problem) => {
-
-    const ok = window.confirm('정말 삭제하시겠습니까??');
+  const onDeleteEvent = () => {
+    const ok = window.confirm("정말 삭제하시겠습니까??");
     if (ok) {
-        await dbService.doc(`event/${eventDetail.id}`).delete();
-        history.goBack();
-
+      dbService.doc(`event/${eventDetail.id}`).delete();
+      history.goBack();
     }
   };
 
@@ -704,9 +687,10 @@ const Event = () => {
                   </EventDetail>
                 </>
               )}
-              <DeleteOutlined 
-              onClick={onDeleteEvent}
-              style={{ fontSize: 16 }} />
+              <DeleteOutlined
+                onClick={onDeleteEvent}
+                style={{ fontSize: 16 }}
+              />
             </EventDetailContainer>
           </EventContainer>
           <EventAverageContainer>
@@ -714,46 +698,49 @@ const Event = () => {
               평균 수치
               <DatePicker
                 onChange={onChangeDate}
-                value={moment(selectedDate, "YYYY-MM-DD")}
                 bordered={false}
                 defaultValue={moment(selectedDate, "YYYY-MM-DD")}
               />
             </EventAverageTitleContainer>
 
             <EventAverageContentContainer>
-            {walkData != null && (
-              <EventAverageItem
-                title="걸음 수"
-                value={walkData.value}
-                percent={walkData.percent}
-              />)}
-              {waistData != null && (
-              <EventAverageItem
-                title="허리둘레"
-                value={waistData.value}
-                percent={waistData.percent}
-              />)}
-              {calData != null && (
-              <EventAverageItem
-                title="소모 칼로리"
-                value={calData.value}
-                percent={calData.percent}
-                />)}
-
-                {disData != null && (
+              {walkData != null && (
                 <EventAverageItem
-                title="걸음 거리"
-                value={disData.value}
-                percent={disData.percent}
-                />)}
-              
+                  title="걸음 수"
+                  value={walkData.value}
+                  percent={walkData.percent}
+                />
+              )}
+              {waistData != null && (
+                <EventAverageItem
+                  title="허리둘레"
+                  value={waistData.value}
+                  percent={waistData.percent}
+                />
+              )}
+              {calData != null && (
+                <EventAverageItem
+                  title="소모 칼로리"
+                  value={calData.value}
+                  percent={calData.percent}
+                />
+              )}
+
+              {disData != null && (
+                <EventAverageItem
+                  title="걸음 거리"
+                  value={disData.value}
+                  percent={disData.percent}
+                />
+              )}
+
               {speedData != null && (
                 <EventAverageItem
-                title="걸음 속도"
-                value={speedData.value}
-                percent={speedData.percent}
-                />)}
-
+                  title="걸음 속도"
+                  value={speedData.value}
+                  percent={speedData.percent}
+                />
+              )}
             </EventAverageContentContainer>
           </EventAverageContainer>
           <RankingContaier>
@@ -765,7 +752,13 @@ const Event = () => {
               <LineChart data={rankingData} num={2} />
             </StepContainer>
             <PersonalRankingContainer>
-              <Ranking isDetail={true} />
+              {eventDetail.status === 0 ? (
+                <></>
+              ) : (
+                <>
+                  <Ranking isDetail={true} eventDetail={eventDetail} />
+                </>
+              )}
             </PersonalRankingContainer>
           </RankingContaier>
         </>

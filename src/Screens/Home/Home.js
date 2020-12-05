@@ -7,8 +7,8 @@ import LineChart from "../../Components/LineChart";
 import Ranking from "../../Components/Ranking";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import MainHeader from "../../Components/MainHeader";
 import Helmet from "react-helmet";
+import MainHeader from "../../Components/MainHeader";
 import EventTable from "../../Components/EventTable";
 import user from "../../assets/data/userdata.json";
 import mon from "../../assets/data/monthlyData.json";
@@ -166,7 +166,6 @@ const Home = () => {
   }, []).map((e) => e / YesPersonAverage.length);
 
   // 일 user 전체 평균 data
-  //console.log(DailyPeopleAverage);
 
   for (let i = 0; i < mon["monthlyData"].length; i++) {
     if (date.slice(0, 7) === mon["monthlyData"][i].timeid) {

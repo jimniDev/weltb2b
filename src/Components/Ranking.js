@@ -63,11 +63,77 @@ const RankItem = styled.span`
 
 let firstItem = 0;
 
-const Ranking = ({ isDetail }) => {
+const Ranking = ({ isDetail, eventDetail }) => {
   const [sort, setSort] = useState(true);
   const [rankValue, setRankValue] = useState("step");
+  const [detail, setDetail] = useState(eventDetail ? true : false);
   const userData = Object.entries(userDataApi);
   const userList = Object.keys(userDataApi);
+
+  let eventUserList = {};
+  let eventStartDate = {};
+  let eventEndDate = {};
+  let tempUserData = {};
+  let eventRankingData = {};
+
+  if (eventDetail) {
+    eventUserList = Object.values(eventDetail)[2].map((user) => user.uid);
+    eventStartDate = Object.values(eventDetail)[4];
+    eventEndDate = Object.values(eventDetail)[5];
+
+    tempUserData = userData.filter((user) =>
+      eventUserList.find((eventUser) => eventUser === user[0])
+    );
+
+    const tempStartDay = moment(eventStartDate).get("Date");
+    const tempEndDay = moment(eventEndDate).get("Date");
+
+    tempUserData = tempUserData.map((user) => {
+      return [user[0], user[1].slice(tempStartDay - 1, tempEndDay)];
+    });
+    let tempUserDataLength = tempUserData[0][1].length;
+
+    eventRankingData = tempUserData.map((userMontlyData, index) => {
+      let avgMontlyData = {
+        uid: "",
+        waist: 0,
+        step: 0,
+        distance: 0,
+        calories: 0,
+        gaitSpeed: 0,
+      };
+      for (const {
+        waist,
+        step,
+        distance,
+        gaitSpeed,
+        calories,
+      } of userMontlyData[1]) {
+        avgMontlyData.waist += parseInt(waist);
+        avgMontlyData.step += parseInt(step);
+        avgMontlyData.distance += parseInt(distance);
+        avgMontlyData.gaitSpeed += parseInt(gaitSpeed);
+        avgMontlyData.calories += parseInt(calories);
+      }
+      avgMontlyData.waist = (avgMontlyData.waist / tempUserDataLength).toFixed(
+        2
+      );
+      avgMontlyData.step = Math.floor(avgMontlyData.step / tempUserDataLength);
+      avgMontlyData.distance = (
+        avgMontlyData.distance / tempUserDataLength
+      ).toFixed(2);
+      avgMontlyData.gaitSpeed = (
+        avgMontlyData.gaitSpeed / tempUserDataLength
+      ).toFixed(2);
+      avgMontlyData.calories = Math.floor(
+        avgMontlyData.calories / tempUserDataLength
+      );
+      avgMontlyData.uid = userList[index];
+      return avgMontlyData;
+    });
+  }
+
+  const userDataLength = userData[0][1].length;
 
   const userRankingData = userData.map((userMontlyData, index) => {
     let avgMontlyData = {
@@ -91,14 +157,21 @@ const Ranking = ({ isDetail }) => {
       avgMontlyData.gaitSpeed += parseInt(gaitSpeed);
       avgMontlyData.calories += parseInt(calories);
     }
-    avgMontlyData.waist = (avgMontlyData.waist / 30).toFixed(2);
-    avgMontlyData.step = Math.floor(avgMontlyData.step / 30);
-    avgMontlyData.distance = (avgMontlyData.distance / 30).toFixed(2);
-    avgMontlyData.gaitSpeed = (avgMontlyData.gaitSpeed / 30).toFixed(2);
-    avgMontlyData.calories = Math.floor(avgMontlyData.calories / 30);
+    avgMontlyData.waist = (avgMontlyData.waist / userDataLength).toFixed(2);
+    avgMontlyData.step = Math.floor(avgMontlyData.step / userDataLength);
+    avgMontlyData.distance = (avgMontlyData.distance / userDataLength).toFixed(
+      2
+    );
+    avgMontlyData.gaitSpeed = (
+      avgMontlyData.gaitSpeed / userDataLength
+    ).toFixed(2);
+    avgMontlyData.calories = Math.floor(
+      avgMontlyData.calories / userDataLength
+    );
     avgMontlyData.uid = userList[index];
     return avgMontlyData;
   });
+
   const { users } = userInfoApi;
   const onClickHandler = (event) => {
     event.preventDefault();
@@ -177,7 +250,7 @@ const Ranking = ({ isDetail }) => {
           style={{ color: "#707070" }}
         />
       </PRItemContainer>
-      {isDetail ? (
+      {isDetail && detail ? (
         <div style={{ marginTop: 24 }}></div>
       ) : (
         <PRItemContainer>
@@ -213,31 +286,70 @@ const Ranking = ({ isDetail }) => {
           />
         </PRItemContainer>
       )}
-      <RankContainer>
-        {userRankingData.sort(sort_by(rankValue, sort)).map((user, index) => {
-          firstItem = sort
-            ? userRankingData[0][rankValue]
-            : userRankingData[userRankingData.length - 1][rankValue];
-          return (
-            <RankItemContainer key={user.uid}>
-              <RankNum>{index + 1}</RankNum>
-              <RankName>
-                {users.find((rankuser) => user.uid === rankuser.uid).name}
-              </RankName>
-              <Progress
-                style={{ width: 160 }}
-                showInfo={false}
-                strokeColor={"#4F42A7"}
-                percent={(user[rankValue] / firstItem) * 100}
-                strokeWidth={10}
-              />
-              <RankItem>
-                {numberWithCommas(user[rankValue])} {unitStandard(rankValue)}
-              </RankItem>
-            </RankItemContainer>
-          );
-        })}
-      </RankContainer>
+      {isDetail ? (
+        <>
+          <RankContainer>
+            {eventRankingData
+              .sort(sort_by(rankValue, sort))
+              .map((user, index) => {
+                firstItem = sort
+                  ? eventRankingData[0][rankValue]
+                  : eventRankingData[eventRankingData.length - 1][rankValue];
+                return (
+                  <RankItemContainer key={user.uid}>
+                    <RankNum>{index + 1}</RankNum>
+                    <RankName>
+                      {users.find((rankuser) => user.uid === rankuser.uid).name}
+                    </RankName>
+                    <Progress
+                      style={{ width: 210 }}
+                      showInfo={false}
+                      strokeColor={"#4F42A7"}
+                      percent={
+                        ((eventRankingData.length - index) /
+                          eventRankingData.length) *
+                        100
+                      }
+                      strokeWidth={10}
+                    />
+                  </RankItemContainer>
+                );
+              })}
+          </RankContainer>
+        </>
+      ) : (
+        <>
+          <RankContainer>
+            {userRankingData
+              .sort(sort_by(rankValue, sort))
+              .map((user, index) => {
+                console.log(user);
+                firstItem = sort
+                  ? userRankingData[0][rankValue]
+                  : userRankingData[userRankingData.length - 1][rankValue];
+                return (
+                  <RankItemContainer key={user.uid}>
+                    <RankNum>{index + 1}</RankNum>
+                    <RankName>
+                      {users.find((rankuser) => user.uid === rankuser.uid).name}
+                    </RankName>
+                    <Progress
+                      style={{ width: 160 }}
+                      showInfo={false}
+                      strokeColor={"#4F42A7"}
+                      percent={(user[rankValue] / firstItem) * 100}
+                      strokeWidth={10}
+                    />
+                    <RankItem>
+                      {numberWithCommas(user[rankValue])}{" "}
+                      {unitStandard(rankValue)}
+                    </RankItem>
+                  </RankItemContainer>
+                );
+              })}
+          </RankContainer>
+        </>
+      )}
     </>
   );
 };
