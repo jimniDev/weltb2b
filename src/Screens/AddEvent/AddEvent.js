@@ -30,17 +30,18 @@ const { RangePicker } = DatePicker;
 const initialState = {
   title: "",
   usedata: [
-    { id: 1, name: "step", value: "걸음 수", isChecked: false },
-    { id: 2, name: "waist", value: "허리둘레", isChecked: false },
-    { id: 3, name: "calories", value: "소모칼로리", isChecked: false },
-    { id: 4, name: "distance", value: "걸음거리", isChecked: false },
-    { id: 5, name: "gaitSpeed", value: "걸음속도", isChecked: false },
+    { id: 1, key: 1, name: "step", value: "걸음 수", isChecked: false, order: 0},
+    { id: 2, key: 2, name: "waist", value: "허리둘레", isChecked: false, order: 0 },
+    { id: 3, key: 3, name: "calories", value: "소모칼로리", isChecked: false, order: 0 },
+    { id: 4, key: 4, name: "distance", value: "걸음거리", isChecked: false, order: 0 },
+    { id: 5, key: 5, name: "gaitSpeed", value: "걸음속도", isChecked: false, order: 0 },
   ],
   startdate: "",
   enddate: "",
   keyword: "",
   participants: [],
   memo: "",
+  orderNumber: 1, // 정렬을 위한 보조 변수
 };
 
 export const SET_TITLE = "SET_TITLE";
@@ -51,6 +52,7 @@ export const SET_KEYWORD = "SET_KEYWORD";
 export const ADD_PARTICIPANTS = "ADD_PARTICIPANTS";
 export const REMOVE_PARTICIPANTS = "REMOVE_PARTICIPANTS";
 export const SET_MEMO = "SET_MEMO";
+export const PLUS_ORDERNUMBER = "PLUS_ORDERNUMBER";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -61,14 +63,21 @@ const reducer = (state, action) => {
       };
     case SET_USEDATA: {
       const usedata = [...state.usedata];
+      var oNum = state.orderNumber; 
       usedata.map((data) => {
         if (data.value === action.value) {
           data.isChecked = action.checked;
+          if(data.isChecked === true){
+            data.order = oNum;
+            oNum = oNum+1; 
+            console.log(data.value+", oNum:"+oNum); // 늦게 클릭한 것 -> order 숫자 큼
+          }
         }
       });
       return {
         ...state,
         usedata,
+        orderNumber: oNum
       };
     }
     case SET_STARTDATE:
@@ -203,11 +212,25 @@ const AddEvent = () => {
 
   const isSelected = () => {
     var selectedList = [];
-    usedata.forEach((data) => {
+    const temp = JSON.parse(JSON.stringify(usedata));  //deep copy
+    // order기준 오름차순으로 정렬
+    temp.sort(function (a, b) {
+      if (a.order > b.order) {
+        return 1;
+      }
+      if (a.order < b.order) {
+        return -1;
+      }
+      return 0;
+    });
+
+    temp.forEach((data) => {
       if (data.isChecked === true) {
         selectedList.push(data.name);
       }
     });
+   
+
     return selectedList;
   };
 
@@ -235,12 +258,6 @@ const AddEvent = () => {
       target: { value, checked },
     } = event;
     dispatch({ type: SET_USEDATA, value, checked });
-
-    // setDataInfo((prevState) =>
-    //   prevState.map((data) =>
-    //     data.value === value ? { ...data, isChecked: checked } : data
-    //   )
-    // );
   };
 
   return (
